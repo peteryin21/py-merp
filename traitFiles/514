@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9525638	.09	mm_decrease	T	4E-9	[0.051-0.129]_mm_decrease	Cortical_thickness	TNFSF11,RANKL	NR	22792071	
+rs2707466	.11	mm_decrease	C	2E-10	[0.071-0.149]_mm_decrease	Cortical_thickness	WNT16	NR	22792071	

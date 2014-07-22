@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2470893	.07	unit_increase	T	2E-11	[0.05-0.09]_unit_increase	Coffee_consumption	CYP1A1,CYP1A2	NR	21876539	
+rs6495122	.05	unit_decrease	A	7E-9	[0.03-0.07]_unit_decrease	Coffee_consumption	CPLX3,ULK3	NR	21876539	
+rs382140	.08	unit_increase	A	4E-9	[0.05-0.11]_unit_increase	Coffee_consumption	LAMB4,NRCAM	NR	21876539	
+rs2472297	.31	increase_in_cups_per_day	T	5E-14	[0.17-0.44]_increase_in_cups_per_day	Coffee_consumption	CYP1A1,CYP1A2	0.265	21357676	
+rs6968865	.26	increase_in_cups_per_day	T	2E-11	[0.15-0.36]_increase_in_cups_per_day	Coffee_consumption	AHR	0.593	21357676	

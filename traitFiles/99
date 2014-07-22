@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs13026414	1.23	[NR]	C	2E-9	[1.15-1.32]	Epilepsy_(generalized)	Intergenic	.576	22949513	
+rs72823592	1.30	[NR]	G	9E-9	[1.20-1.41]	Epilepsy_(generalized)	PNPO,ATAD4,CDK5RAP3,COPZ2,hsa-mir-152,NFE2L1,CBX1,SNX11,SKAP1	0.753	22949513	
+rs10496964	1.47	[NR]	C	9E-9	[1.28-1.67]	Epilepsy_(generalized)	ZEB2	0.844	22949513	
+rs12059546	1.42	[NR]	G	4E-8	[1.26-1.61]	Epilepsy_(generalized)	CHRM3	.172	22949513	

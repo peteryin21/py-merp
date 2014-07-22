@@ -1,0 +1,561 @@
+0	Sex hormone-binding globulin levels	23 SNPs
+1	HDL cholesterol	191 SNPs
+2	Airflow obstruction 	1 SNPs
+3	Mesial temporal lobe epilepsy with hippocampal sclerosis	2 SNPs
+4	Blood pressure measurement (high sodium intervention)	1 SNPs
+5	Type 1 diabetes	38 SNPs
+6	Iron status biomarkers	11 SNPs
+7	Diastolic blood pressure	28 SNPs
+8	Complement C3 and C4 levels	10 SNPs
+9	Alzheimer's disease (late onset)	28 SNPs
+10	Fasting plasma glucose	7 SNPs
+11	Red vs non-red hair color	1 SNPs
+12	Triglycerides-Blood Pressure (TG-BP)	6 SNPs
+13	Response to interferon beta therapy	2 SNPs
+14	Crohn's disease and celiac disease	2 SNPs
+15	Soluble levels of adhesion molecules	5 SNPs
+16	Serum ceruloplasmin levels	1 SNPs
+17	Otitis media (chronic/recurrent)	1 SNPs
+18	Liver enzyme levels (gamma-glutamyl transferase)	26 SNPs
+19	Electrocardiographic conduction measures	5 SNPs
+20	Waist circumference	2 SNPs
+21	Nonalcoholic fatty liver disease	2 SNPs
+22	Blue vs. brown eyes	1 SNPs
+23	Metabolite levels (Pyroglutamine)	2 SNPs
+24	Hormone measurements	4 SNPs
+25	Cardiac structure and function	1 SNPs
+26	Tanning	10 SNPs
+27	Aortic root size	4 SNPs
+28	Pulmonary arterial hypertension (without BMPR2 mutations)	1 SNPs
+29	Platelet counts	73 SNPs
+30	Idiopathic pulmonary fibrosis	1 SNPs
+31	Neuroblastoma (high-risk)	1 SNPs
+32	Restless legs syndrome	12 SNPs
+33	Immune response to smallpox vaccine (IL-6)	3 SNPs
+34	Eye color traits	2 SNPs
+35	Mammographic density	1 SNPs
+36	Height	359 SNPs
+37	Alzheimer's disease	8 SNPs
+38	Moyamoya disease	1 SNPs
+39	End-stage renal disease in Type 1 diabetics	1 SNPs
+40	Sagittal craniosynostosis	2 SNPs
+41	Stearic acid (18:0) plasma levels	5 SNPs
+42	White blood cell count	15 SNPs
+43	Ovarian cancer in BRCA1 mutation carriers 	4 SNPs
+44	Glycemic traits	11 SNPs
+45	Serum dimethylarginine levels (asymmetric/symetric ratio)	2 SNPs
+46	IgE levels 	9 SNPs
+47	Blood pressure measurement (cold pressor test)	2 SNPs
+48	PR interval	18 SNPs
+49	Homocysteine levels	20 SNPs
+50	Calcium levels	10 SNPs
+51	Immune reponse to smallpox (secreted TNF-alpha)	1 SNPs
+52	Haptoglobin levels	1 SNPs
+53	Axial length	5 SNPs
+54	Male-pattern baldness	11 SNPs
+55	Intelligence	3 SNPs
+56	Neuranatomic and neurocognitive phenotypes	1 SNPs
+57	Relative hand skill in reading disability	1 SNPs
+58	Gamma glutamyl transpeptidase	7 SNPs
+59	Orofacial clefts	19 SNPs
+60	Pancreatic cancer	9 SNPs
+61	Lipoprotein-associated phospholipase A2 activity change in response to statin therapy	2 SNPs
+62	Systemic sclerosis	6 SNPs
+63	Body mass (lean)	2 SNPs
+64	Hematological and biochemical traits	25 SNPs
+65	Melanoma	10 SNPs
+66	Bladder cancer	17 SNPs
+67	Thyroid stimulating hormone	1 SNPs
+68	Sunburns	2 SNPs
+69	Thyroid volume	8 SNPs
+70	Homeostasis model assessment of beta-cell function (interaction)	2 SNPs
+71	Chronic Hepatitis C infection	4 SNPs
+72	Mean corpuscular hemoglobin	32 SNPs
+73	Multiple myeloma	6 SNPs
+74	Adiponectin levels	32 SNPs
+75	Circulating myeloperoxidase levels (plasma)	2 SNPs
+76	Interstitial lung disease 	11 SNPs
+77	Cervical cancer	3 SNPs
+78	Urinary albumin excretion	1 SNPs
+79	Rheumatoid arthritis	41 SNPs
+80	Beta-2 microglubulin plasma levels	12 SNPs
+81	Serum total protein level	6 SNPs
+82	Abdominal aortic aneurysm	3 SNPs
+83	Age-related macular degeneration (wet)	1 SNPs
+84	Non-alcoholic fatty liver disease histology (other)	1 SNPs
+85	Soluble E-selectin levels	1 SNPs
+86	Follicular lymphoma	4 SNPs
+87	Leishmaniasis (visceral)	1 SNPs
+88	Coffee consumption	5 SNPs
+89	Urate levels	54 SNPs
+90	Waist-hip ratio	20 SNPs
+91	White matter hyperintensity burden	2 SNPs
+92	Soluble ICAM-1	6 SNPs
+93	Crohn's disease	169 SNPs
+94	Testosterone levels	2 SNPs
+95	Electroencephalographic traits in alcoholism	1 SNPs
+96	Fasting insulin-related traits	4 SNPs
+97	Myopia (severe)	2 SNPs
+98	Handedness in dyslexia	1 SNPs
+99	Epilepsy (generalized)	4 SNPs
+100	Paget's disease	9 SNPs
+101	Prothrombin time	2 SNPs
+102	Keloid	3 SNPs
+103	Mean corpuscular volume	41 SNPs
+104	Diabetic retinopathy 	4 SNPs
+105	Intracranial aneurysm	11 SNPs
+106	Periodontitis	1 SNPs
+107	Glomerulosclerosis	1 SNPs
+108	Circulating vasoactive peptide levels 	6 SNPs
+109	Type 1 diabetes nephropathy	2 SNPs
+110	Pulmonary function	30 SNPs
+111	Menarche and menopause (age at onset)	6 SNPs
+112	Corneal curvature	3 SNPs
+113	Vaspin levels	1 SNPs
+114	Stevens-Johnson syndrome and toxic epidermal necrolysis (SJS-TEN)	2 SNPs
+115	mean corpuscular hemoglobin concentration	7 SNPs
+116	Renal function-related traits (urea)	4 SNPs
+117	Meningioma 	1 SNPs
+118	Hemostatic factors and hematological phenotypes	2 SNPs
+119	Orthostatic hypotension	1 SNPs
+120	Caffeine consumption	2 SNPs
+121	Esophageal squamous cell cancer (length of survival)	1 SNPs
+122	Blood trace element (Zn levels)	3 SNPs
+123	Biochemical measures	1 SNPs
+124	Liver enzyme levels	10 SNPs
+125	Nicotine dependence	1 SNPs
+126	Type 2 diabetes	131 SNPs
+127	Dehydroepiandrosterone sulphate levels	8 SNPs
+128	Resistin levels 	2 SNPs
+129	Response to Vitamin E supplementation	1 SNPs
+130	Refractive error	26 SNPs
+131	Bleomycin sensitivity	1 SNPs
+132	Psoriatic arthritis	3 SNPs
+133	Asthma (childhood onset)	2 SNPs
+134	Biomedical quantitative traits	4 SNPs
+135	IgM levels	1 SNPs
+136	Prostate cancer	79 SNPs
+137	Weight loss (gastric bypass surgery)	1 SNPs
+138	Diabetes (gestational)	2 SNPs
+139	B cell non-Hodgkin lymphoma	1 SNPs
+140	Hair color	13 SNPs
+141	Parkinson's disease	26 SNPs
+142	Carotenoid and tocopherol levels	2 SNPs
+143	Fasting insulin (interaction)	2 SNPs
+144	Immune reponse to smallpox (secreted IL-1beta)	7 SNPs
+145	Atopic dermatitis	19 SNPs
+146	Electrocardiographic traits	15 SNPs
+147	Narcolepsy (age of onset)	3 SNPs
+148	Venous thromboembolism (gene x gene interaction)	24 SNPs
+149	Serum uric acid levels	4 SNPs
+150	Psoriasis	24 SNPs
+151	Colorectal cancer	26 SNPs
+152	Alcohol consumption	5 SNPs
+153	QT interval	32 SNPs
+154	Non-albumin protein levels 	5 SNPs
+155	Body mass index	91 SNPs
+156	Obesity (early onset extreme)	12 SNPs
+157	Serum alkaline phosphatase levels	4 SNPs
+158	Ankle-brachial index 	1 SNPs
+159	Migraine without aura	2 SNPs
+160	Immune reponse to smallpox (secreted IL-12p40)	4 SNPs
+161	Hypertension (young onset)	1 SNPs
+162	Leprosy	9 SNPs
+163	Lung adenocarcinoma	12 SNPs
+164	Obesity	71 SNPs
+165	Drinking behavior	1 SNPs
+166	E-selectin levels	1 SNPs
+167	Ovarian cancer	8 SNPs
+168	Immune reponse to smallpox (secreted IFN-alpha)	17 SNPs
+169	Inflammatory biomarkers	10 SNPs
+170	Behcet's disease	9 SNPs
+171	Response to metformin	1 SNPs
+172	Freckles	4 SNPs
+173	White blood cell types	13 SNPs
+174	Alopecia areata	6 SNPs
+175	Wilms tumor	6 SNPs
+176	Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined)	1 SNPs
+177	IgA nephropathy	7 SNPs
+178	Magnesium levels	6 SNPs
+179	Red blood cell traits	76 SNPs
+180	Hepatitis B vaccine response	1 SNPs
+181	Monocyte chemoattractant protein-1 	2 SNPs
+182	AIDS progression	1 SNPs
+183	Hepatocellular carcinoma	5 SNPs
+184	Multiple sclerosis	79 SNPs
+185	Fuchs's corneal dystrophy	1 SNPs
+186	Metabolic syndrome (bivariate traits)	13 SNPs
+187	Malaria	5 SNPs
+188	Hematology traits	17 SNPs
+189	Urinary metabolites	5 SNPs
+190	Aortic-valve calcification	1 SNPs
+191	Retinal vascular caliber	4 SNPs
+192	Epirubicin-induced leukopenia 	1 SNPs
+193	Knee osteoarthritis	1 SNPs
+194	Bone mineral density (hip)	16 SNPs
+195	Primary tooth development (number of teeth)	15 SNPs
+196	Coagulation factor levels	8 SNPs
+197	Esophageal cancer and gastric cancer	3 SNPs
+198	Age-related macular degeneration (GA)	2 SNPs
+199	Educational attainment	5 SNPs
+200	Thyroid function	4 SNPs
+201	Glomerular filtration rate	6 SNPs
+202	Endometriosis	10 SNPs
+203	Hematological parameters	10 SNPs
+204	Non-small cell lung cancer	1 SNPs
+205	Thyroid hormone levels	43 SNPs
+206	Glioma (high-grade)	3 SNPs
+207	Cognitive decline	1 SNPs
+208	Venous thromboembolism	14 SNPs
+209	Migraine	12 SNPs
+210	Phosphorus levels	5 SNPs
+211	Cutaneous nevi	2 SNPs
+212	Multiple myeloma (IgH translocation)	2 SNPs
+213	Menopause (age at onset)	24 SNPs
+214	Vitamin E levels	3 SNPs
+215	Gamma gluatamyl transferase levels	4 SNPs
+216	Immunoglobulin A 	1 SNPs
+217	Upper aerodigestive tract cancers	4 SNPs
+218	Cholelithiasis-related traits in sickle cell anemia	1 SNPs
+219	Amyloid A serum levels	4 SNPs
+220	Lentiform nucleus volume 	1 SNPs
+221	Age-related macular degeneration (extreme sampling)	1 SNPs
+222	Eosinophil counts	5 SNPs
+223	Osteoarthritis	3 SNPs
+224	Amyotrophic lateral sclerosis (sporadic)	1 SNPs
+225	IgE grass sensitization	3 SNPs
+226	Matrix metalloproteinase levels	3 SNPs
+227	Renal function-related traits (eGRFcrea)	7 SNPs
+228	Testicular germ cell cancer	4 SNPs
+229	Cholesterol, total	136 SNPs
+230	Recombination rate (females)	1 SNPs
+231	C-reactive protein and white blood cell count	9 SNPs
+232	Proinsulin levels	9 SNPs
+233	Serum dimethylarginine levels (asymmetric)	1 SNPs
+234	Beta-trace protein levels	1 SNPs
+235	Kidney stones	1 SNPs
+236	Response to statin therapy	4 SNPs
+237	Lipid traits	8 SNPs
+238	Tourette syndrome	1 SNPs
+239	Adverse response to chemotherapy in breast cancer (alopecia)	2 SNPs
+240	Pancreatitis	2 SNPs
+241	Testicular germ cell tumor	25 SNPs
+242	Multiple myeloma (hyperdiploidy)	4 SNPs
+243	Hemoglobin	9 SNPs
+244	Fetal hemoglobin levels	4 SNPs
+245	Soluble leptin receptor levels	1 SNPs
+246	Vitiligo (non-segmental)	1 SNPs
+247	Squamous cell carcinoma	1 SNPs
+248	DNA methylation (variation)	3 SNPs
+249	Fat body mass	2 SNPs
+250	Response to fenofibrate	1 SNPs
+251	Palmitoleic acid (16:1n-7) plasma levels	5 SNPs
+252	Breast cancer	109 SNPs
+253	Circulating cell-free DNA	1 SNPs
+254	Polycystic ovary syndrome	16 SNPs
+255	Coronary arterial lesions in patients with Kawasaki disease	1 SNPs
+256	Kawasaki disease	8 SNPs
+257	Hippocampal volume	3 SNPs
+258	Renal function-related traits (sCR)	8 SNPs
+259	Lp (a) levels	4 SNPs
+260	Aspirin hydrolysis (plasma)	1 SNPs
+261	Hepatocellular carcinoma (hepatitis B virus related)	2 SNPs
+262	Metabolic traits	43 SNPs
+263	Recombination (males)	1 SNPs
+264	LDL (oxidized)	1 SNPs
+265	Urinary bladder cancer	3 SNPs
+266	Primary biliary cirrhosis	35 SNPs
+267	Breast size	7 SNPs
+268	Alcohol consumption (transferrin glycosylation)	6 SNPs
+269	Sickle cell anemia (haemolysis)	3 SNPs
+270	Schizophrenia, bipolar disorder and depression (combined)	1 SNPs
+271	Cerebrospinal T-tau levels	1 SNPs
+272	Heart rate	24 SNPs
+273	Creatinine levels	4 SNPs
+274	Epstein-Barr virus immune response (EBNA-1)	2 SNPs
+275	Brain structure	2 SNPs
+276	Angiotensin-converting enzyme activity	2 SNPs
+277	Congenital heart disease	1 SNPs
+278	Iron levels	5 SNPs
+279	Follicule stimulating hormone	2 SNPs
+280	C-reactive protein	47 SNPs
+281	Adiposity	5 SNPs
+282	Esophageal cancer	11 SNPs
+283	Vitamin B12 levels	1 SNPs
+284	Hepatitis B (viral clearance)	4 SNPs
+285	Metabolite levels	39 SNPs
+286	Graves' disease	18 SNPs
+287	Hair morphology	2 SNPs
+288	Thyrotoxic hypokalemic periodic paralysis	2 SNPs
+289	Body mass in chronic obstructive pulmonary disease	1 SNPs
+290	Freckling	4 SNPs
+291	Renal transplant outcome	1 SNPs
+292	Liver enzyme levels (alanine transaminase)	4 SNPs
+293	Breast Cancer in BRCA1 mutation carriers	2 SNPs
+294	Protein C levels	4 SNPs
+295	Blood trace element (Se levels)	1 SNPs
+296	Myopia (pathological)	6 SNPs
+297	Atrial fibrillation/atrial flutter	2 SNPs
+298	Ewing sarcoma	3 SNPs
+299	Inflammatory bowel disease	119 SNPs
+300	Metabolic syndrome	29 SNPs
+301	Intracranial volume	2 SNPs
+302	Visceral fat	1 SNPs
+303	Insulin-related traits	3 SNPs
+304	Dupuytren's disease	5 SNPs
+305	YKL-40 levels	1 SNPs
+306	Hippocampal atrophy	4 SNPs
+307	Thiazide-induced adverse metabolic effects in hypertensive patients	1 SNPs
+308	Hematocrit	8 SNPs
+309	Immune reponse to smallpox (secreted IL-10)	3 SNPs
+310	Blood pressure	53 SNPs
+311	F-cell distribution	1 SNPs
+312	Major depressive disorder	4 SNPs
+313	Personality dimensions	1 SNPs
+314	Menarche (age at onset)	38 SNPs
+315	D-dimer levels	3 SNPs
+316	Metabolite levels  (X-11787)	2 SNPs
+317	Corneal astigmatism	1 SNPs
+318	Hodgkin's lymphoma	8 SNPs
+319	Hypospadias	1 SNPs
+320	Response to metformin in type 2 diabetes (glycemic)	1 SNPs
+321	Activated partial thromboplastin time	11 SNPs
+322	Mean corpuscular hemoglobin concentration	3 SNPs
+323	Mean platelet volume	66 SNPs
+324	Hypertriglyceridemia	2 SNPs
+325	Vitamin D levels	3 SNPs
+326	Tuberculosis	2 SNPs
+327	Phospholipid levels (plasma)	36 SNPs
+328	Endometrial cancer	1 SNPs
+329	Cystic fibrosis severity	1 SNPs
+330	Waist circumference and related phenotypes	1 SNPs
+331	Self-reported allergy	16 SNPs
+332	Methotrexate phramacokinetics (acute lymphoblastic leukemia)	1 SNPs
+333	DNA methylation (parent-of-origin)	6 SNPs
+334	Paraoxonase activity 	2 SNPs
+335	Glycemic traits (pregnancy)	10 SNPs
+336	Inflammatory bowel disease (early onset)	1 SNPs
+337	Type 1 diabetes autoantibodies	15 SNPs
+338	Natriuretic peptide levels	1 SNPs
+339	Uric acid levels	13 SNPs
+340	Nodular sclerosis Hodgkin lymphoma	1 SNPs
+341	Eye color	12 SNPs
+342	Hypertension	15 SNPs
+343	Lipoprotein-associated phospholipase A2 activity and mass	19 SNPs
+344	Crohn's disease and psoriasis	2 SNPs
+345	Ribavirin-induced anemia	1 SNPs
+346	Skin pigmentation	3 SNPs
+347	Autism	1 SNPs
+348	Protein biomarker	2 SNPs
+349	Multiple cancers (lung cancer, gastric cancer, and squamous cell carcinoma)	4 SNPs
+350	HDL Cholesterol - Triglycerides (HDLC-TG)	8 SNPs
+351	Bipolar disorder	10 SNPs
+352	Carotid intima media thickness	5 SNPs
+353	Quantitative traits	1 SNPs
+354	Myocardial infarction	1 SNPs
+355	Chronic obstructive pulmonary disease	1 SNPs
+356	Cardiac repolarization	1 SNPs
+357	Chronic myeloid leukemia	1 SNPs
+358	Osteoporosis-related phenotypes	2 SNPs
+359	Pubertal anthropometrics	5 SNPs
+360	Retinal arteriolar caliber	2 SNPs
+361	Sudden cardiac arrest	1 SNPs
+362	Adiposity in newborns	2 SNPs
+363	Smoking behavior	10 SNPs
+364	Glaucoma	4 SNPs
+365	Androgen levels	5 SNPs
+366	Helicobacter pylori serologic status	2 SNPs
+367	Lung cancer	15 SNPs
+368	Intraocular pressure	3 SNPs
+369	Phytosterol levels	3 SNPs
+370	Hepatitis C induced liver cirrhosis	5 SNPs
+371	Obesity (extreme)	2 SNPs
+372	Non-alcoholic fatty liver disease	1 SNPs
+373	Vascular endothelial growth factor levels	4 SNPs
+374	Illicit drug use	1 SNPs
+375	Cardiovascular disease risk factors	21 SNPs
+376	Duodenal ulcer 	2 SNPs
+377	Schizophrenia	42 SNPs
+378	Vascular dementia	1 SNPs
+379	Adolescent idiopathic scoliosis (severe)	1 SNPs
+380	Homoarginine levels	1 SNPs
+381	Celiac disease and Rheumatoid arthritis	7 SNPs
+382	Triglycerides	134 SNPs
+383	Folate pathway vitamin levels	2 SNPs
+384	PCA3 expression level	2 SNPs
+385	Systemic lupus erythematosus	58 SNPs
+386	Response to antipsychotic treatment	2 SNPs
+387	Asthma	27 SNPs
+388	Brugada syndrome	3 SNPs
+389	Central corneal thickness	10 SNPs
+390	Narcolepsy	4 SNPs
+391	Suicide attempts in bipolar disorder	1 SNPs
+392	Biliary atresia	1 SNPs
+393	Black vs. red hair color	6 SNPs
+394	Non-melanoma skin cancer	3 SNPs
+395	Common traits (Other)	5 SNPs
+396	Blood pressure measurement (low sodium intervention)	4 SNPs
+397	Facial morphology	1 SNPs
+398	Glaucoma (primary open-angle)	7 SNPs
+399	Visceral adipose tissue/subcutaneous adipose tissue ratio	1 SNPs
+400	Ulcerative colitis	99 SNPs
+401	Skin sensitivity to sun	2 SNPs
+402	Blood pressure measurement (high sodium and potassium intervention)	5 SNPs
+403	Osteoarthritis (hip)	2 SNPs
+404	Cerebrospinal AB1-42 levels	1 SNPs
+405	Hepatitis B	9 SNPs
+406	Essential tremor	1 SNPs
+407	Congenital heart malformation	2 SNPs
+408	Testicular cancer	3 SNPs
+409	Glioma	10 SNPs
+410	Response to antidepressants	1 SNPs
+411	Pulmonary function (interaction)	5 SNPs
+412	Telomere length	9 SNPs
+413	Immune reponse to smallpox (secreted IL-2)	8 SNPs
+414	Oleic acid (18:1n-9) plasma levels	1 SNPs
+415	Fasting glucose-related traits	27 SNPs
+416	Stroke	2 SNPs
+417	Bone mineral density (spine)	24 SNPs
+418	Neutrophil count	2 SNPs
+419	Progranulin levels	1 SNPs
+420	Response to hepatitis C treatment	8 SNPs
+421	Digestive system disease (Barrett's esophagus and esophageal adenocarcinoma combined)	3 SNPs
+422	Sexual dimorphism in anthropometric traits	3 SNPs
+423	Alzheimer's disease biomarkers	11 SNPs
+424	Alcohol dependence	2 SNPs
+425	Erectile dysfunction	1 SNPs
+426	Serum prostate-specific antigen levels	7 SNPs
+427	Serum dimethylarginine levels (symmetric)	3 SNPs
+428	Coronary heart disease	67 SNPs
+429	Chronic kidney disease and serum creatinine levels	1 SNPs
+430	Anticoagulant levels	1 SNPs
+431	Coronary artery calcification	3 SNPs
+432	RR interval (heart rate)	1 SNPs
+433	Vitiligo	27 SNPs
+434	Corneal structure	26 SNPs
+435	Carotid atherosclerosis in HIV infection	1 SNPs
+436	CD4:CD8 lymphocyte ratio	2 SNPs
+437	Alcohol and nictotine co-dependence	1 SNPs
+438	Acute lymphoblastic leukemia (B-cell precursor)	2 SNPs
+439	Thyroid cancer	7 SNPs
+440	Waist Circumference - Triglycerides (WC-TG)	7 SNPs
+441	Two-hour glucose challenge	3 SNPs
+442	Blond vs. brown hair color	5 SNPs
+443	&beta;2-Glycoprotein I (&beta;2-GPI) plasma levels	1 SNPs
+444	Chronic lymphocytic leukemia	42 SNPs
+445	Red vs. non-red hair color	1 SNPs
+446	Amyotrophic lateral sclerosis	10 SNPs
+447	C4b binding protein levels	1 SNPs
+448	Bone mineral density	77 SNPs
+449	Nasopharyngeal carcinoma	4 SNPs
+450	Hypothyroidism	5 SNPs
+451	Osteoporosis	2 SNPs
+452	Head circumference (infant)	2 SNPs
+453	Systolic blood pressure	25 SNPs
+454	Liver enzyme levels (alkaline phosphatase)	14 SNPs
+455	Fibrinogen	38 SNPs
+456	Sphingolipid levels	5 SNPs
+457	Acute lymphoblastic leukemia (childhood)	8 SNPs
+458	Iris characteristics	3 SNPs
+459	Permanent tooth development	4 SNPs
+460	Tetralogy of Fallot	2 SNPs
+461	Blue vs. green eyes	4 SNPs
+462	LDL cholesterol	147 SNPs
+463	Birth weight	9 SNPs
+464	Response to citalopram treatment	1 SNPs
+465	Basal cell carcinoma 	7 SNPs
+466	Red blood cell count	8 SNPs
+467	Neuroblastoma	10 SNPs
+468	Atrial fibrillation	14 SNPs
+469	Renal function-related traits (BUN)	13 SNPs
+470	Gallstones	1 SNPs
+471	Recombination rate (males)	1 SNPs
+472	Interleukin-18 levels	2 SNPs
+473	Barrett's esophagus	2 SNPs
+474	Serum protein levels (sST2)	11 SNPs
+475	Age-related macular degeneration (CNV)	3 SNPs
+476	Aging (facial)	4 SNPs
+477	Weight	11 SNPs
+478	Dietary macronutrient intake	3 SNPs
+479	Methotrexate clearance (acute lymphoblastic leukemia)	1 SNPs
+480	Sjögren's syndrome	5 SNPs
+481	Glaucoma (exfoliation)	1 SNPs
+482	Cardiovascular heart disease in diabetics	1 SNPs
+483	Celiac disease	25 SNPs
+484	Black vs. blond hair color	6 SNPs
+485	HIV-1 susceptibility	1 SNPs
+486	Esophageal cancer (squamous cell)	7 SNPs
+487	Palmitic acid (16:0) plasma levels	1 SNPs
+488	IgG levels	2 SNPs
+489	Cystic fibrosis-related diabetes	1 SNPs
+490	Thyroid cancer (Papillary, radiation-related)	1 SNPs
+491	Vertical cup-disc ratio	7 SNPs
+492	Age-related macular degeneration	49 SNPs
+493	Brain connectivity	1 SNPs
+494	Arterial stiffness	1 SNPs
+495	Myocardial infarction (early onset)	9 SNPs
+496	Retinol levels	2 SNPs
+497	Addiction	3 SNPs
+498	Body mass index (asthmatics)	1 SNPs
+499	Myasthenia gravis 	3 SNPs
+500	Blood trace element (Cu levels)	2 SNPs
+501	Ankylosing spondylitis	14 SNPs
+502	Sclerosing cholangitis and ulcerative colitis (combined)	2 SNPs
+503	Butyrylcholinesterase levels	3 SNPs
+504	IgG glycosylation	120 SNPs
+505	Wegener's granulomatosis	2 SNPs
+506	Circulating myeloperoxidase levels (serum) 	3 SNPs
+507	Allergic sensitization	10 SNPs
+508	Metabolite levels (5-HIAA/ MHPG Ratio)	1 SNPs
+509	Optic nerve measurement (disc area)	2 SNPs
+510	Cardiac Troponin-T levels	3 SNPs
+511	Other erythrocyte phenotypes	4 SNPs
+512	Response to gemcitabine in pancreatic cancer 	1 SNPs
+513	Apolipoprotein Levels	3 SNPs
+514	Cortical thickness	2 SNPs
+515	Disc degeneration (lumbar)	3 SNPs
+516	Adverse response to carbamapezine	1 SNPs
+517	N-glycan levels	8 SNPs
+518	Bilirubin levels	7 SNPs
+519	Type 2 diabetes and other traits	4 SNPs
+520	Hirschsprung's disease	2 SNPs
+521	HbA2 levels	2 SNPs
+522	Platelet aggregation	5 SNPs
+523	Tumor biomarkers	11 SNPs
+524	Insulin-like growth factors	5 SNPs
+525	Chronic kidney disease	22 SNPs
+526	Recombination (females)	1 SNPs
+527	Prostate-specific antigen levels	5 SNPs
+528	Monocyte count	3 SNPs
+529	HPV seropositivity	1 SNPs
+530	Migraine - clinic-based	2 SNPs
+531	Speech perception in dyslexia	1 SNPs
+532	Hepatitis C induced liver fibrosis	2 SNPs
+533	Uterine fibroids	3 SNPs
+534	Bipolar disorder and major depressive disorder (combined)	1 SNPs
+535	Creutzfeldt-Jakob disease	1 SNPs
+536	Erythrocyte sedimentation rate	1 SNPs
+537	Warfarin maintenance dose	2 SNPs
+538	Nevirapine-induced rash	1 SNPs
+539	Glycated hemoglobin levels	16 SNPs
+540	Burning and freckling	1 SNPs
+541	Age-related macular degeneration (CNV vs. GA)	1 SNPs
+542	Obesity-related traits	16 SNPs
+543	Renal function and chronic kidney disease	4 SNPs
+544	Lymphoma	5 SNPs
+545	Serum albumin level	11 SNPs
+546	Stroke (ischemic)	6 SNPs
+547	HIV-1 control	10 SNPs
+548	Resting heart rate	8 SNPs
+549	Cleft lip	1 SNPs
+550	Allergic rhinitis	1 SNPs
+551	Chronic obstructive pulmonary disease-related biomarkers	17 SNPs
+552	Gout	4 SNPs
+553	Homeostasis model assessment of insulin resistance (interaction)	2 SNPs
+554	Osteosarcoma	2 SNPs
+555	Infantile hypertrophic pyloric stenosis	7 SNPs
+556	QRS duration	12 SNPs
+557	Optic disc parameters	6 SNPs
+558	End-stage coagulation	23 SNPs
+559	Conduct disorder (symptom count)	3 SNPs
+560	Primary tooth development (time to first tooth eruption)	13 SNPs

@@ -1,0 +1,11 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1801725	.07	unit_increase	G	T	9E-86	[0.063-0.079]_unit_increase	Calcium_levels	CASR	0.15	24068962
+rs1550532	.02	unit_increase	G	C	8E-11	[0.012-0.024]_unit_increase	Calcium_levels	DGKD	0.31	24068962
+rs780094	.02	unit_increase	C	T	1E-10	[0.016-0.018]_unit_increase	Calcium_levels	GCKR	0.42	24068962
+rs10491003	.03	unit_increase	C	T	5E-9	[0.017-0.037]_unit_increase	Calcium_levels	GATA3	0.09	24068962
+rs7481584	-0.02	unit_decrease	G	A	1E-10	[0.012-0.024]_unit_decrease	Calcium_levels	CARS	0.3	24068962
+rs7336933	-0.02	unit_decrease	G	A	9E-10	[0.014-0.03]_unit_decrease	Calcium_levels	DGKH,KIAA0564	0.15	24068962
+rs1570669	-0.02	unit_decrease	G	A	9E-12	[0.012-0.024]_unit_decrease	Calcium_levels	CYP24A1	0.66	24068962
+rs17711722	.02	unit_increase	C	T	8E-9	[0.0091-0.0209]_unit_increase	Calcium_levels	VKORC1L1	0.47	24068962
+rs17251221	.06	unit_increase	A	G	2E-22	[0.05-0.07]_unit_increase	Calcium_levels	CASR,CSTA,WDR5B,KPNA1,C3orf28,CCDC58	0.14	20705733
+rs1801725	.00	increase_in_log(CASR,_mmol/L)	G	T	6E-37	[0.0031-0.0042]_increase_in_log(CASR,_mmol/L)	Calcium_levels	CASR	0.1775	20661308

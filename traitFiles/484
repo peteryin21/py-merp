@@ -1,0 +1,7 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs12203592	.35	decrease_in_hair_color_score	T	7E-127	[0.33-0.37]_decrease_in_hair_color_score	Black_vs._blond_hair_color	IRF4	NR	18483556	
+rs28777	.46	decrease_in_hair_color_score	C	1E-17	[0.36-0.56]_decrease_in_hair_color_score	Black_vs._blond_hair_color	MATP	NR	18483556	
+rs12913832	.44	decrease_in_hair_color_score	A	4E-103	[0.40-0.48]_decrease_in_hair_color_score	Black_vs._blond_hair_color	HERC2	NR	18483556	
+rs8033165	.12	increase_in_hair_color_score	T	5E-11	[0.08-0.16]_increase_in_hair_color_score	Black_vs._blond_hair_color	Intergenic	NR	18483556	
+rs12896399	.18	increase_in_hair_color_score	G	8E-21	[0.14-0.22]_increase_in_hair_color_score	Black_vs._blond_hair_color	SLC24A4	NR	18483556	
+rs11855019	.28	decrease_in_hair_color_score	G	2E-24	[0.22-0.34]_decrease_in_hair_color_score	Black_vs._blond_hair_color	OCA2	NR	18483556	

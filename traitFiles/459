@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs12424086	.11	unit_decrease	C	2E-12	[0.08-0.14]_unit_decrease	Permanent_tooth_development	HMGA2	0.18	21931568	
+rs4491709	.10	unit_decrease	T	2E-14	[0.07-0.13]_unit_decrease	Permanent_tooth_development	TNP1	0.71	21931568	
+rs2281845	.10	unit_decrease	T	8E-17	[0.08-0.12]_unit_decrease	Permanent_tooth_development	CACNA1S	0.38	21931568	
+rs7924176	.11	unit_decrease	G	6E-18	[0.08-0.13]_unit_decrease	Permanent_tooth_development	ADK	0.43	21931568	

@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs4985726	.11	unit_increase	G	1E-14	[0.080-0.134]_unit_increase	Non-albumin_protein_levels	TNFRSF13B	0.375	22558069	
+rs1260326	.08	unit_decrease	C	3E-9	[0.053-0.107]_unit_decrease	Non-albumin_protein_levels	GCKR	0.445	22558069	
+rs4985726	.14	unit_increase	G	7E-24	[0.11-0.16]_unit_increase	Non-albumin_protein_levels	TNFRSF13B	0.375	22558069	
+rs3803800	.10	unit_increase	A	7E-15	[0.079-0.129]_unit_increase	Non-albumin_protein_levels	TNFSF13	0.311	22558069	
+rs10007186	.09	unit_increase	C	1E-9	[0.058-0.112]_unit_increase	Non-albumin_protein_levels	ANXA3	0.307	22558069	

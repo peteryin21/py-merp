@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs7524102	1.28	[NR]	G	3E-9	[1.17-1.41]	Dupuytren's_disease	RP11415K20.1,WNT4	0.21	21732829	
+rs16879765	1.98	[NR]	A	6E-39	[1.78-2.18]	Dupuytren's_disease	EPDR1,SFRP4	0.19	21732829	
+rs11672517	1.34	[NR]	A	7E-14	[1.25-1.45]	Dupuytren's_disease	DUXA,ZNF264	0.28	21732829	
+rs8124695	1.48	[NR]	A	8E-10	[1.30-1.68]	Dupuytren's_disease	AL049691.1,MAFB	0.10	21732829	
+rs6519955	1.54	[NR]	A	3E-33	[1.44-1.65]	Dupuytren's_disease	RP11398F12.1,WNT7B	0.47	21732829	

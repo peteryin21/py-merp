@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1801239	.08	unit_decrease_(CKDGen)	T	1E-11	[NR]_unit_decrease_(CKDGen)	Urinary_albumin_excretion	CUBN,RSU1	0.90	21355061	

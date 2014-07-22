@@ -1,0 +1,9 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs7159888	.26	unit_increase	G	A	3E-18	[0.20-0.32]_unit_increase	N-glycan_levels	FUT8	0.44	21203500
+rs735396	.17	unit_increase	A	G	4E-8	[0.11-0.23]_unit_increase	N-glycan_levels	HNF1A,C12orf43,OASL	0.38	21203500
+rs3760776	-0.34	unit_decrease	G	A	3E-12	[0.24-0.44]_unit_decrease	N-glycan_levels	NRTN,FUT6,FUT3	0.11	21203500
+rs10483776	-0.22	unit_decrease	A	G	1E-8	[0.14-0.30]_unit_decrease	N-glycan_levels	FUT8	0.21	21203500
+rs7953249	-0.17	unit_decrease	A	G	2E-8	[0.11-0.23]_unit_decrease	N-glycan_levels	HNF1A,C12orf43,OASL	0.45	21203500
+rs3760776	-0.41	unit_decrease	G	A	4E-17	[0.31-0.51]_unit_decrease	N-glycan_levels	NRTN,FUT6,FUT3	0.11	21203500
+rs3760776	-0.3	unit_decrease	G	A	9E-10	[0.20-0.40]_unit_decrease	N-glycan_levels	NRTN,FUT6,FUT3	0.11	21203500
+rs3760776	-0.34	unit_decrease	G	A	1E-12	[0.24-0.44]_unit_decrease	N-glycan_levels	NRTN,FUT6,FUT3	0.11	21203500

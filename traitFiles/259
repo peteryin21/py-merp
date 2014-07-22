@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs3120139	.32	mg/dL_increase	A	4E-9	[0.22-0.42]_mg/dL_increase	Lp_(a)_levels	SLC22A3	0.13	21900290	
+rs12214416	.50	decrease_mg/dL	A	5E-8	[0.32-0.68]_decrease_mg/dL	Lp_(a)_levels	LPAL2	0.04	21900290	
+rs10455872	1.28	mg/dL_increase	G	5E-39	[1.08-1.48]_mg/dL_increase	Lp_(a)_levels	LPA	0.07	21900290	
+rs783147	.30	mg/dL_decrease	A	3E-17	[0.22-0.38]_mg/dL_decrease	Lp_(a)_levels	PLG	0.45	21900290	

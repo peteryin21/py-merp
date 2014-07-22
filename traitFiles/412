@@ -1,0 +1,10 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs10936599	.10	unit_decrease	T	3E-31	[0.081-0.113]_unit_decrease	Telomere_length	TERC	0.252	23535734	
+rs9420907	.07	unit_decrease	A	7E-11	[0.049-0.089]_unit_decrease	Telomere_length	OBFC1	0.865	23535734	
+rs412658	.05	unit_increase	T	1E-8	[0.032-0.067]_unit_increase	Telomere_length	ZNF676	0.3564	23001564	
+rs3027234	.06	unit_decrease	T	2E-8	[0.036-0.079]_unit_decrease	Telomere_length	CTC1	0.1794	23001564	
+rs9419958	.08	unit_increase	T	9E-11	[0.057-0.108]_unit_increase	Telomere_length	OBFC1	0.1353	23001564	
+rs1317082	.07	unit_increase	G	1E-8	[0.046-0.089]_unit_increase	Telomere_length	TERC	0.2875	23001564	
+rs12696304	.03	unit_decrease	G	2E-14	[0.02-0.04]_unit_decrease	Telomere_length	TERC	0.27	21573004	
+rs4387287	.10	kb_increase	A	2E-11	[0.06-0.14]_kb_increase	Telomere_length	OBFC1	NR	20421499	
+rs12696304	.11	unit_decrease	G	4E-14	[0.08-0.14]_unit_decrease	Telomere_length	TERC	0.30	20139977	

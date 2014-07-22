@@ -1,0 +1,13 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2853677	1.41	[NR]	C	3E-40	[1.32-1.50]	Lung_adenocarcinoma	TERT	0.30	22797724	
+rs10937405	1.25	[NR]	C	7E-17	[1.19-1.32]	Lung_adenocarcinoma	TP63	0.67	22797724	
+rs7216064	1.20	[NR]	A	7E-11	[1.13-1.26]	Lung_adenocarcinoma	BPTF	0.707	22797724	
+rs3817963	1.18	[NR]	G	3E-10	[1.12-1.24]	Lung_adenocarcinoma	BTNL2	0.318	22797724	
+rs10937405	1.31	[NR]	C	7E-12	[1.22-1.42]	Lung_adenocarcinoma	TP63	0.67	20871597	
+rs2736100	1.27	[NR]	C	3E-11	[1.19-1.37]	Lung_adenocarcinoma	TERT	0.39	20871597	
+rs2736100	1.46	[NR]	G	2E-22	[1.35-1.57]	Lung_adenocarcinoma	CLPTM1L,TERT	0.39	20700438	
+rs2736100	1.12	[NR]	G	2E-10	[1.08-1.16]	Lung_adenocarcinoma	TERT	0.50	19836008	
+rs1051730	1.31	[NR]	T	2E-51	[1.27-1.36]	Lung_adenocarcinoma	CHRNA3,CHRNA5	0.35	19836008	
+rs31489	1.12	[NR]	C	2E-10	[1.09-1.16]	Lung_adenocarcinoma	CLPTM1L	0.59	19836008	
+rs3117582	1.22	[NR]	C	5E-12	[1.15-1.29]	Lung_adenocarcinoma	BAT3,APOM	0.10	19836008	
+rs4324798	1.16	[NR]	A	2E-8	[1.09-1.24]	Lung_adenocarcinoma	TRNAA-UGC	0.09	19836008	

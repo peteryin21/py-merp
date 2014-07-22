@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs17651119	3.18	[NR]	C	2E-8	[2.77-3.59]	Major_depressive_disorder	MYO10	0.99	23377640	
+rs10065906	1.47	[NR]	C	5E-8	[1.33-1.61]	Major_depressive_disorder	Intergenic	0.308	23377640	
+rs12054895	.24	unit_increase	T	3E-8	[0.16-0.33]_unit_increase	Major_depressive_disorder	Intergenic	0.275456	23377640	
+rs1545843	1.40	[NR]	A	1E-9	[1.254-1.557]	Major_depressive_disorder	SLC6A15	NR	21521612	

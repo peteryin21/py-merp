@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+APOE	NR	[NR]	E	2E-33	[NR]	Hippocampal_atrophy	APOE	0.19	22745009	
+rs6703865	NR	[NR]	A	1E-9	[NR]	Hippocampal_atrophy	F5,SELP	0.08	22745009	
+rs2298948	NR	[NR]	C	5E-8	[NR]	Hippocampal_atrophy	GCFC2	0.29	22745009	
+rs9315702	NR	[NR]	A	2E-8	[NR]	Hippocampal_atrophy	LHFP	0.44	22745009	

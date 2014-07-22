@@ -1,0 +1,7 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs3943077	.07	unit_increase	G	A	3E-14	[0.050-0.090]_unit_increase	Adiponectin_levels	WDR11,FGFR2	0.567	24105470
+rs4783244	-0.33	unit_decrease	G	T	7E-165	[0.31-0.35]_unit_decrease	Adiponectin_levels	CDH13	0.360	24105470
+rs182052	.06	unit_increase	A	G	5E-44	[NR]_unit_increase	Adiponectin_levels	ADIPOQ	NR	22479202
+rs6488898	-0.05	unit_decrease	A	G	3E-10	[NR]_unit_decrease	Adiponectin_levels	ATP6V0A2,GPR109A,DNAH10	NR	22479202
+rs12051272	-0.26	unit_decrease	G	T	6E-48	[NR]_unit_decrease	Adiponectin_levels	CDH13,CMIP	NR	22479202
+rs10447248	NR	[NR]	G	A	5E-8	[NR]	Adiponectin_levels	FER	0.34	21700879

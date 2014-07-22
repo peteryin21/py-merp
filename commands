@@ -1,0 +1,21 @@
+
+m.pull()
+m.update('traitFiles/461')
+m.filter('traitFiles/453_update','nhgri_similar.txt','pval_similar.txt')
+
+import merp 
+m = merp.Merp()
+m.mr_calc('traitFiles/461_updatefiltered2','data/cardio.txt')
+
+import merp 
+m = merp.Merp()
+m.filter('traitFiles/453_update','nhgri_similar.txt','pval_similar.txt')
+m.calc('traitFiles/453_updatefiltered','bin/newt2d.txt')
+
+import merp 
+m = merp.Merp()
+m.filter('traitFiles/556_update','nhgri_similar.txt','pval_similar.txt')
+
+
+
+awk ' { t = $2; $2 = $3; $3 = t; print; } '  

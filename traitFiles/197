@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs3781264	1.36	[NR]	C	4E-9	[1.23-1.50]	Esophageal_cancer_and_gastric_cancer	PLCE1,NOC3L	0.15	20729852	
+rs3765524	1.35	[NR]	T	2E-9	[1.22-1.49]	Esophageal_cancer_and_gastric_cancer	PLCE1,NOC3L	0.207	20729852	
+rs738722	1.30	[NR]	T	1E-8	[1.19-1.43]	Esophageal_cancer_and_gastric_cancer	CHEK2,HSCB	0.25	20729852	

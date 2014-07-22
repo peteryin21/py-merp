@@ -1,0 +1,8 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs653178	NR	[NR]	C	3E-19	[NR]	Celiac_disease_and_Rheumatoid_arthritis	SH2B3	NR	21383967	
+rs1893217	NR	[NR]	G	5E-12	[NR]	Celiac_disease_and_Rheumatoid_arthritis	PTPN2	NR	21383967	
+rs1953126	NR	[NR]	T	4E-11	[NR]	Celiac_disease_and_Rheumatoid_arthritis	TRAF1	NR	21383967	
+rs7574865	NR	[NR]	T	4E-10	[NR]	Celiac_disease_and_Rheumatoid_arthritis	STAT4	NR	21383967	
+rs2298428	NR	[NR]	T	3E-10	[NR]	Celiac_disease_and_Rheumatoid_arthritis	UBE2L3	NR	21383967	
+rs11203203	NR	[NR]	A	1E-8	[NR]	Celiac_disease_and_Rheumatoid_arthritis	UBASH3A	NR	21383967	
+rs11984075	NR	[NR]	G	5E-8	[NR]	Celiac_disease_and_Rheumatoid_arthritis	ELMO1	NR	21383967	

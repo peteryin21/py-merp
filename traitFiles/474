@@ -1,0 +1,12 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs950880	.18	unit_decrease	A	7E-94	[0.16-0.20]_unit_decrease	Serum_protein_levels_(sST2)	IL1RL1	0.39	23999434	
+rs13029918	.29	unit_decrease	G	2E-39	[0.25-0.33]_unit_decrease	Serum_protein_levels_(sST2)	IL1RL1	0.05	23999434	
+rs1420103	.13	unit_increase	A	1E-35	[0.11-0.15]_unit_increase	Serum_protein_levels_(sST2)	IL1RL1	0.23	23999434	
+rs1014286	.11	unit_increase	G	3E-33	[0.09-0.13]_unit_increase	Serum_protein_levels_(sST2)	SLC9A4	0.36	23999434	
+rs17639215	.15	unit_increase	A	2E-30	[0.13-0.17]_unit_increase	Serum_protein_levels_(sST2)	IL1RL1	0.13	23999434	
+rs12999542	.15	unit_decrease	C	2E-27	[0.13-0.17]_unit_decrease	Serum_protein_levels_(sST2)	IL1RL1	0.11	23999434	
+rs13019803	.14	unit_decrease	T	6E-20	[0.1-0.18]_unit_decrease	Serum_protein_levels_(sST2)	IL1R1	0.11	23999434	
+rs1558648	.13	unit_decrease	G	4E-16	[0.091-0.169]_unit_decrease	Serum_protein_levels_(sST2)	IL1RL2	0.12	23999434	
+rs2302612	.08	unit_decrease	C	2E-11	[0.06-0.1]_unit_decrease	Serum_protein_levels_(sST2)	IL1RL2	0.17	23999434	
+rs11693697	.08	unit_decrease	C	7E-11	[0.06-0.1]_unit_decrease	Serum_protein_levels_(sST2)	IL1RL1	0.22	23999434	
+rs11465699	.14	unit_increase	A	2E-8	[0.1-0.18]_unit_increase	Serum_protein_levels_(sST2)	IL18RAP	0.06	23999434	

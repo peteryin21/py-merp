@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs16891867	.15	unit_increase	G	3E-9	[NR]_unit_increase	Conduct_disorder_(symptom_count)	C1QTNF7	0.097	20585324	
+rs7950811	.16	unit_increase	A	1E-8	[NR]_unit_increase	Conduct_disorder_(symptom_count)	Intergenic	0.071	20585324	
+rs11838918	.28	unit_increase	C	1E-8	[NR]_unit_increase	Conduct_disorder_(symptom_count)	Intergenic	0.022	20585324	

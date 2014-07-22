@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs10828317	1.23	[NR]	T	2E-9	[1.15-1.32]	Acute_lymphoblastic_leukemia_(B-cell_precursor)	PIP4K2A	0.68	23996088	
+rs3824662	1.31	[NR]	T	9E-12	[1.21-1.41]	Acute_lymphoblastic_leukemia_(B-cell_precursor)	GATA3	0.17	23996088	

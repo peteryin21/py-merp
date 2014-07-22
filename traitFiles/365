@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs10822184	.06	unit_decrease	T	1E-8	[0.038-0.078]_unit_decrease	Androgen_levels	JMJD1C	0.49	22936694	
+rs727428	.07	unit_decrease	T	1E-12	[0.053-0.093]_unit_decrease	Androgen_levels	SHBG	0.414	22936694	
+rs5934505	.09	unit_increase	G	2E-8	[0.060-0.122]_unit_increase	Androgen_levels	FAM9B	0.278	22936694	
+rs727428	.10	unit_decrease	T	1E-11	[0.074-0.132]_unit_decrease	Androgen_levels	SHBG	0.414	22936694	
+rs72829446	.16	unit_increase	T	9E-10	[0.11-0.22]_unit_increase	Androgen_levels	SHBG	0.101	22936694	

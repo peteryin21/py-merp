@@ -1,0 +1,3 @@
+PR interval
+QRS duration
+Brugada syndrome

@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs7574865	1.21	[NR]	G	2E-10	[1.14-1.28]	Hepatocellular_carcinoma_(hepatitis_B_virus_related)	STAT4	0.67	23242368	
+rs9275319	1.49	[NR]	A	3E-17	[1.36-1.63]	Hepatocellular_carcinoma_(hepatitis_B_virus_related)	HLA-DQ	0.88	23242368	

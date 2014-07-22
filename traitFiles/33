@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs8096445	NR	[NR]	A	9E-9	[NR]	Immune_response_to_smallpox_vaccine_(IL-6)	MEX3C	NR	22610502	
+rs17444059	NR	[NR]	G	2E-8	[NR]	Immune_response_to_smallpox_vaccine_(IL-6)	PDE4D	NR	22610502	
+rs6728021	NR	[NR]	G	4E-8	[NR]	Immune_response_to_smallpox_vaccine_(IL-6)	LTBP1	NR	22610502	

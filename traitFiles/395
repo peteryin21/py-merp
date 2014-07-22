@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs17646946	.29	unit_decrease	A	2E-42	[NR]_unit_decrease	Common_traits_(Other)	TCHH	0.20	20585627	
+rs499697	.13	unit_increase	G	1E-10	[NR]_unit_increase	Common_traits_(Other)	LCE3E	0.29	20585627	
+rs7349332	.19	unit_increase	T	3E-14	[NR]_unit_increase	Common_traits_(Other)	WNT10A	0.14	20585627	
+rs4481887	1.67	[NR]	G	7E-24	[NR]	Common_traits_(Other)	OR2M7	0.74	20585627	
+rs10427255	1.32	[NR]	C	1E-11	[NR]	Common_traits_(Other)	Intergenic	0.46	20585627	

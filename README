@@ -1,0 +1,53 @@
+Mendelian Randomization Pipeline Version 1.0
+
+*Currently, a directory data/ is required for analysis but is not available on github because of size. Please contact peteryin@sas.upenn.edu for directory.
+
+1. Pull GWAS Catalog and Clean
+	Run this python command first after downloading package to create files from up to date GWAS Catalog.
+	Frozen version from 12/18/13 catalog included in package.
+
+	Usage: $ python bin/gwas_pull.py 
+
+	
+2. Prepare and Format Trait Files
+	Run this python command with trait file(s) of interest.
+	Usage $ python bin/update.py [path/to/trait_files] 
+
+	Output:
+	-Updated file added to /traitFiles as #_update. (1_update)
+	-List of SNPs without allele info from 1000 genomes if applicable
+
+3. Filtering
+	
+	Usage: $ python bin/filter.py [path/to/trait_file_update] [include_file] [exclude_file] 
+
+	Output:
+	-Trait file filtered for confounding associations and added to /traitFiles as #_updatefiltered 
+
+	
+	[include_traits]: link to path of file (e.g bin/include.txt) with list of traits that are found in NHGRI catalog that may be related to or similar to trait of interest but is not confounding.
+		For example, if trait of interest is LDL or HDL cholesterol, our file would contain "total, cholesterol" as worded in NHGRI catalog.
+		Suggestion: Run once with empty file-program will print out exclusions b/c of diseases, and select those that are too similar to trait of interest from there.
+	
+	[exclude_traits]: link to path of file (e.g bin/exclude.txt) with list of column titles from data/v3abr_allmetabolic_pvals_v2.txt that are/are related closely to trait of interest. 
+		For example, if trait of interest is LDL cholesterol, our file would contain "P_LDL" 
+		Suggestion: run $ head -1 data/v3abr_allmetabolic_pvals_v2.txt to see all column headers before creating exclude.txt file.
+ 
+
+4. MR Caluculation with Final Trait Files and Disease Endpoints
+	Usage: $ python bin/mr_calc.py [final_trait_file] [disease_file]
+	*Just name of file, not path for each arg
+
+	Output: individual and summary mr results in /analysis
+
+	If user input disease file, must include following values in each column
+	rs id = column 1
+	allele1= column 3
+	riskallele = column 5
+	lnOR = column 12
+	lnse = column 13
+	For example see cardiogram file
+
+		
+
+

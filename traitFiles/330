@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs12970134	.88	cm_increase	A	2E-9	[0.59-1.17]_cm_increase	Waist_circumference_and_related_phenotypes	MC4R	0.36	18454146	

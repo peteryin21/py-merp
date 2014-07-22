@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs766432	.23	unit_increase	C	1E-29	[NR]_unit_increase	Fetal_hemoglobin_levels	BCL11A	0.33	20018918	
+rs5006884	.16	unit_increase	A	3E-8	[NR]_unit_increase	Fetal_hemoglobin_levels	OR51B5,OR51B6	0.25	20018918	
+rs4910742	.58	s.d._decrease_in_HbF	A	1E-21	[NR]_s.d._decrease_in_HbF	Fetal_hemoglobin_levels	HBB	0.93	18245381	
+rs11886868	.48	s.d._decrease_in_HbF	T	7E-35	[NR]_s.d._decrease_in_HbF	Fetal_hemoglobin_levels	BCL11A	0.80	18245381	

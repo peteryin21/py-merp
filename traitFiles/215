@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1497406	.08	unit_decrease	T	4E-8	[0.051-0.105]_unit_decrease	Gamma_gluatamyl_transferase_levels	Intergenic	0.41	22010049	
+rs1169288	.13	unit_decrease	G	2E-18	[0.10-0.16]_unit_decrease	Gamma_gluatamyl_transferase_levels	HNF1A	0.31	22010049	
+rs944002	.13	unit_increase	G	5E-13	[0.094-0.164]_unit_increase	Gamma_gluatamyl_transferase_levels	C14orf73	0.22	22010049	
+rs340005	.08	unit_decrease	G	2E-8	[0.055-0.113]_unit_decrease	Gamma_gluatamyl_transferase_levels	RORA	0.36	22010049	

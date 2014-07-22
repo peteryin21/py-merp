@@ -1,0 +1,17 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs7747752	.05	%_decrease	C	1E-11	[NR]_%_decrease	Glycated_hemoglobin_levels	CDKAL1	0.53	22290723	
+rs2779116	.02	%_increase	T	3E-9	[0.01-0.03]_%_increase	Glycated_hemoglobin_levels	SPTA1	0.27	20858683	
+rs552976	.05	%_increase	G	8E-18	[0.04-0.06]_%_increase	Glycated_hemoglobin_levels	G6PC2,ABCB11	0.64	20858683	
+rs1800562	.06	%_increase	G	3E-20	[0.05-0.07]_%_increase	Glycated_hemoglobin_levels	HFE	0.94	20858683	
+rs1799884	.04	%_increase	T	1E-20	[0.03-0.05]_%_increase	Glycated_hemoglobin_levels	GCK	0.18	20858683	
+rs4737009	.03	%_increase	A	6E-12	[0.02-0.04]_%_increase	Glycated_hemoglobin_levels	ANK1	0.24	20858683	
+rs16926246	.09	%_increase	C	3E-54	[0.08-0.10]_%_increase	Glycated_hemoglobin_levels	HK1	0.90	20858683	
+rs1387153	.03	%_increase	T	4E-11	[0.02-0.04]_%_increase	Glycated_hemoglobin_levels	MTNR1B	0.28	20858683	
+rs7998202	.03	%_increase	G	5E-9	[0.02-0.04]_%_increase	Glycated_hemoglobin_levels	ATP11A,TUBGCP3	0.14	20858683	
+rs1046896	.04	%_increase	T	2E-26	[0.03-0.05]_%_increase	Glycated_hemoglobin_levels	FN3K	0.31	20858683	
+rs855791	.03	%_increase	A	3E-14	[0.02-0.04]_%_increase	Glycated_hemoglobin_levels	TMPRSS6	0.42	20858683	
+rs6474359	.06	%_increase	T	1E-8	[0.04-0.08]_%_increase	Glycated_hemoglobin_levels	ANK1	0.97	20858683	
+rs7072268	.05	%_increase	A	2E-25	[NR]_%_increase	Glycated_hemoglobin_levels	HK1	0.50	19096518	
+rs1402837	.02	%_increase	A	5E-10	[NR]_%_increase	Glycated_hemoglobin_levels	G6PC2	0.23	19096518	
+rs730497	.03	%_increase	A	6E-12	[NR]_%_increase	Glycated_hemoglobin_levels	GCK	0.17	19096518	
+rs13266634	.02	%_decrease	A	5E-8	[NR]_%_decrease	Glycated_hemoglobin_levels	SLC30A8	0.30	19096518	

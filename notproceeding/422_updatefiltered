@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9877502	.05	unit_increase	G	A	5E-9	[NR]_unit_increase	Alzheimer's_disease_biomarkers	SNAR-I,GEMC1,OSTNIL1-RAP,UTS2D,CCDC50	NR	23562540
+rs514716	-0.07	unit_decrease	A	G	3E-9	[NR]_unit_decrease	Alzheimer's_disease_biomarkers	GLIS3	NR	23562540
+rs6922617	-0.09	unit_decrease	G	A	4E-8	[NR]_unit_decrease	Alzheimer's_disease_biomarkers	NCR2,TREM	NR	23562540

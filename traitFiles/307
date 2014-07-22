@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs12279250	28.20	mg/dL_increase	C	7E-9	[18.67-37.73]_mg/dL_increase	Thiazide-induced_adverse_metabolic_effects_in_hypertensive_patients	NELL-1	0.15	23400010	

@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs10930597	3.20	mmHg_decrease	T	4E-8	[2.06-4.34]_mmHg_decrease	Blood_pressure_measurement_(high_sodium_and_potassium_intervention)	CDCA7	0.05	24165912	
+rs11887188	3.28	mmHg_decrease	T	2E-8	[2.14-4.42]_mmHg_decrease	Blood_pressure_measurement_(high_sodium_and_potassium_intervention)	ARL4C	0.03	24165912	
+rs2030114	3.14	mmHg_decrease	A	7E-13	[2.28-4.00]_mmHg_decrease	Blood_pressure_measurement_(high_sodium_and_potassium_intervention)	SALL1	0.01	24165912	
+rs10930597	3.48	mmHg_decrease	T	1E-8	[2.28-4.68]_mmHg_decrease	Blood_pressure_measurement_(high_sodium_and_potassium_intervention)	CDCA7	0.05	24165912	
+rs16890334	5.38	mmHg_decrease	C	1E-10	[3.73-7.03]_mmHg_decrease	Blood_pressure_measurement_(high_sodium_and_potassium_intervention)	IRAK1BP1	0.06	24165912	

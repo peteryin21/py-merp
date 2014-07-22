@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs10189857,_rs6545816,_rs6545817,_rs1427407,_rs7599488,_rs1896294,_rs766432,_rs11886868,_rs10195871,_rs10172646,_rs4671393,_rs7584113,_rs7557939,_rs6706648,_rs6738440,_rs7565301,_rs6729815,_rs1896295,_rs1896296,_rs7606173	1.98	unit_increase	S	2E-16	[1.57-2.39]_unit_increase	F-cell_distribution	BCL11A	0.254	21326311	

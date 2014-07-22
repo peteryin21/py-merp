@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs6943555	.01	unit_decrease	A	4E-8	[-0.003-0.028]_unit_decrease	Alcohol_consumption	AUTS2	0.24	21471458	
+rs2074356	1.06	unit_decrease	T	9E-59	[0.94-1.18]_unit_decrease	Alcohol_consumption	C12orf51,ALDH2	0.15	21270382	
+rs12229654	.79	unit_decrease	G	4E-35	[0.67-0.91]_unit_decrease	Alcohol_consumption	MYL2	0.14	21270382	
+rs10849915	.55	unit_decrease	G	1E-23	[0.45-0.65]_unit_decrease	Alcohol_consumption	CCDC63	0.18	21270382	
+rs2072134	.61	unit_decrease	A	6E-17	[0.49-0.73]_unit_decrease	Alcohol_consumption	OAS3	0.11	21270382	

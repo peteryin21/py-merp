@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9652490	1.55	[NR]	G	1E-9	[1.35-1.79]	Essential_tremor	LINGO1	0.23	19182806	

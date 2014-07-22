@@ -1,0 +1,13 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2300478	1.68	[NR]	G	3E-49	[1.57-1.81]	Restless_legs_syndrome	MEIS1	0.24	21779176	
+rs9357271	1.47	[NR]	T	8E-22	[1.35-1.47]	Restless_legs_syndrome	BTBD9	0.76	21779176	
+rs1975197	1.29	[NR]	A	3E-10	[1.19-1.40]	Restless_legs_syndrome	PTPRD	0.16	21779176	
+rs12593813	1.41	[NR]	G	1E-22	[1.32-1.52]	Restless_legs_syndrome	MAP2K5,SKOR1	0.68	21779176	
+rs6747972	1.23	[NR]	A	9E-11	[1.16-1.31]	Restless_legs_syndrome	Intergenic	0.44	21779176	
+rs3104767	1.35	[NR]	G	9E-19	[1.27-1.43]	Restless_legs_syndrome	TOX3,BC034767	0.58	21779176	
+rs1975197	1.31	[NR]	T	6E-9	[1.20-1.44]	Restless_legs_syndrome	PTPRD	0.16	18660810	
+rs4626664	1.44	[NR]	A	6E-10	[1.31-1.59]	Restless_legs_syndrome	PTPRD	0.12	18660810	
+rs3923809	1.90	[NR]	A	1E-17	[1.50-2.20]	Restless_legs_syndrome	BTBD9	0.66	17634447	
+rs2300478	1.74	[NR]	G	3E-28	[1.57-1.92]	Restless_legs_syndrome	MEIS1	0.24	17637780	
+rs9296249	1.67	[NR]	T	4E-18	[1.49-1.89]	Restless_legs_syndrome	BTBD9	0.76	17637780	
+rs12593813	1.50	[NR]	G	1E-15	[1.36-1.66]	Restless_legs_syndrome	MAP2K5,LBXCOR1	0.67	17637780	

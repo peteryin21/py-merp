@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs12917707	1.25	[NR]	G	2E-12	[1.18-1.33]	Renal_function_and_chronic_kidney_disease	UMOD	0.82	19430482	
+rs17319721	.01	ml/min/1.73m2_decrease	A	1E-12	[0.008-0.016]_ml/min/1.73m2_decrease	Renal_function_and_chronic_kidney_disease	SHROOM3	0.44	19430482	
+rs2467853	.01	ml/min/1.73m2_decrease	G	6E-14	[0.009-0.017]_ml/min/1.73m2_decrease	Renal_function_and_chronic_kidney_disease	SPATA5L1,GATM	0.38	19430482	
+rs12917707	.02	ml/min/1.73m2_increase	T	5E-16	[0.014-0.022]_ml/min/1.73m2_increase	Renal_function_and_chronic_kidney_disease	UMOD	0.18	19430482	

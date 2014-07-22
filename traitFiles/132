@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs13191343	2.37	[NR]	T	2E-72	[2.16-2.61]	Psoriatic_arthritis	HLA-C	0.13	20953186	
+rs12188300	1.70	[NR]	T	7E-17	[1.50-1.93]	Psoriatic_arthritis	IL12B	0.08	20953186	
+rs33980500	1.95	[NR]	T	1E-20	[1.69-2.24]	Psoriatic_arthritis	TRAF3IP2	0.07	20953186	

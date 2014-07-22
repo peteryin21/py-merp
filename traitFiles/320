@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs11212617	1.35	[NR]	C	3E-9	[1.22-1.49]	Response_to_metformin_in_type_2_diabetes_(glycemic)	ATM,C111orf65	0.44	21186350	

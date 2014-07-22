@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs780094	NR	[NR]	C	4E-20	[NR]	Fasting_insulin-related_traits	GCKR	0.62	20081858	
+rs780094	NR	[NR]	C	3E-24	[NR]	Fasting_insulin-related_traits	GCKR	0.62	20081858	
+rs35767	NR	[NR]	G	3E-8	[NR]	Fasting_insulin-related_traits	IGF1	0.85	20081858	
+rs35767	NR	[NR]	G	2E-9	[NR]	Fasting_insulin-related_traits	IGF1	0.85	20081858	

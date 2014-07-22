@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1330225	5.48	mmHg_decrease	C	1E-8	[3.60-7.36]_mmHg_decrease	Blood_pressure_measurement_(low_sodium_intervention)	PRMT6	0.01	24165912	
+rs1330225	5.16	mmHg_decrease	C	7E-9	[3.42-6.90]_mmHg_decrease	Blood_pressure_measurement_(low_sodium_intervention)	PRMT6	0.01	24165912	
+rs10930597	3.37	mmHg_decrease	T	4E-8	[2.17-4.57]_mmHg_decrease	Blood_pressure_measurement_(low_sodium_intervention)	CDCA7	0.05	24165912	
+rs8002688	2.04	mmHg_increase	T	2E-9	[1.37-2.71]_mmHg_increase	Blood_pressure_measurement_(low_sodium_intervention)	PIBF1	0.04	24165912	

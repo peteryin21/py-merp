@@ -1,0 +1,8 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs6759952	1.25	[NR]	T	6E-10	[1.16-1.34]	Thyroid_cancer	DIRC3	0.43	23894154	
+rs965513	1.78	[NR]	A	3E-10	[NR]	Thyroid_cancer	FOXE1	NR	23894154	
+rs966423	1.34	[NR]	C	1E-9	[1.22-1.47]	Thyroid_cancer	DIRC3	0.442	22267200	
+rs2439302	1.36	[NR]	G	2E-9	[1.23-1.50]	Thyroid_cancer	NRG1	0.351	22267200	
+rs116909374	2.09	[NR]	T	5E-11	[1.68-2.60]	Thyroid_cancer	MBIP	0.017	22267200	
+rs965513	1.75	[NR]	A	2E-27	[1.59-1.94]	Thyroid_cancer	FOXE1	0.34	19198613	
+rs944289	1.37	[NR]	T	2E-9	[1.24-1.52]	Thyroid_cancer	NKX2-1	0.57	19198613	

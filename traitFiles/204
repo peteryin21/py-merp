@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2131877	1.30	[NR]	G	2E-8	[1.19-1.42]	Non-small_cell_lung_cancer	C3orf21	0.44	20876614	

@@ -1,0 +1,11 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2036527	.04	unit_increase	A	2E-8	[0.026-0.054]_unit_increase	Smoking_behavior	CHRNA5	0.22	22832964	
+rs1051730	.08	unit_decrease	G	2E-66	[0.07-0.09]_unit_decrease	Smoking_behavior	CHRNA5,CHRNA3	0.66	20418889	
+rs1051730	1.02	CPD_decrease	G	3E-73	[0.91-1.13]_CPD_decrease	Smoking_behavior	CHRNA3	0.65	20418890	
+rs1329650	.37	CPD_decrease	T	6E-10	[0.25-0.49]_CPD_decrease	Smoking_behavior	LOC100188947	0.28	20418890	
+rs3733829	.33	CPD_increase	G	1E-8	[0.22-0.44]_CPD_increase	Smoking_behavior	CYP2A6,EGLN2	0.36	20418890	
+rs6265	1.06	[NR]	C	2E-8	[1.04-1.08]	Smoking_behavior	BDNF	0.79	20418890	
+rs3025343	1.12	[NR]	G	4E-8	[1.08-1.18]	Smoking_behavior	DBH	0.84	20418890	
+rs1051730	.80	CPD_increase	A	2E-69	[0.70-0.90]_CPD_increase	Smoking_behavior	NR	0.34	20418888	
+rs6474412	.29	CPD_increase	T	1E-8	[0.19-0.39]_CPD_increase	Smoking_behavior	CHRNB3,CHRNA6	0.78	20418888	
+rs4105144	.39	CPD_increase	C	2E-12	[0.27-0.51]_CPD_increase	Smoking_behavior	CYP2A6,RAB4D	0.70	20418888	

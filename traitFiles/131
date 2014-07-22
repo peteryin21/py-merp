@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs8093763	.18	more_chromatid_breaks	A	3E-8	[0.12-0.24]_more_chromatid_breaks	Bleomycin_sensitivity	PMAIP,Noxa	0.25	21106707	

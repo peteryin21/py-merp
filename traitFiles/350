@@ -1,0 +1,9 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs13702	.29	unit_increase	A	1E-16	[0.23-0.35]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	LPL	NR	21386085	
+rs173539	.26	unit_increase	C	5E-16	[0.20-0.32]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	CETP	NR	21386085	
+rs10790162	.38	unit_increase	A	3E-15	[0.28-0.48]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	BUD13	NR	21386085	
+rs2075290	.39	unit_increase	C	2E-14	[0.29-0.49]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	ZNF259	NR	21386085	
+rs2266788	.39	unit_increase	C	5E-13	[0.29-0.49]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	APOA5	NR	21386085	
+rs2954026	.16	unit_decrease	G	8E-9	[0.10-0.22]_unit_decrease	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	TRIB1	NR	21386085	
+rs439401	.24	unit_increase	C	1E-8	[0.16-0.32]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	LOC100129500	NR	21386085	
+rs9987289	.25	unit_increase	A	1E-8	[0.17-0.33]_unit_increase	HDL_Cholesterol_-_Triglycerides_(HDLC-TG)	LOC100129150	NR	21386085	
