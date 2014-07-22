@@ -218,7 +218,7 @@ class Merp():
 
     def trait_included(self,trait,include_list):
         for e in include_list:
-            if e in trait:
+            if e.lower() in trait.lower():
                 return True
         return False
 
@@ -301,7 +301,7 @@ class Merp():
             print "File successfully filtered. Final filtered file can be found at" + trait_file +"filtered"
         return 0
 
-    def filter(self,trait_file,include_file,exclude_file):
+    def filter(self,trait_file,include_file,exclude_file,out=False):
         if "update" not in trait_file:
             print "Warning: check to make sure you are using the updated file tagged with '_update' if using the pipeline"
             return
@@ -454,14 +454,20 @@ class Merp():
 
 
         snp_nhgri_dict = {}
+        pdb.set_trace()
         for snp in snp_list:
-            try:
+            if snp in nhgri_dict.keys():
                 list_of_traits = nhgri_dict[snp]
                 snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,include_list,list_of_traits)  
-            except:
-                print snp + " has format issues in NHGRI catalog, tossing out"
+            elif out==False:
+                print snp + " is not found in NHGRI catalog. If you want you are bringing outside SNPs into filter, please add out=True as argument"
                 snp_nhgri_dict[snp] = False
                 pass
+            elif out == True:
+                print snp + " is not in NHGRI catalog but kept in because out=True. Please be cautious for confounding."
+
+
+
         print '\n'
         ####NHGRI PORTION END#######
                 
@@ -500,11 +506,11 @@ class Merp():
         #           replace_dict[orig] = replacement
         #       else:
         #           print orig + " is repeated in replacement text file"
-        #           pass                
+        #           pass     
         for line in pval_lines:
+            mod_line = line.rstrip('\n').split(' ')
             rs = mod_line[0]
             if rs in snp_list:
-                mod_line = line.rstrip('\n').split(' ')
                 count_p1 = 0
                 count_p2 = 0
                 for e in mod_line[3:]:
@@ -546,7 +552,7 @@ class Merp():
         for snp in snp_list:
             if snp not in dict_snp.keys():
                 no_pval_snps[snp] = []
-
+        #pdb.set_trace()
         #Calculate total number of significant assoc (<0.05)
         num_sig = 0
         trait_handle = file(trait_file,"r")
@@ -578,8 +584,10 @@ class Merp():
             if snp not in pval_dict:
                 pval_dict[snp] = p
             else:
+                '''Repeating SNPs handling'''
+
                 p_new = p
-                #replace p only if more significantkjgkjhgkjhgkjhgkjhgkjhgk
+                #replace p only if more sig?
                 if float(p_new) < float(pval_dict[snp]):
                     pval_dict[snp] = p_new
                 if snp not in repeated_snps:
@@ -587,6 +595,8 @@ class Merp():
         trait_handle.close()
 
         #Go through and rewrite traitfile without repeating snps
+
+        '''Repeating SNPs handling'''
         trait_handle = file(trait_file,"r")
         trait_lines = trait_handle.readlines()
         header = trait_lines[0]
@@ -724,7 +734,6 @@ class Merp():
                                         pass
 
         for snp in not_in_ld:
-
             for key in index_dict.keys():
                 if snp==key: #test
                     not_in_ld.remove(snp)
@@ -857,11 +866,11 @@ class Merp():
             if snp in snps_to_write:
                 updated_handle.write(line)
                 '''Do we really not care about SNPs not in LD data?'''
-            # if snp in non_assoc_snps:
-            #   updated_handle.write("**Need to check if violating, repeated in file??**" + line)
-        #DGAF about them snps not in ld anymore
-        # for snp in not_in_ld:
-        #   updated_handle.write(snp + " ---Not in LD Data---" + '\n')
+            if snp in not_in_ld:
+                print snp + ' is not in LD data search for 1000genomes or Hm22. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
+                updated_handle.write('---Not in LD Data---' + line)
+
+
 
         os.remove(trait_file+"_abr_temp")
         abr_trait_handle.close()

@@ -1,3 +1,5 @@
-PR interval
+blood pressure
+systolic
+diastloc
+hypertension
 QRS duration
-Brugada syndrome
