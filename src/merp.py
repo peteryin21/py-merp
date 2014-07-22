@@ -502,32 +502,31 @@ class Merp():
         #           print orig + " is repeated in replacement text file"
         #           pass                
         for line in pval_lines:
-            mod_line = line.rstrip('\n').split(' ')
             rs = mod_line[0]
-            count_p1 = 0
-            count_p2 = 0
-            '''Make height assoc all = 1 to remove from association b/c too unrelated'''
-            #mod_line[9] = 1
-            for e in mod_line[3:]:
-                if mod_line.index(e) in excluded_index:
-                    continue
-                if float(e) <= pmax1:
-                    count_p1 = count_p1 + 1
-                if float(e) <= pmax2:
-                    count_p2 = count_p2 + 1
+            if rs in snp_list:
+                mod_line = line.rstrip('\n').split(' ')
+                count_p1 = 0
+                count_p2 = 0
+                for e in mod_line[3:]:
+                    if mod_line.index(e) in excluded_index:
+                        continue
+                    if float(e) <= pmax1:
+                        count_p1 = count_p1 + 1
+                    if float(e) <= pmax2:
+                        count_p2 = count_p2 + 1
             # count_p1 = count_p1 - correction_num
             # count_p2 = count_p2 - correction_num
             #only add to dict if rs in trait file
-            if rs not in dict_snp.keys() and rs in snp_list: 
-                #first compare true count to modified threshold then change count to modified count if trait_related is true
-                if count_p1 <= threshold1:
-                    if count_p2 <= threshold2:
-                        #if trait in pval file, subtract 1 from count of number of sig associations
-                        dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                if rs not in dict_snp.keys(): 
+                    #first compare true count to modified threshold then change count to modified count if trait_related is true
+                    if count_p1 <= threshold1:
+                        if count_p2 <= threshold2:
+                            #if trait in pval file, subtract 1 from count of number of sig associations
+                            dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                        else:
+                            dict_snp[rs] = [False, count_p1]
                     else:
                         dict_snp[rs] = [False, count_p1]
-                else:
-                    dict_snp[rs] = [False, count_p1]
             
             '''Replacement pval code'''
             # elif rs in replace_dict.keys():
