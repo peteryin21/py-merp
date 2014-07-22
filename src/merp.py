@@ -302,31 +302,32 @@ class Merp():
         return 0
 
     def filter(self,trait_file,include_file,exclude_file,out=False):
+ 
+        '''Metabolic Association Paramters'''
+        #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
+        pmax1 = 0.01
+        threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
+        #pmax 2: if a SNP has more than threshold2 (usually 0) associations of pmax2, SNP excluded.
+        pmax2 = 0.001
+        threshold2 = 0 # No SNP can have a metabolic p association of less than .001
+
+        '''LD Parameters'''
+        #SNPs with R^2 value > rsq_threshold are clustered together, with only lead SNP passing on.
+        rsq_threshold = 0.05
+
+        '''Metabolic Association Iteration Step'''
+        #If number of total pmax1 violations exceeds max_fraction * total number of tests, then cut SNPS until below max_fraction of tests.
+        max_fraction = 0.05
+
+
+
+
+
         if "update" not in trait_file:
             print "Warning: check to make sure you are using the updated file tagged with '_update' if using the pipeline"
             return
         if not Merp.file_checker(self,trait_file):
             return
-        #Paramters
-        #Filtering for associations in allmetabolic pval file
-        #pmax 1:if weaker association, if a SNP has more than threshold1 with p<pmax1, SNP excluded.
-        pmax1 = 0.01
-        threshold1 = 3 #4 or more are taken out
-        #pmax 2: if there is even one strong association of pmax2, SNP excluded.
-        pmax2 = 0.001
-        threshold2 = 0 # None can be less than .001
-
-        ###LD filtering####
-        #SNPs with R^2 value > rsq_threshold are clustered together, with only lead SNP passing on.
-        rsq_threshold = 0.05
-
-
-        ##Pval iteration###
-        #If number of total pmax1 violations exceeds max_fraction * total number of tests, then cut SNPS until below max_fraction of tests.
-        max_fraction = 0.05
-        #0.05
-
-
 
         include_list = []
         exclude_list = []
@@ -454,7 +455,6 @@ class Merp():
 
 
         snp_nhgri_dict = {}
-        pdb.set_trace()
         for snp in snp_list:
             if snp in nhgri_dict.keys():
                 list_of_traits = nhgri_dict[snp]
@@ -686,7 +686,9 @@ class Merp():
                 if len(line_list) != 1:
                     snp = line_list[0]
                     proxy = line_list[1]
+                    #key difference
                     if snp in not_in_ld:
+
                         if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
                             if "Query snp not in" in line_list[2]: 
                                 if snp not in not_in_ld:
@@ -748,33 +750,34 @@ class Merp():
             line_list = line.split('\t')
             snp = line_list[0]
             p = line_list[5]
-            if snp in not_in_ld:
-                pass
-            elif snp in index_dict.keys():
-                index = index_dict[snp]
-                assoc_list = cluster_dict.get(index)
-                sig_rs = Merp.most_sig(self,assoc_list,pval_dict)
+            if snp not in not_in_ld:
+                if snp in index_dict.keys():
+                    index = index_dict[snp]
+                    assoc_list = cluster_dict.get(index)
+                    sig_rs = Merp.most_sig(self,assoc_list,pval_dict)
+                    most_sig_cluster[index] = sig_rs
+                    '''Check this'''
+                    #if snp not in pval, then look for one that is in pval and replace? Or just let it be?
 
-                most_sig_cluster[index] = sig_rs
-                '''Check this'''
-                #Case where most sig snp not found in pval file
-                # case = False
-                # pdb.set_trace()
-                # while case == False:
-                #   if sig_rs not in dict_snp.keys():
-                #       sig_rs = most_sig(assoc_list.remove(sig_rs))
-                #   if sig_rs in dict_snp.keys():
-                #       case == True
+                    #Case where most sig snp not found in pval file
+                    # case = False
+                    # pdb.set_trace()
+                    # while case == False:
+                    #   if sig_rs not in dict_snp.keys():
+                    #       sig_rs = most_sig(assoc_list.remove(sig_rs))
+                    #   if sig_rs in dict_snp.keys():
+                    #       case == True
 
-                # if case == False:
-                #   pass
+                    # if case == False:
+                    #   pass
+                    '''eventually delete'''
+                    if len(assoc_list) > 1:
+                        print sig_rs + " is the most sig out of cluster " + str(index) + ": "
+                        for snp in assoc_list:
+                            print snp 
+                    else:
+                        print sig_rs + " is the only member of its cluster"
 
-
-
-
-
-                '''eventually delete'''
-                print sig_rs + " is the most sig out of cluster " + str(index)
         abr_trait_handle.close()
         for key in most_sig_cluster.keys():
             snp = most_sig_cluster[key]
@@ -824,7 +827,6 @@ class Merp():
             ''' If snp is not in pval file, keep in and put warning'''
             if snp in no_pval_snps.keys():
                 print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
-
                 cluster_status[snp] = True
 
         threshold_met = False
@@ -870,12 +872,13 @@ class Merp():
                 print snp + ' is not in LD data search for 1000genomes or Hm22. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
                 updated_handle.write('---Not in LD Data---' + line)
 
-
+        if len(snps_to_write) == 0:
+            updated_handle.write('\n' + 'Oh no! It seems as if all SNPs have been filtered out. Check the your pval_ignore.txt and nhgri_ignore.txt to make sure you are ignoring related traits in NHGRI catalog and metabolic pval file. See documentation at py-merp.github.io for more info.' + '\n' + 'If you believe our filtering algorithm is too selective, feel free to modify the paramters for pval threshold1, pval threshold2 and r^2 thresholds found at the top of the filter function in src/merp.py. Reinstall after editing.')
 
         os.remove(trait_file+"_abr_temp")
         abr_trait_handle.close()
 
-        Merp.unit_checker(self,trait_file)
+        Merp.unit_checker(self,trait_file + "filtered")
 
         #If A and B are both in dict 1 and significant assoc, change b index to A's in dict 2, add B and all clusters with B
         # to index of A's cluster list and remove index of B's entry of cluster lists.
@@ -893,7 +896,7 @@ class Merp():
             header = header.split('\t')
             if "rs" not in header[0].lower() or "beta" not in header[1].lower() or "unit" not in header[2].lower() or "non-risk_allele" not in header[3].lower() or "risk_allele" not in header[4].lower():
                 print "Header incorrectly formatted. Please make sure your file is formatted in the following manner:" + '\n' + "SNPrsID   Beta/OR Units   Non-Risk_Allele    Risk_Allele . . . ."
-                return
+                return False
             for line in lines[1:]:
                 entry = line.split('\t')
                 if len(entry) <=1:
@@ -916,9 +919,22 @@ class Merp():
                 if risk not in nuc:
                     print risk  +" is not a valid Non-Risk Allele entry. Please use A, T, G or C"
                     return False
-            print "File format check PASSED!"
+            print "Trait File correctly formatted . . ."
             return True
 
+    def dis_file_checker(self,disease_file):
+        nuc = ['A','T','G','C']
+        with open(disease_file,"r") as infile:
+            lines = infile.readlines()
+            header = lines[0]
+            #may change this to tabs
+            header = header.split(' ')
+            if "rs" not in header[0].lower() or "allele1" not in header[1].lower() or "effallele" not in header[2].lower() or "lnor" not in header[3].lower() or "lnse" not in header[4].lower():
+                print "Header incorrectly formatted. Please make sure your disease file is formatted in the following manner:" + '\n' + "name allele1 effallele lnOR_FE lnSE_FE . . . ."
+                return False
+
+            print "Header of disease file is correctly formatted . . ."
+            return True
 
 
 
@@ -951,6 +967,8 @@ class Merp():
         dis_lnse_index = 4
 
         if not Merp.file_checker(self,trait_file):
+            return
+        if not Merp.dis_file_checker(self,disease_file):
             return
         print 'Calculating effect now . . .'
 

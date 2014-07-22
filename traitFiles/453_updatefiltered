@@ -7,7 +7,7 @@ rs1173771	.50	mmHg_increase	A	G	2E-16	[NR]_mmHg_increase	Systolic_blood_pressure
 rs932764	.48	mmHg_increase	A	G	7E-16	[NR]_mmHg_increase	Systolic_blood_pressure	PLCE1	0.44	21909115
 rs419076	.41	mmHg_increase	C	T	2E-13	[NR]_mmHg_increase	Systolic_blood_pressure	MECOM	0.47	21909115
 rs7129220	-0.62	mmHg_decrease	A	G	3E-12	[NR]_mmHg_decrease	Systolic_blood_pressure	ADM	0.89	21909115
-rs805303	.38	mmHg_increase	A	G	2E-11	[NR]_mmHg_increase	Systolic_blood_pressure	BAT2,BAT5	0.61	21909115
+---Not in LD Data---rs805303	.38	mmHg_increase	A	G	2E-11	[NR]_mmHg_increase	Systolic_blood_pressure	BAT2,BAT5	0.61	21909115
 rs11953630	-0.41	mmHg_decrease	C	T	3E-11	[NR]_mmHg_decrease	Systolic_blood_pressure	EBF1	0.37	21909115
 rs4373814	-0.37	mmHg_decrease	C	G	5E-11	[NR]_mmHg_decrease	Systolic_blood_pressure	CACNB2	0.55	21909115
 rs17608766	-0.56	mmHg_decrease	C	T	1E-10	[NR]_mmHg_decrease	Systolic_blood_pressure	GOSR2	0.86	21909115
