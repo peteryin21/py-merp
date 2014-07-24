@@ -1,6 +1,6 @@
 
 m.pull()
-m.update('traitFiles/461')
+m.update('traitFiles/461') 
 m.filter('traitFiles/453_update','nhgri_similar.txt','pval_similar.txt')
 
 import merp 
@@ -9,8 +9,8 @@ m.mr_calc('traitFiles/461_updatefiltered2','data/cardio.txt')
 
 import merp 
 m = merp.Merp()
-m.filter('traitFiles/453_update','nhgri_similar.txt','pval_similar.txt')
-m.calc('traitFiles/453_updatefiltered','bin/newt2d.txt')
+m.filter('traitFiles/1_update','nhgri_similar.txt','pval_similar.txt')
+m.calc('traitFiles/1_updatefiltered','bin/newcardio.txt')
 
 import merp 
 m = merp.Merp()

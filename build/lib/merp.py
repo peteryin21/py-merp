@@ -237,8 +237,12 @@ class Merp():
 
     def most_sig(self,snp_list,pval_dict):
         sig_snp = snp_list[0]
+        #change this so it also uses which_repeat? 
         for e in snp_list:
-            if float(pval_dict[e]) <= float(pval_dict[sig_snp]):
+            #handle super small numbers
+            if float(pval_dict[e]) == 0.0:
+                sig_snp = e
+            elif float(math.log(float(pval_dict[e]))) <= float(math.log(float(pval_dict[sig_snp]))):
                 sig_snp = e
         return sig_snp
 
@@ -253,7 +257,7 @@ class Merp():
     #     return count
     #Help function takes dictionary and cutoff and turns all keys with num_sig greater/= to cutoff to false
     #Then returns number of sig
-    def dict_purge_count(self,d,cluster_d,cut,old_num_sig):
+    def dict_purge_count(self,d,cluster_d,cut,old_num_sig,pmax1):
         #pdb.set_trace()
         return_sig = 0
         for key in d:
@@ -277,7 +281,7 @@ class Merp():
         #           if cluster_d[key] == True: 
         #               return_sig = return_sig + d[snp][1]
 
-        print str(return_sig) + "is new number of total p <" + threshold1 +" assoc with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
+        print str(return_sig) + "is new number of total p <" + str(pmax1) +" assoc with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
         return return_sig
 
     def unit_checker(self,trait_file):
@@ -304,12 +308,39 @@ class Merp():
         else:
             print "File successfully filtered. Final filtered file can be found as " + trait_file 
         return 0
+    def which_repeat(self,snp,p,pid,unit,unit_counter,pid_counter,pval_dict,repeat_to_write,line):
+        if snp not in repeat_to_write.keys():
+            repeat_to_write[snp] = [line,p,pid,unit]
+        else:
+            '''If repeated, choose SNP that has more common units, more common PubMedID, or lower p-value if all else is same'''
+            prev_unit = repeat_to_write[snp][3]
+            #compare freq of units in traitfile
+            if unit_counter[unit] > unit_counter[prev_unit]:
+                repeat_to_write[snp] = [line,p,pid,unit]
+            #if equal then compre pid
+            elif unit_counter[unit] == unit_counter[prev_unit]:
+                prev_pid = repeat_to_write[snp][2]
+                if pid_counter[pid] > pid_counter[prev_pid]:
+                    repeat_to_write[snp] =[line,p,pid,unit]
+                #if pid freq equal then look at p values
+                elif pid_counter[pid] == pid_counter[prev_pid]:
+                    if float(repeat_to_write[snp][1]) == 0.0:
+                        pass
+                    elif float(p) == 0.0:
+                        repeat_to_write[snp] =[line,p,pid,unit]
+                    elif math.log(float(p)) < math.log(float(repeat_to_write[snp][1])):
+                        repeat_to_write[snp] =[line,p,pid,unit]
+                        #if all equal up to now/new snp has fewer freq unit/pid then use the snp existing
+
+
+
+
 
     def filter(self,trait_file,include_file,exclude_file,out=False):
  
         '''Metabolic Association Paramters'''
         #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
-        pmax1 = 0.01
+        pmax1 = 0.05
         threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
         #pmax 2: if a SNP has more than threshold2 (usually 0) associations of pmax2, SNP excluded.
         pmax2 = 0.001
@@ -431,15 +462,19 @@ class Merp():
         ##Creates dictionary nhgri_dict mapping SNP rs# to list of traits it's associated with##
         ##Creates dictionary snp_nhgri_dict mapping snp to true if it passes nhgri test and false if not##
 
-        trait_handle = file(trait_file,"r")
-        trait_lines = trait_handle.readlines()
+        # trait_handle = file(trait_file,"r")
+        # trait_lines = trait_handle.readlines()
         snp_list = []
-        for line in trait_lines[1:]:
-            line_list = line.rstrip('\n').split('\t')
-            snp = line_list[0]
-            if snp not in snp_list:
-                snp_list.append(snp)
-        trait_handle.close()
+        with open(trait_file,"r") as f:
+            # trait_lines = trait_handle.readlines()
+            trait_lines = f.readlines()
+
+            for line in trait_lines[1:]:
+                line_list = line.rstrip('\n').split('\t')
+                snp = line_list[0]
+                if snp not in snp_list:
+                    snp_list.append(snp)
+        # trait_handle.close()
         print str(len(snp_list)) + " is number of unique SNPs in the IVF entering the filter . . ."
         nhgri_handle = file(nhgri_file, "r")
         nhgri_lines = nhgri_handle.readlines()
@@ -608,52 +643,92 @@ class Merp():
         '''LD PORTION BEGIN'''
 
         trait_handle = file(trait_file,"r")
+        # trait_lines = f.readlines()
         pval_dict = {}
         repeated_snps = []
         trait_lines = trait_handle.readlines()
+        header = trait_lines[0]
+        unit_counter = {}
+        pid_counter = {}
         for line in trait_lines[1:]:
             line_list = line.rstrip('\n').split('\t')
             snp = line_list[0]
             p = line_list[5]
+            unit = line_list[2].lower()
+            unit_tags = ["decrease","lower","shorter","less","more","increase","higher","taller","greater"]
+            for tag in unit_tags:
+                if tag in unit:
+                    unit = unit.replace(tag,"*")
+            pubmed = line_list[10].rstrip('\n')
+            if unit not in unit_counter:
+                unit_counter[unit] = 1
+            else:
+                unit_counter[unit]+=1
+
+            if pubmed not in pid_counter:
+                pid_counter[pubmed] = 1
+            else:
+                pid_counter[pubmed]+=1
+
             if snp not in pval_dict:
                 pval_dict[snp] = p
             else:
                 '''Repeating SNPs handling'''
-
-                p_new = p
-                #replace p only if more sig?
-                if float(p_new) < float(pval_dict[snp]):
-                    pval_dict[snp] = p_new
                 if snp not in repeated_snps:
                     repeated_snps.append(snp)
+                p_new = p
+                #replace p only if more sig?
+                if float(p_new) == 0.0:
+                    pval_dict[snp] = 0.0
+                if float(pval_dict[snp]) == 0.0:
+                    pval_dict[snp] = 0.0
+                elif float(math.log(float(p_new))) < float(math.log(float(pval_dict[snp]))):
+                    pval_dict[snp] = p_new
+                #else if equal or the new one has higher p, then keep as is
+                
         trait_handle.close()
 
         #Go through and rewrite traitfile without repeating snps
 
         '''Repeating SNPs handling'''
-        trait_handle = file(trait_file,"r")
-        trait_lines = trait_handle.readlines()
-        header = trait_lines[0]
-        abridged_trait_handle = file("./"+trait_file + "_abr_temp","w")
-        abridged_trait_handle.write(header)
-        for line in trait_lines[1:]:
-            line_list = line.split('\t')
-            snp = line_list[0]
-            p = line_list[5]
-            pid = line_list[10]
-            '''Here add something about excluding nhgri and pval bad ones''' 
-            #remove_snps contains snps that have violated NHGRI or pval test
-            if snp not in remove_snps.keys():
-                if snp not in repeated_snps:
-                    abridged_trait_handle.write(line)
-                else:
-                    if float(p) == float(pval_dict[snp]):
+        repeat_to_write = {}
+        with open(trait_file,"r") as f:
+            trait_lines = f.readlines()
+            header = trait_lines[0]
+        # trait_handle = file(trait_file,"r")
+        # trait_lines = trait_handle.readlines()
+        # header = trait_lines[0]
+            abridged_trait_handle = file("./"+trait_file + "_abr_temp","w")
+            abridged_trait_handle.write(header)
+            for line in trait_lines[1:]:
+                line_list = line.split('\t')
+                snp = line_list[0]
+                p = line_list[5]
+                pid = line_list[10].rstrip('\n')
+                unit = line_list[2].lower()
+                unit_tags = ["decrease","lower","shorter","less","more","increase","higher","taller","greater"]
+                for tag in unit_tags:
+                    if tag in unit:
+                        unit = unit.replace(tag,"*")
+                '''Here add something about excluding nhgri and pval bad ones''' 
+                #remove_snps contains snps that have violated NHGRI or pval test
+                if snp not in remove_snps.keys():
+                    if snp not in repeated_snps:
                         abridged_trait_handle.write(line)
-            else:
-                print snp + " excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
+                    else:
+                        
 
-        abridged_trait_handle.close()
-        trait_handle.close()
+                        Merp.which_repeat(self,snp,p,pid,unit,unit_counter,pid_counter,pval_dict,repeat_to_write,line)
+                            
+                        # if float(Math.log(p)) == float(Math.log(pval_dict[snp])):
+                        #     abridged_trait_handle.write(line)
+                else:
+                    print snp + " excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
+            for snp in repeat_to_write.keys():
+                #line is the first entry of value list in dict
+                abridged_trait_handle.write(repeat_to_write[snp][0])
+            abridged_trait_handle.close()
+        #trait_handle.close()
 
         ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
         #move this later down. Add a removal for loop over violating snps from pval or nhgri and remove from rs_list
@@ -948,7 +1023,7 @@ class Merp():
             elif float(new_num_sig) > max_fraction * num_tests:
                 #pdb.set_trace()
                 old_num_sig = new_num_sig
-                new_num_sig = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,old_num_sig)
+                new_num_sig = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,old_num_sig,pmax1)
                 cut = cut - 1
                 if cut < 0:
                     #print "Fatal error: cut below 0, consider having a higher cutoff threshold of violations or higher max_fraction "
