@@ -15,6 +15,11 @@ from pylab import *
 
 class Merp():
     def pull(self,keyword=""):
+        if keyword != "":
+            print "Generating IVFs for traits in NHGRI GWAS catalog related to " + keyword + " . . ."
+        else:
+            print "Generating IVFs for all traits in NHGRI GWAS catalog . . ."
+
         gwaswrite_handle = file('./data/finalgwas.txt', 'w')
         r = requests.get('http://www.genome.gov/admin/gwascatalog.txt')
         text = r.text
@@ -40,8 +45,6 @@ class Merp():
                         resultread_handle.write(entry_split[13]+'\t'+entry_split[7]+'\t'+entry_split[27]+'\t'+entry_split[30]+ '\t'+ entry_split[31] +'\t'+entry_split[21]+'\t'+allele+'\t'+entry_split[26]+'\t'+entry_split[1]+'\n')
                 except:
                     pass  
-
-
 
         resultread_handle.close()
         gwasread_handle.close()
@@ -119,6 +122,7 @@ class Merp():
             handle_index.write(str(counter)+'\t'+key+ '\t'+ str(snp_count) + " SNPs" + '\n')
             counter += 1
         handle_index.close()
+        print str(len(dict_trait.keys())) + " IVFs generated in /traitFiles"
 
     '''Helper for update'''
     def get_complement(self,nuc):
@@ -191,7 +195,9 @@ class Merp():
             if written == False:
                 write_handle.write(entry[0] + '\t' + entry[1] + '\t' + entry[2] + '\t'+ allele_entry+ '\t' + entry[3] + '\t' + entry[4] + '\t' + entry[5] + '\t' + entry[6]+ '\t' + entry[7]+ '\t' + entry[8]+ '\t' + entry[9] + '\n' )
         if not_in_genomes != "":
-            print not_in_genomes + "NON-RISK ALLELE NOT FOUND IN 1000GENOMES DATA FOR ABOVE SNPs FOR " + trait +  '.\n' +" PLEASE MANUALLY ENTER APPROPRIATE NUCLEOTIDE IN TEXT EDITOR USING OTHER RESOURCES OR DELETE SNP LINE " 
+
+            print "NON-RISK ALLELE NOT FOUND IN 1000GENOMES DATA FOR FOLLOWING SNPs FOR " + trait +  '.\n' +" PLEASE MANUALLY ENTER APPROPRIATE NUCLEOTIDE IN TEXT EDITOR USING OTHER RESOURCES OR DELETE SNP LINE: " 
+            print not_in_genomes
 
 
     def update(self,*traits):
@@ -222,11 +228,15 @@ class Merp():
                 return True
         return False
 
-    def nhgri_test(self,snp,include_list,list_of_traits,remove_snps):
+    def nhgri_test(self,snp,include_list,list_of_traits,remove_snps,nhgri_assoc):
         mark = True
         for trait in list_of_traits:
             if not Merp.trait_included(self,trait,include_list):
-                print snp + " has NHGRI catalog association with " + trait + " and is not exempt through nhgri_similar.txt. Throwing out."
+                if snp not in nhgri_assoc.keys():
+                    nhgri_assoc[snp] = [trait]
+                else:
+                    nhgri_assoc[snp].append(trait)
+                #print snp + " has NHGRI catalog association with " + trait + " and is not exempt through nhgri_similar.txt. Throwing out."
                 if snp not in remove_snps.keys():
                     remove_snps[snp] = []
                 
@@ -336,15 +346,15 @@ class Merp():
 
 
 
-    def filter(self,trait_file,include_file,exclude_file,out=False):
+    def filter(self,trait_file,include_file,exclude_file,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.05,out=False):
  
         '''Metabolic Association Paramters'''
         #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
-        pmax1 = 0.05
-        threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
+        # pmax1 = 0.05
+        # threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
         #pmax 2: if a SNP has more than threshold2 (usually 0) associations of pmax2, SNP excluded.
-        pmax2 = 0.001
-        threshold2 = 0 # No SNP can have a metabolic p association of less than .001
+        # pmax2 = 0.001
+        # threshold2 = 0 # No SNP can have a metabolic p association of less than .001
 
         '''LD Parameters'''
         #SNPs with R^2 value > rsq_threshold are clustered together, with only lead SNP passing on.
@@ -352,7 +362,7 @@ class Merp():
 
         '''Metabolic Association Iteration Step'''
         #If number of total pmax1 violations exceeds max_fraction * total number of tests, then cut SNPS until below max_fraction of tests.
-        max_fraction = 0.05
+        # max_fraction = 0.05
 
 
 
@@ -497,10 +507,11 @@ class Merp():
 
         snp_nhgri_dict = {}
         remove_snps = {}
+        nhgri_assoc = {}
         for snp in snp_list:
             if snp in nhgri_dict.keys():
                 list_of_traits = nhgri_dict[snp]
-                snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,include_list,list_of_traits,remove_snps)  
+                snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,include_list,list_of_traits,remove_snps,nhgri_assoc)  
             elif out==False:
                 print snp + " is not found in NHGRI catalog. If you want you are bringing outside SNPs into filter, please add out=True as argument"
                 snp_nhgri_dict[snp] = False
@@ -508,6 +519,10 @@ class Merp():
             elif out == True:
                 print snp + " is not in NHGRI catalog but kept in because out=True. Please be cautious for confounding."
 
+        for key in nhgri_assoc.keys():
+            print key + " is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: "
+            for e in nhgri_assoc[key]:
+                print e
 
 
         print '\n'
