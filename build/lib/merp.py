@@ -277,8 +277,8 @@ class Merp():
         #           if cluster_d[key] == True: 
         #               return_sig = return_sig + d[snp][1]
 
-        print str(return_sig) + "is new sig after round changing cut"
-        return return_sig
+        print str(return_sig) + "is new number of total p <" + threshold1 +" assoc with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
+            return return_sig
 
     def unit_checker(self,trait_file):
         #check this out, says unit in unit dict but not...
@@ -649,7 +649,8 @@ class Merp():
                     if float(p) == float(pval_dict[snp]):
                         abridged_trait_handle.write(line)
             else:
-                print snp + "excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
+
+                print snp + " excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
 
         abridged_trait_handle.close()
         trait_handle.close()
@@ -935,22 +936,25 @@ class Merp():
         threshold_met = False
         new_num_sig = num_sig
         cut = threshold1
+        pdb.set_trace()
         while threshold_met == False:
             ####JUST LOOK AT ELIGIBLE SNPS
             num_snps = 0
             for key in cluster_status.keys():
-                if cluster_status[key] == True:
+                if cluster_status[key] == True and key not in no_pval_snps.keys():
                     num_snps +=1
             num_tests = num_snps * columns
             if float(new_num_sig) <= max_fraction * num_tests:
                 threshold_met = True
-            if float(new_num_sig) > max_fraction * num_tests:
+            elif float(new_num_sig) > max_fraction * num_tests:
+                #pdb.set_trace()
                 old_num_sig = new_num_sig
                 new_num_sig = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,old_num_sig)
                 cut = cut - 1
                 if cut < 0:
-                    print "Fatal error: cut below 0, consider having a higher cutoff threshold of violations or higher max_fraction "
-                    sys.exit()
+                    #print "Fatal error: cut below 0, consider having a higher cutoff threshold of violations or higher max_fraction "
+                    continue
+
         snps_to_write = []
         non_assoc_write_temp = []
         for key in cluster_status.keys():
