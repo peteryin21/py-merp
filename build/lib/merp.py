@@ -278,7 +278,7 @@ class Merp():
         #               return_sig = return_sig + d[snp][1]
 
         print str(return_sig) + "is new number of total p <" + threshold1 +" assoc with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
-            return return_sig
+        return return_sig
 
     def unit_checker(self,trait_file):
         #check this out, says unit in unit dict but not...
@@ -642,6 +642,7 @@ class Merp():
             p = line_list[5]
             pid = line_list[10]
             '''Here add something about excluding nhgri and pval bad ones''' 
+            #remove_snps contains snps that have violated NHGRI or pval test
             if snp not in remove_snps.keys():
                 if snp not in repeated_snps:
                     abridged_trait_handle.write(line)
@@ -649,7 +650,6 @@ class Merp():
                     if float(p) == float(pval_dict[snp]):
                         abridged_trait_handle.write(line)
             else:
-
                 print snp + " excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
 
         abridged_trait_handle.close()
@@ -936,7 +936,6 @@ class Merp():
         threshold_met = False
         new_num_sig = num_sig
         cut = threshold1
-        pdb.set_trace()
         while threshold_met == False:
             ####JUST LOOK AT ELIGIBLE SNPS
             num_snps = 0
@@ -966,7 +965,7 @@ class Merp():
         #     os.makedirs(path)
         abr_trait_handle = file(trait_file+"_abr_temp","r")
         trait_lines = abr_trait_handle.readlines()
-        header = trait_lines[0]
+        header = trait_lines[0].strip() + '\t' + "Warnings" + '\n'
         updated_handle = file(trait_file +"filtered", "w")
         updated_handle.write(header)
         for line in trait_lines[1:]:
@@ -977,12 +976,12 @@ class Merp():
             if snp in snps_to_write:
                 if snp in not_in_ld and snp in no_pval_snps.keys():
                     print snp + ' is not in LD data search for 1000genomes or Hm22 and also not in pval file. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
-                    updated_handle.write('---Not in LD Data or pval Data---' + line)
+                    updated_handle.write(line.strip() + '\t' + "-Not-in-LD-or-Pval-Data-" + '\n')
                 elif snp in not_in_ld:
                     print snp + ' is not in LD data search for 1000genomes or Hm22. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
-                    updated_handle.write('---Not in LD Data---' + line)
+                    updated_handle.write(line.strip()+ '\t' + "-Not-in-LD-Data-" + '\n')
                 elif snp in no_pval_snps.keys():
-                    updated_handle.write('---Not in pval Data---' + line)
+                    updated_handle.write(line.strip() + '\t' + "-Not-in-Pval-Data-" + '\n')
 
                 else:
                     updated_handle.write(line)
