@@ -222,11 +222,15 @@ class Merp():
                 return True
         return False
 
-    def nhgri_test(self,snp,include_list,list_of_traits):
+    def nhgri_test(self,snp,include_list,list_of_traits,remove_snps):
         mark = True
         for trait in list_of_traits:
             if not Merp.trait_included(self,trait,include_list):
                 print snp + " has NHGRI catalog association with " + trait + " and is not exempt through nhgri_similar.txt. Throwing out."
+                if snp not in remove_snps.keys():
+                    remove_snps[snp] = []
+                
+
                 mark = False
 
         return mark
@@ -293,12 +297,12 @@ class Merp():
             if unit not in unit_dict.keys():
                 unit_dict[unit] = []
         if len(unit_dict.keys()) > 1:
-            print "File successsfuly filtered. Final filtered file can be found as traitFiles/" + trait_file +"filtered"
+            print "File successsfuly filtered. Final filtered file can be found as " + trait_file 
             print "WARNING: Different units detected in final filtered file. Please make desired unit conversions in a text editor:"
             for key in unit_dict.keys():
                 print key
         else:
-            print "File successfully filtered. Final filtered file can be found at" + trait_file +"filtered"
+            print "File successfully filtered. Final filtered file can be found as " + trait_file 
         return 0
 
     def filter(self,trait_file,include_file,exclude_file,out=False):
@@ -343,50 +347,52 @@ class Merp():
         #   sys.exit()
         #Read include list file and exclude list file(pval headers) 
 
-        ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
-        rs_list = []
-        with open(trait_file,"r") as trait:
-            lines = trait.readlines()
-            for line in lines[1:]:
-                entry = line.rstrip('\n').split('\t')
-                rs_list.append(entry[0])
-        rs = ('\n\t').join(rs_list)
-        rs =  '\n\t' +rs 
+        # ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
+        # #move this later down. Add a removal for loop over violating snps from pval or nhgri and remove from rs_list
+        # rs_list = []
+        # with open(trait_file,"r") as trait:
+        #     lines = trait.readlines()
+        #     for line in lines[1:]:
+        #         entry = line.rstrip('\n').split('\t')
+        #         rs_list.append(entry[0])
+        # #remove biolating snps from rs_list TODO        
+        # rs = ('\n\t').join(rs_list)
+        # rs =  '\n\t' +rs 
 
-        data_1000 = {
-            "searchPairwise": "true",
-            "snpList": rs,
-            "hapMapRelease": "onekgpilot",
-            "hapMapPanel": "CEU",
-            "RSquaredLimit": "0",
-            "distanceLimit": "500000",
-            "downloadType": "Browser",
-            "arrayFilter": "query",
-            "columnList[]": "DP",
-            "columnList[]": "GP",
-            "columnList[]": "AM",
-            "submit":"search"
-        }
-        ##backup ld search in case not in 1000genomes build
-        data_hm22 = {
-            "searchPairwise": "true",
-            "snpList": rs,
-            "hapMapRelease": "rel22",
-            "hapMapPanel": "CEU",
-            "RSquaredLimit": "0",
-            "distanceLimit": "500000",
-            "downloadType": "Browser",
-            "arrayFilter": "query",
-            "columnList[]": "DP",
-            "columnList[]": "GP",
-            "columnList[]": "AM",
-            "submit":"search"
-        }
-        r_1000 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_1000)
-        ld_result = r_1000.text.split('\n')
+        # data_1000 = {
+        #     "searchPairwise": "true",
+        #     "snpList": rs,
+        #     "hapMapRelease": "onekgpilot",
+        #     "hapMapPanel": "CEU",
+        #     "RSquaredLimit": "0",
+        #     "distanceLimit": "500000",
+        #     "downloadType": "Browser",
+        #     "arrayFilter": "query",
+        #     "columnList[]": "DP",
+        #     "columnList[]": "GP",
+        #     "columnList[]": "AM",
+        #     "submit":"search"
+        # }
+        # ##backup ld search in case not in 1000genomes build
+        # data_hm22 = {
+        #     "searchPairwise": "true",
+        #     "snpList": rs,
+        #     "hapMapRelease": "rel22",
+        #     "hapMapPanel": "CEU",
+        #     "RSquaredLimit": "0",
+        #     "distanceLimit": "500000",
+        #     "downloadType": "Browser",
+        #     "arrayFilter": "query",
+        #     "columnList[]": "DP",
+        #     "columnList[]": "GP",
+        #     "columnList[]": "AM",
+        #     "submit":"search"
+        # }
+        # r_1000 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_1000)
+        # ld_result = r_1000.text.split('\n')
 
-        r_hm22 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_hm22)
-        ld_result_hm22= r_hm22.text.split('\n')
+        # r_hm22 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_hm22)
+        # ld_result_hm22= r_hm22.text.split('\n')
         ##create list of lines of ld_result
 
         # pdb.set_trace()
@@ -455,10 +461,11 @@ class Merp():
 
 
         snp_nhgri_dict = {}
+        remove_snps = {}
         for snp in snp_list:
             if snp in nhgri_dict.keys():
                 list_of_traits = nhgri_dict[snp]
-                snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,include_list,list_of_traits)  
+                snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,include_list,list_of_traits,remove_snps)  
             elif out==False:
                 print snp + " is not found in NHGRI catalog. If you want you are bringing outside SNPs into filter, please add out=True as argument"
                 snp_nhgri_dict[snp] = False
@@ -507,6 +514,8 @@ class Merp():
         #       else:
         #           print orig + " is repeated in replacement text file"
         #           pass     
+        viol_dict1 = {}
+        viol_dict2 = {}
         for line in pval_lines:
             mod_line = line.rstrip('\n').split(' ')
             rs = mod_line[0]
@@ -518,8 +527,21 @@ class Merp():
                         continue
                     if float(e) <= pmax1:
                         count_p1 = count_p1 + 1
+                        col = header_split[mod_line.index(e)]
+                        if rs in viol_dict1.keys():
+                            #should give us column header
+                            viol_dict1[rs].append(col)
+                        else:
+                            viol_dict1[rs] = [col]
+
                     if float(e) <= pmax2:
                         count_p2 = count_p2 + 1
+                        col = header_split[mod_line.index(e)]
+                        if rs in viol_dict2.keys():
+                            #should give us column header
+                            viol_dict2[rs].append(col)
+                        else:
+                            viol_dict2[rs] = [col]
             # count_p1 = count_p1 - correction_num
             # count_p2 = count_p2 - correction_num
             #only add to dict if rs in trait file
@@ -531,9 +553,17 @@ class Merp():
                             dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
                         else:
                             dict_snp[rs] = [False, count_p1]
+                            print rs + " is being tossed out because it has " + str(count_p2) + " p<" + str(pmax2) + " associations in association pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                            for v in viol_dict2[rs]:
+                                print v
+
                     else:
                         dict_snp[rs] = [False, count_p1]
+                        print rs + " is being tossed out because it has " + str(count_p1) + " p<" + str(pmax1) + " associations in association pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                        for v in viol_dict1[rs]:
+                            print v
             
+
             '''Replacement pval code'''
             # elif rs in replace_dict.keys():
             #   if count_p1 <= threshold1:
@@ -545,6 +575,10 @@ class Merp():
             #   else:
             #       dict_snp[rs] = [False, count_p1]
         # pval_handle.close()
+        for key in dict_snp.keys():
+            if not dict_snp[key][0]:
+                if key not in remove_snps.keys():
+                    remove_snps[key] = []
 
         '''IF NOT IN PVAL### keep in snp_list for now, later change so replaces?'''
 
@@ -607,14 +641,65 @@ class Merp():
             snp = line_list[0]
             p = line_list[5]
             pid = line_list[10]
-            if snp not in repeated_snps:
-                abridged_trait_handle.write(line)
-            else:
-                if float(p) == float(pval_dict[snp]):
+            '''Here add something about excluding nhgri and pval bad ones''' 
+            if snp not in remove_snps.keys():
+                if snp not in repeated_snps:
                     abridged_trait_handle.write(line)
+                else:
+                    if float(p) == float(pval_dict[snp]):
+                        abridged_trait_handle.write(line)
+            else:
+                print snp + "excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
 
         abridged_trait_handle.close()
         trait_handle.close()
+
+        ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
+        #move this later down. Add a removal for loop over violating snps from pval or nhgri and remove from rs_list
+        rs_list = []
+        with open(trait_file + "_abr_temp","r") as trait:
+            lines = trait.readlines()
+            for line in lines[1:]:
+                entry = line.rstrip('\n').split('\t')
+                rs_list.append(entry[0])
+        #remove biolating snps from rs_list TODO        
+        rs = ('\n\t').join(rs_list)
+        rs =  '\n\t' +rs 
+
+        data_1000 = {
+            "searchPairwise": "true",
+            "snpList": rs,
+            "hapMapRelease": "onekgpilot",
+            "hapMapPanel": "CEU",
+            "RSquaredLimit": "0",
+            "distanceLimit": "500000",
+            "downloadType": "Browser",
+            "arrayFilter": "query",
+            "columnList[]": "DP",
+            "columnList[]": "GP",
+            "columnList[]": "AM",
+            "submit":"search"
+        }
+        ##backup ld search in case not in 1000genomes build
+        data_hm22 = {
+            "searchPairwise": "true",
+            "snpList": rs,
+            "hapMapRelease": "rel22",
+            "hapMapPanel": "CEU",
+            "RSquaredLimit": "0",
+            "distanceLimit": "500000",
+            "downloadType": "Browser",
+            "arrayFilter": "query",
+            "columnList[]": "DP",
+            "columnList[]": "GP",
+            "columnList[]": "AM",
+            "submit":"search"
+        }
+        r_1000 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_1000)
+        ld_result = r_1000.text.split('\n')
+
+        r_hm22 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_hm22)
+        ld_result_hm22= r_hm22.text.split('\n')
 
         cluster_dict = {}
         index_dict = {}
@@ -627,9 +712,11 @@ class Merp():
             line_list = line.split('\t')
             if len(line_list) != 1:
                 snp = line_list[0]
+                # if snp == "rs2366858":
+                #     pdb.set_trace()
                 proxy = line_list[1]
                 if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
-                    if "Query snp not in" in line_list[2]: 
+                    if "Query snp not in" in line_list[2] or "No LD data is available" in line_list[2]: 
                         if snp not in not_in_ld:
                             not_in_ld.append(snp)
                         pass # should go back to line in ld_lines
@@ -685,12 +772,14 @@ class Merp():
                 line_list = line.split('\t')
                 if len(line_list) != 1:
                     snp = line_list[0]
+                    # if snp == "rs2366858":
+                    #     pdb.set_trace()
                     proxy = line_list[1]
                     #key difference
                     if snp in not_in_ld:
 
                         if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
-                            if "Query snp not in" in line_list[2]: 
+                            if "Query snp not in" in line_list[2] or "No LD data is available" in line_list[2]: 
                                 if snp not in not_in_ld:
                                     not_in_ld.append(snp)
                                 pass # should go back to line in ld_lines
@@ -735,6 +824,7 @@ class Merp():
                                     else:
                                         pass
 
+        #pdb.set_trace()
         for snp in not_in_ld:
             for key in index_dict.keys():
                 if snp==key: #test
@@ -745,7 +835,7 @@ class Merp():
         header = trait_lines[0]
         cluster_status = {}
         most_sig_cluster = {}
-
+        printed = {}
         for line in trait_lines[1:]:
             line_list = line.split('\t')
             snp = line_list[0]
@@ -756,25 +846,29 @@ class Merp():
                     assoc_list = cluster_dict.get(index)
                     sig_rs = Merp.most_sig(self,assoc_list,pval_dict)
                     most_sig_cluster[index] = sig_rs
-                    '''Check this'''
+                    '''Keep this out for now. Rely on improved pval file'''
+                    #if snp not in pval, then look for one that is in pval and replace? Or just let it be?
+
                     #Case where most sig snp not found in pval file
                     # case = False
                     # pdb.set_trace()
                     # while case == False:
                     #   if sig_rs not in dict_snp.keys():
+                        #while
                     #       sig_rs = most_sig(assoc_list.remove(sig_rs))
                     #   if sig_rs in dict_snp.keys():
                     #       case == True
 
                     # if case == False:
                     #   pass
-                    '''eventually delete'''
-                    if len(assoc_list) > 0:
-                        print sig_rs + " is the most sig out of cluster " + str(index) + ": "
-                        for snp in assoc_list:
-                            print snp + ", "
-                    else:
-                        print sig_rs + " is the only member of its cluster"
+                    if sig_rs not in printed.keys():
+                        if len(assoc_list) > 1:                     
+                            print sig_rs + " is the most sig out of cluster " + str(index) + ": "
+                            printed[sig_rs] = []
+                            for snp in assoc_list:
+                                print snp 
+                        else:
+                            print sig_rs + " is the only member of its cluster"
 
         abr_trait_handle.close()
         for key in most_sig_cluster.keys():
@@ -823,9 +917,18 @@ class Merp():
             else:
                 cluster_status[snp] = False
             ''' If snp is not in pval file, keep in and put warning'''
+            #if not in pval or not in ld and it is not violated by nhgri, put status as true, still wanna write it.
+           # pdb.set_trace()
             if snp in no_pval_snps.keys():
-                print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
-                cluster_status[snp] = True
+                if snp_nhgri_dict[snp]:
+                    print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+                    cluster_status[snp] = True
+            if snp in not_in_ld:
+                if snp_nhgri_dict[snp]:
+                    print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+                    cluster_status[snp] = True
+
+
 
         threshold_met = False
         new_num_sig = num_sig
@@ -863,12 +966,20 @@ class Merp():
         for line in trait_lines[1:]:
             line_list = line.split('\t')
             snp = line_list[0]
+
+            '''Do we really not care about SNPs not in LD data?'''
             if snp in snps_to_write:
-                updated_handle.write(line)
-                '''Do we really not care about SNPs not in LD data?'''
-            if snp in not_in_ld:
-                print snp + ' is not in LD data search for 1000genomes or Hm22. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
-                updated_handle.write('---Not in LD Data---' + line)
+                if snp in not_in_ld and snp in no_pval_snps.keys():
+                    print snp + ' is not in LD data search for 1000genomes or Hm22 and also not in pval file. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
+                    updated_handle.write('---Not in LD Data or pval Data---' + line)
+                elif snp in not_in_ld:
+                    print snp + ' is not in LD data search for 1000genomes or Hm22. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
+                    updated_handle.write('---Not in LD Data---' + line)
+                elif snp in no_pval_snps.keys():
+                    updated_handle.write('---Not in pval Data---' + line)
+
+                else:
+                    updated_handle.write(line)
 
         if len(snps_to_write) == 0:
             updated_handle.write('\n' + 'Oh no! It seems as if all SNPs have been filtered out. Check the your pval_ignore.txt and nhgri_ignore.txt to make sure you are ignoring related traits in NHGRI catalog and metabolic pval file. See documentation at py-merp.github.io for more info.' + '\n' + 'If you believe our filtering algorithm is too selective, feel free to modify the paramters for pval threshold1, pval threshold2 and r^2 thresholds found at the top of the filter function in src/merp.py. Reinstall after editing.')

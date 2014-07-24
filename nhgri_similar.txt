@@ -1,5 +1,2 @@
-blood pressure
-systolic
-diastloc
-hypertension
-QRS duration
+HDL
+cholesterol

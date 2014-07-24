@@ -1,0 +1,5 @@
+blood pressure
+systolic
+diastloc
+hypertension
+QRS duration

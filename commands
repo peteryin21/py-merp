@@ -14,6 +14,8 @@ m.calc('traitFiles/453_updatefiltered','bin/newt2d.txt')
 
 import merp 
 m = merp.Merp()
+m.calc('traitFiles/1_updatefiltered','bin/newcardio.txt')
+
 m.filter('traitFiles/556_update','nhgri_similar.txt','pval_similar.txt')
 
 

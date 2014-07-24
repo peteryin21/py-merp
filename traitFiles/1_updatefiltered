@@ -1,12 +1,12 @@
 SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
 rs4148008	-0.03	unit_decrease	C	G	1E-12	[NR]_unit_decrease	HDL_cholesterol	ABCA8	0.33	24097068
-rs17404153	-0.03	unit_decrease	G	T	5E-9	[NR]_unit_decrease	HDL_cholesterol	ACAD11	0.14	24097068
 rs2602836	.02	unit_increase	G	A	5E-8	[NR]_unit_increase	HDL_cholesterol	ADH5	0.44	24097068
 rs2923084	-0.03	unit_decrease	A	G	5E-8	[NR]_unit_decrease	HDL_cholesterol	AMPD3	0.18	24097068
 rs4650994	.02	unit_increase	A	G	7E-9	[NR]_unit_increase	HDL_cholesterol	ANGPTL1	0.49	24097068
 rs737337	-0.06	unit_decrease	T	C	5E-17	[NR]_unit_decrease	HDL_cholesterol	ANGPTL8	0.11	24097068
-rs2606736	.03	unit_increase	T	C	5E-8	[NR]_unit_increase	HDL_cholesterol	ATG7	0.39	24097068
-rs3764261	.24	unit_increase	C	A	1E-769	[NR]_unit_increase	HDL_cholesterol	CETP	0.32	24097068
+---Not in pval Data---rs2606736	.03	unit_increase	T	C	5E-8	[NR]_unit_increase	HDL_cholesterol	ATG7	0.39	24097068
+---Not in pval Data---rs3764261	.24	unit_increase	C	A	1E-769	[NR]_unit_increase	HDL_cholesterol	CETP	0.32	24097068
+---Not in pval Data---rs1047891	-0.03	unit_decrease	C	A	9E-10	[NR]_unit_decrease	HDL_cholesterol	CPS1	0.33	24097068
 rs702485	.02	unit_increase	A	G	6E-12	[NR]_unit_increase	HDL_cholesterol	DAGLB	0.45	24097068
 rs6805251	.02	unit_increase	C	T	1E-8	[NR]_unit_increase	HDL_cholesterol	GSK3B	0.39	24097068
 rs17695224	-0.03	unit_decrease	G	A	2E-13	[NR]_unit_decrease	HDL_cholesterol	HAS1	0.26	24097068
@@ -26,11 +26,13 @@ rs2293889	-0.03	unit_decrease	G	T	4E-17	[NR]_unit_decrease	HDL_cholesterol	TRPS1
 rs181362	-0.04	unit_decrease	C	T	4E-18	[NR]_unit_decrease	HDL_cholesterol	UBE2L3	0.23	24097068
 rs4983559	.02	unit_increase	A	G	1E-8	[NR]_unit_increase	HDL_cholesterol	ZBTB42,AKT1	0.4	24097068
 rs1689800	-0.03	unit_decrease	A	G	5E-20	[NR]_unit_decrease	HDL_cholesterol	ZNF648	0.35	24097068
-rs2366858	.03	unit_increase	A	C	6E-10	[NR]_unit_increase	HDL_cholesterol	CD36	0.173	23726366
-rs7134594	-0.04	unit_decrease	T	C	2E-13	[NR]_unit_decrease	HDL_cholesterol	MVK	0.48	24097068
-rs4759375	.06	unit_increase	C	T	3E-8	[NR]_unit_increase	HDL_cholesterol	SBNO1	0.08	24097068
-rs1084651	-.05	unit_decrease	G	A	3E-8	[0.36-0.76]_mg/dL_decrease	HDL_cholesterol	LPA	0.16	20686565
-rs2923084	-0.03	unit_decrease	A	G	5E-8	[NR]_unit_decrease	HDL_cholesterol	AMPD3	0.18	24097068
-rs3764261	.24	unit_increase	C	A	1E-769	[NR]_unit_increase	HDL_cholesterol	CETP	0.32	24097068
+rs16940212	.02	mg/dL_increase	G	T	1E-24	[0.018-0.027]_mg/dL_increase	HDL_cholesterol	Intergenic	0.34	21909109
+rs7134594	-0.44	mg/dL_decrease	T	C	7E-15	[0.3-0.58]_mg/dL_decrease	HDL_cholesterol	MMAB,MVK	0.47	20686565
+rs4759375	.86	mg/dL_increase	C	T	8E-9	[0.55-1.17]_mg/dL_increase	HDL_cholesterol	SBNO1	0.06	20686565
+rs1084651	-0.56	mg/dL_decrease	G	A	3E-8	[0.36-0.76]_mg/dL_decrease	HDL_cholesterol	LPA	0.16	20686565
+rs2923084	-0.41	mg/dL_decrease	A	G	5E-8	[0.21-0.61]_mg/dL_decrease	HDL_cholesterol	ADM,AMPD3	0.17	20686565
+---Not in pval Data---rs3764261	3.39	mg/dL_increase	C	A	7E-380	[3.21-3.57]_mg/dL_increase	HDL_cholesterol	CETP	0.32	20686565
 rs7395662	-0.07	s.d._decrease	A	G	6E-11	[NR]_s.d._decrease	HDL_cholesterol	MADD,FOLH1	0.61	19060911
+rs471364	-0.08	s.d._decrease	T	C	3E-10	[0.02-0.14]_s.d._decrease	HDL_cholesterol	TTC39B	0.12	19060906
 rs2967605	-0.12	s.d._decrease	C	T	1E-8	[0.04-0.20]_s.d._decrease	HDL_cholesterol	ANGPTL4	0.16	19060906
+rs3890182	-0.1	%_SD_lower	G	A	3E-10	[0.06-0.14]_%_SD_lower	HDL_cholesterol	ABCA1	0.13	18193044
