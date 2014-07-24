@@ -716,7 +716,7 @@ class Merp():
                 #     pdb.set_trace()
                 proxy = line_list[1]
                 if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
-                    if "Query snp not in" in line_list[2] or "No LD data is available" in line_list[2]: 
+                    if "Query snp not in" in line_list[2] or "No LD data" in line_list[2]: 
                         if snp not in not_in_ld:
                             not_in_ld.append(snp)
                         pass # should go back to line in ld_lines
@@ -766,7 +766,8 @@ class Merp():
 
         ###HERE GO THROUGH SAME THING FOR LD-result hm2 except check for only not inld
 
-        '''Review necessity of this'''   
+        '''Review necessity of this''' 
+        not_in_ld2 = []  
         if len(not_in_ld)>=1:
             for line in ld_result_hm22[1:]:
                 line_list = line.split('\t')
@@ -779,13 +780,14 @@ class Merp():
                     if snp in not_in_ld:
 
                         if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
-                            if "Query snp not in" in line_list[2] or "No LD data is available" in line_list[2]: 
-                                if snp not in not_in_ld:
-                                    not_in_ld.append(snp)
-                                pass # should go back to line in ld_lines
+                            #relies on the fact that query snp shows up first
+                            if "Query snp not in" in line_list[2] or "No LD data" in line_list[2]: 
+                                if snp not in not_in_ld2:
+                                    not_in_ld2.append(snp)
+                                 # should go back to line in ld_lines
                             elif "No matching proxy snps found" in line_list[2]:
                         #This means that snp is it's own cluster, treat as cluster with only one element
-                                if snp not in not_in_ld and snp not in non_assoc_snps:
+                                if snp not in not_in_ld2 and snp not in non_assoc_snps:
                                     cluster_dict[cluster_index] = [snp]
                                     index_dict[snp] = cluster_index
                                     cluster_index +=1
@@ -824,7 +826,6 @@ class Merp():
                                     else:
                                         pass
 
-        #pdb.set_trace()
         for snp in not_in_ld:
             for key in index_dict.keys():
                 if snp==key: #test
@@ -919,16 +920,17 @@ class Merp():
             ''' If snp is not in pval file, keep in and put warning'''
             #if not in pval or not in ld and it is not violated by nhgri, put status as true, still wanna write it.
            # pdb.set_trace()
+           #only care about snps that arent in pval if they are the most sig of their cluster
             if snp in no_pval_snps.keys():
                 if snp_nhgri_dict[snp]:
                     print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
                     cluster_status[snp] = True
-            if snp in not_in_ld:
-                if snp_nhgri_dict[snp]:
-                    print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
-                    cluster_status[snp] = True
 
 
+        for snp in not_in_ld:
+            if snp_nhgri_dict[snp]:
+                print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+                cluster_status[snp] = True
 
         threshold_met = False
         new_num_sig = num_sig

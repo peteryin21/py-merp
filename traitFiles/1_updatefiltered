@@ -16,6 +16,7 @@ rs16942887	.08	unit_increase	G	A	8E-54	[NR]_unit_increase	HDL_cholesterol	LCAT	0
 rs386000	.05	unit_increase	G	C	3E-23	[NR]_unit_increase	HDL_cholesterol	LILRA3	0.26	24097068
 rs970548	.03	unit_increase	A	C	2E-10	[NR]_unit_increase	HDL_cholesterol	MARCH8,ALOX5	0.26	24097068
 rs499974	-0.03	unit_decrease	C	A	1E-8	[NR]_unit_decrease	HDL_cholesterol	MOGAT2,DGAT2	0.19	24097068
+rs11246602	.03	unit_increase	T	C	2E-10	[NR]_unit_increase	HDL_cholesterol	OR4C46	0.15	24097068
 rs4129767	-0.02	unit_decrease	A	G	2E-11	[NR]_unit_decrease	HDL_cholesterol	PGS1	0.48	24097068
 rs2013208	.03	unit_increase	C	T	9E-12	[NR]_unit_increase	HDL_cholesterol	RBM5	0.5	24097068
 rs838880	.05	unit_increase	T	C	6E-32	[NR]_unit_increase	HDL_cholesterol	SCARB1	0.34	24097068
@@ -26,6 +27,8 @@ rs2293889	-0.03	unit_decrease	G	T	4E-17	[NR]_unit_decrease	HDL_cholesterol	TRPS1
 rs181362	-0.04	unit_decrease	C	T	4E-18	[NR]_unit_decrease	HDL_cholesterol	UBE2L3	0.23	24097068
 rs4983559	.02	unit_increase	A	G	1E-8	[NR]_unit_increase	HDL_cholesterol	ZBTB42,AKT1	0.4	24097068
 rs1689800	-0.03	unit_decrease	A	G	5E-20	[NR]_unit_decrease	HDL_cholesterol	ZNF648	0.35	24097068
+---Not in LD Data or pval Data---rs2366858	.03	unit_increase	A	C	6E-10	[NR]_unit_increase	HDL_cholesterol	CD36	0.173	23726366
+---Not in LD Data or pval Data---rs9282541	-0.37	unit_decrease	G	A	6E-26	[0.29-0.45]_unit_decrease	HDL_cholesterol	NIPSNAP3A,NIPSNAP3B,ABCA1	0.11	23505323
 rs16940212	.02	mg/dL_increase	G	T	1E-24	[0.018-0.027]_mg/dL_increase	HDL_cholesterol	Intergenic	0.34	21909109
 rs7134594	-0.44	mg/dL_decrease	T	C	7E-15	[0.3-0.58]_mg/dL_decrease	HDL_cholesterol	MMAB,MVK	0.47	20686565
 rs4759375	.86	mg/dL_increase	C	T	8E-9	[0.55-1.17]_mg/dL_increase	HDL_cholesterol	SBNO1	0.06	20686565
