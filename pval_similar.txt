@@ -1,2 +1,7 @@
-HDL
+P_2hrGLUadjBMI
 Height
+P_FastGlu
+P_FastIns
+P_FastProIns
+P_HbA1C
+P_HOMA-B

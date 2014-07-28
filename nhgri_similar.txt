@@ -1,2 +1,5 @@
-HDL
-cholesterol
+glucose
+diabetes
+fasting
+Glycated hemoglobin levels
+Metabolic syndrome

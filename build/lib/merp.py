@@ -270,10 +270,13 @@ class Merp():
     def dict_purge_count(self,d,cluster_d,cut,old_num_sig,pmax1):
         #pdb.set_trace()
         return_sig = 0
+        tossed = {}
         for key in d:
             if key in cluster_d:
                 if d[key][1] >= cut:
                     cluster_d[key] = False 
+                    #tossed[key] = []
+
             #get new number of sig
         ##currently ignore if not in pval file  
         for snp in d.keys():
@@ -292,6 +295,9 @@ class Merp():
         #               return_sig = return_sig + d[snp][1]
 
         print str(return_sig) + "is new number of total p <" + str(pmax1) +" assoc with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
+        #print "SNPs thrown out from this cut:"
+        # for key in tossed.keys():
+        #     print key
         return return_sig
 
     def unit_checker(self,trait_file):
@@ -520,7 +526,7 @@ class Merp():
                 print snp + " is not in NHGRI catalog but kept in because out=True. Please be cautious for confounding."
 
         for key in nhgri_assoc.keys():
-            print key + " has NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt. Throwing out."
+            print key + " is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: "
             for e in nhgri_assoc[key]:
                 print e
 
@@ -530,7 +536,8 @@ class Merp():
                 
         ######PVAL PORTION START########
         # pval_handle = file(pval_file, "r")
-        p = requests.get('http://coruscant.itmat.upenn.edu/merp/v3abr_allmetabolic_pvals_v2.txt', stream=True)
+        #p = requests.get('http://coruscant.itmat.upenn.edu/merp/v3abr_allmetabolic_pvals_v2.txt', stream=True)
+        p = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
         pval_lines = p.iter_lines()
         dict_snp = {}
         # pval_lines = pval_handle.readlines()
@@ -538,10 +545,10 @@ class Merp():
         # header =  "SNP CHR POS P_SBP P_DBP P_HDL P_LDL P_TG P_BMI P_HEIGHT P_WHRadjBMI P_2hrGLUadjBMI P_FastGlu P_HbA1C P_FastIns P_HOMA-B P_HOMA-IR P_FastProIns"
         header = pval_lines.next()
         header_split = header.rstrip('\n').split(' ')
-        columns = len(header_split) - 3
+        columns = len(header_split) - 6
        # correction_num = 0
         excluded_index = []
-        for p in header_split:
+        for p in header_split[6:]:
             for excluded_trait in exclude_list:
                 if excluded_trait.lower() in p.lower():
                     print p + " associations from our metabolic confounding filter will be ignored because found in pval_similar.txt"
@@ -566,14 +573,19 @@ class Merp():
         #           pass     
         viol_dict1 = {}
         viol_dict2 = {}
+        na_counter = {} #dictionary mapping rs# to number of NAs in the corresponding row
         for line in pval_lines:
             mod_line = line.rstrip('\n').split(' ')
             rs = mod_line[0]
             if rs in snp_list:
                 count_p1 = 0
                 count_p2 = 0
-                for e in mod_line[3:]:
+                na_count = 0
+                for e in mod_line[6:]:
                     if mod_line.index(e) in excluded_index:
+                        continue
+                    if e == "NA":
+                        na_count+=1
                         continue
                     if float(e) <= pmax1:
                         count_p1 = count_p1 + 1
@@ -592,6 +604,7 @@ class Merp():
                             viol_dict2[rs].append(col)
                         else:
                             viol_dict2[rs] = [col]
+                na_counter[rs] = na_count
             # count_p1 = count_p1 - correction_num
             # count_p2 = count_p2 - correction_num
             #only add to dict if rs in trait file
@@ -1014,13 +1027,13 @@ class Merp():
            #only care about snps that arent in pval if they are the most sig of their cluster
             if snp in no_pval_snps.keys():
                 if snp_nhgri_dict[snp]:
-                    print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+                    # print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
                     cluster_status[snp] = True
 
 
         for snp in not_in_ld:
             if snp_nhgri_dict[snp]:
-                print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+                #print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
                 cluster_status[snp] = True
 
         threshold_met = False
@@ -1033,6 +1046,15 @@ class Merp():
                 if cluster_status[key] == True and key not in no_pval_snps.keys():
                     num_snps +=1
             num_tests = num_snps * columns
+            num_na = 0
+            #test this out
+            for key in cluster_status.keys():
+                if cluster_status[key] == True:
+                    if key in na_counter.keys():
+                        num_na += na_counter[key]
+
+            num_tests = num_tests - num_na
+
             if float(new_num_sig) <= max_fraction * num_tests:
                 threshold_met = True
             elif float(new_num_sig) > max_fraction * num_tests:
@@ -1063,18 +1085,30 @@ class Merp():
             snp = line_list[0]
 
             '''Do we really not care about SNPs not in LD data?'''
+            
             if snp in snps_to_write:
-                if snp in not_in_ld and snp in no_pval_snps.keys():
-                    print snp + ' is not in LD data search for 1000genomes or Hm22 and also not in pval file. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
-                    updated_handle.write(line.strip() + '\t' + "-Not-in-LD-or-Pval-Data-" + '\n')
-                elif snp in not_in_ld:
-                    print snp + ' is not in LD data search for 1000genomes or Hm22. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
-                    updated_handle.write(line.strip()+ '\t' + "-Not-in-LD-Data-" + '\n')
-                elif snp in no_pval_snps.keys():
-                    updated_handle.write(line.strip() + '\t' + "-Not-in-Pval-Data-" + '\n')
+                flag = ""
+                if snp in not_in_ld:
+                    flag = flag + "No-LD"
+                if snp in no_pval_snps.keys():
+                    flag += "|No-Pval"
+                elif na_counter[snp] > 0:
+                    flag+="|" + str(na_counter[snp]) + "-NAs"
 
-                else:
-                    updated_handle.write(line)
+
+               
+
+                if "LD" in flag and "Pval" in flag:
+                    # print snp + ' is not in LD data search for 1000genomes or Hm22 and also not in pval file. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
+                    print snp + ': WARNING: SNP not found in LD data or Pval data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+
+                elif "LD" in flag:
+                    print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+
+                elif "Pval" in flag:
+                    print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
+
+                updated_handle.write(line.strip() + '\t' + flag + '\n')
 
         if len(snps_to_write) == 0:
             updated_handle.write('\n' + 'Oh no! It seems as if all SNPs have been filtered out. Check the your pval_ignore.txt and nhgri_ignore.txt to make sure you are ignoring related traits in NHGRI catalog and metabolic pval file. See documentation at py-merp.github.io for more info.' + '\n' + 'If you believe our filtering algorithm is too selective, feel free to modify the paramters for pval threshold1, pval threshold2 and r^2 thresholds found at the top of the filter function in src/merp.py. Reinstall after editing.')
@@ -1189,6 +1223,9 @@ class Merp():
             if entry == '\n' or entry == ' ':
                 break
             entry = entry.rstrip('\n').split('\t')
+            if '#' in entry[0]:
+                print "Skipping " + entry[rs_index]
+                continue
             beta = entry[beta_index]
             rsid = entry[rs_index]
             allele1 = entry[allele1_index]
