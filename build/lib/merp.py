@@ -268,7 +268,7 @@ class Merp():
     #Help function takes dictionary and cutoff and turns all keys with num_sig greater/= to cutoff to false
     #Then returns number of sig
     def dict_purge_count(self,d,cluster_d,cut,old_num_sig,pmax1):
-        #pdb.set_trace()
+        
         return_sig = 0
         tossed = {}
         for key in d:
@@ -288,7 +288,7 @@ class Merp():
 
         # for snp in snp_list:
         #   if snp == "rs4826508":
-        #       pdb.set_trace()
+        #     
         #   if key in d: #unsure if dict_snp or dict
         #       if key in cluster_d:
         #           if cluster_d[key] == True: 
@@ -352,7 +352,7 @@ class Merp():
 
 
 
-    def filter(self,trait_file,include_file,exclude_file,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.05,out=False):
+    def filter(self,trait_file,include_file,exclude_file,pmax1=0.01,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.05,out=False):
  
         '''Metabolic Association Paramters'''
         #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
@@ -442,7 +442,7 @@ class Merp():
         # ld_result_hm22= r_hm22.text.split('\n')
         ##create list of lines of ld_result
 
-        # pdb.set_trace()
+        
 
         #LD_file = "bin/1LD.txt"
 
@@ -649,22 +649,22 @@ class Merp():
         for snp in snp_list:
             if snp not in dict_snp.keys():
                 no_pval_snps[snp] = []
-        #pdb.set_trace()
-        #Calculate total number of significant assoc (<0.05)
-        num_sig = 0
-        trait_handle = file(trait_file,"r")
-        trait_lines = trait_handle.readlines()
-        for line in trait_lines[1:]:
-            line_list = line.rstrip('\n').split('\t')
-            if len(line_list) > 5:
-                snp = line_list[0]
-            else:
-                print "file format error."
-            if snp in dict_snp:
-                #Create new dict with only trait files
-                if dict_snp[snp][0] == True: 
-                    num_sig = num_sig + dict_snp[snp][1]
-        trait_handle.close()
+        
+        # #Calculate total number of significant assoc (<0.05)
+        # num_sig = 0
+        # trait_handle = file(trait_file,"r")
+        # trait_lines = trait_handle.readlines()
+        # for line in trait_lines[1:]:
+        #     line_list = line.rstrip('\n').split('\t')
+        #     if len(line_list) > 5:
+        #         snp = line_list[0]
+        #     else:
+        #         print "file format error."
+        #     if snp in dict_snp:
+        #         #Create new dict with only trait files
+        #         if dict_snp[snp][0] == True: 
+        #             num_sig = num_sig + dict_snp[snp][1]
+        # trait_handle.close()
 
         ''' PVAL PORTION END '''
 
@@ -817,7 +817,7 @@ class Merp():
             if len(line_list) != 1:
                 snp = line_list[0]
                 # if snp == "rs2366858":
-                #     pdb.set_trace()
+                #   
                 proxy = line_list[1]
                 if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
                     if "Query snp not in" in line_list[2] or "No LD data" in line_list[2]: 
@@ -878,7 +878,7 @@ class Merp():
                 if len(line_list) != 1:
                     snp = line_list[0]
                     # if snp == "rs2366858":
-                    #     pdb.set_trace()
+                    #   
                     proxy = line_list[1]
                     #key difference
                     if snp in not_in_ld:
@@ -956,7 +956,7 @@ class Merp():
 
                     #Case where most sig snp not found in pval file
                     # case = False
-                    # pdb.set_trace()
+                    
                     # while case == False:
                     #   if sig_rs not in dict_snp.keys():
                         #while
@@ -1023,7 +1023,7 @@ class Merp():
                 cluster_status[snp] = False
             ''' If snp is not in pval file, keep in and put warning'''
             #if not in pval or not in ld and it is not violated by nhgri, put status as true, still wanna write it.
-           # pdb.set_trace()
+           
            #only care about snps that arent in pval if they are the most sig of their cluster
             if snp in no_pval_snps.keys():
                 if snp_nhgri_dict[snp]:
@@ -1036,31 +1036,57 @@ class Merp():
                 #print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
                 cluster_status[snp] = True
 
+        #Calculate total number of significant assoc (<0.05)
+        # num_sig = 0
+        # with open(trait_file,"r") as f:
+        #     trait_lines = f.readlines()
+        #     for line in trait_lines[1:]:
+        #         line_list = line.rstrip('\n').split('\t')
+        #         if len(line_list) > 5:
+        #             snp = line_list[0]
+        #         else:
+        #             print "file format error."
+        #         if snp in dict_snp:
+        #             #Create new dict with only trait files
+        #             if dict_snp[snp][0] == True: 
+        #                 num_sig = num_sig + dict_snp[snp][1]
+        num_sig_dict = {}
+        num_sig_dict["old_num_sig"] = 0
+        num_sig_dict["new_num_sig"] = 0
+        for snp in cluster_status.keys():
+            if snp not in no_pval_snps and snp not in not_in_ld:
+                if cluster_status[snp] == True:
+                    #if snp is being considered in final analysis, then add its number of pval viol under threshold 1 to a sum
+                    num_sig_dict["new_num_sig"] += dict_snp[snp][1]
+
+            
         threshold_met = False
-        new_num_sig = num_sig
+        
         cut = threshold1
         while threshold_met == False:
             ####JUST LOOK AT ELIGIBLE SNPS
             num_snps = 0
             for key in cluster_status.keys():
-                if cluster_status[key] == True and key not in no_pval_snps.keys():
+                if cluster_status[key] == True and key not in no_pval_snps.keys() and key not in not_in_ld:
                     num_snps +=1
             num_tests = num_snps * columns
             num_na = 0
             #test this out
+
             for key in cluster_status.keys():
                 if cluster_status[key] == True:
                     if key in na_counter.keys():
                         num_na += na_counter[key]
-
+            print 'check num_na'
+          
             num_tests = num_tests - num_na
 
-            if float(new_num_sig) <= max_fraction * num_tests:
+            if float(num_sig_dict["new_num_sig"]) <= max_fraction * num_tests:
                 threshold_met = True
-            elif float(new_num_sig) > max_fraction * num_tests:
-                #pdb.set_trace()
-                old_num_sig = new_num_sig
-                new_num_sig = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,old_num_sig,pmax1)
+            elif float(num_sig_dict["new_num_sig"]) > max_fraction * num_tests:
+                
+                num_sig_dict["old_num_sig"] = num_sig_dict["new_num_sig"]
+                num_sig_dict["new_num_sig"] = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,num_sig_dict["old_num_sig"],pmax1)
                 cut = cut - 1
                 if cut < 0:
                     #print "Fatal error: cut below 0, consider having a higher cutoff threshold of violations or higher max_fraction "
@@ -1078,7 +1104,11 @@ class Merp():
         abr_trait_handle = file(trait_file+"_abr_temp","r")
         trait_lines = abr_trait_handle.readlines()
         header = trait_lines[0].strip() + '\t' + "Warnings" + '\n'
-        updated_handle = file(trait_file +"filtered", "w")
+        path = "./filtered_files"
+        if not os.path.exists(path):
+            os.makedirs(path)
+        newfilter_path = trait_file.lstrip('./traitFiles/')
+        updated_handle = file(path + newfilter_path +"filtered", "w")
         updated_handle.write(header)
         for line in trait_lines[1:]:
             line_list = line.split('\t')
@@ -1214,12 +1244,12 @@ class Merp():
         trait_handle = file(trait_file,"r")
         dict_trait = {}
         trait_content = trait_handle.readlines()
-        #pdb.set_trace()
+        
         #####
 
 
         for entry in trait_content[1:]:
-            #pdb.set_trace()
+            
             if entry == '\n' or entry == ' ':
                 break
             entry = entry.rstrip('\n').split('\t')
@@ -1231,7 +1261,7 @@ class Merp():
             allele1 = entry[allele1_index]
             riskallele = entry[riskallele_index]
             #SNPrs# for now
-        #    pdb.set_trace()
+        #  
             if not(rsid in dict_trait):
                 dict_trait[rsid] = []
                 dict_trait[rsid].append(beta)
@@ -1245,7 +1275,7 @@ class Merp():
          #Change to actual disease file input, 2nd input
         disease_handle = file(disease_file,"r")
         disease_content = disease_handle.readlines()
-        #pdb.set_trace()
+        
 
         #more efficient way
         #Loop through disease file and if SNP ins trait file, add info
@@ -1261,7 +1291,7 @@ class Merp():
                 dict_trait[entry[dis_rs_index]].append(entry[dis_lnse_index])
                 #eventually calculate from 95ci
             #now dict should be SNP: [beta_trait, allele1, riskallele, beta_mi,SE]
-              # pdb.set_trace()
+              
                 if effallele == dict_trait[entry[dis_rs_index]][2]:
                     pass#print "Aligned!"
                 elif effallele == dict_trait[entry[dis_rs_index]][1]:
@@ -1310,22 +1340,23 @@ class Merp():
 
                     ##print "DAFUQ " + effallele + '\t' + dict_trait[entry[0]][1] + dict_trait[entry[0]][2] 
                     #pass
-           # pdb.set_trace()
+           
 
             #risk allele alignment check
             
 
 
 
-        #pdb.set_trace()
+        
 
         #Go through dict and calculate wBs and w2s-2 for each snp, add up 
         xtot = 0
         ytot = 0
-        # path = "./analysis"
-        # if not os.path.exists(path):
-        #     os.makedirs(path)
-        handle_indiv_result = file(trait_file + "_MR_result_indiv","w")
+        path = "./analysis/"
+        if not os.path.exists(path):
+            os.makedirs(path)
+        newtrait_path = trait_file.lstrip('./traitFiles/')
+        handle_indiv_result = file(path+newtrait_path+ "_MR_result_indiv","w")
         handle_indiv_result.write("SNP" + '\t' + "a_hat" + '\t' +"se_a" + '\t' + "chisq" +  '\t' + "p_value" + '\n')
         for key in dict_trait.keys():
             if not '[NR]' in dict_trait[key]:
@@ -1370,7 +1401,7 @@ class Merp():
         p_value = 1 - stats.chi2.cdf(chisq,1) #degrees of freedom always one?
         #p_value figure out how to do scipy/numpy?
 
-        handle_result = file(trait_file + "_MR_result","w")
+        handle_result = file(path+newtrait_path+ + "_MR_result","w")
         handle_result.write("a_hat = " + str(a_hat) + '\n' + "se(a) = " +str(sea) + '\n' + "chi_sq = " + str(chisq) + 
             '\n' + "p_value = " + str(p_value)) 
 
@@ -1406,7 +1437,7 @@ class Merp():
         plot_list = []
         y = 2
         for key in indiv_dict:
-            #pdb.set_trace()
+            
 
             a_hat = indiv_dict[key][0]
             se = indiv_dict[key][1]
@@ -1429,7 +1460,7 @@ class Merp():
         for line in summ_lines:
             entry = line.rstrip('\n').split(' ')
             summ_list.append(entry[2])
-        #pdb.set_trace()
+        
         ov_a_hat = summ_list[0]
         ov_se = summ_list[1]
         # ov_odds   = math.exp(float(ov_a_hat))

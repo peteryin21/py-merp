@@ -6,8 +6,6 @@ rs499974	-0.03	unit_decrease	C	A	1E-8	[NR]_unit_decrease	HDL_cholesterol	MOGAT2,
 rs11246602	.03	unit_increase	T	C	2E-10	[NR]_unit_increase	HDL_cholesterol	OR4C46	0.15	24097068	
 rs2013208	.03	unit_increase	C	T	9E-12	[NR]_unit_increase	HDL_cholesterol	RBM5	0.5	24097068	
 rs17173637	-0.04	unit_decrease	T	C	2E-8	[NR]_unit_decrease	HDL_cholesterol	TMEM176A	0.12	24097068	
-rs16940212	.02	mg/dL_increase	G	T	1E-24	[0.018-0.027]_mg/dL_increase	HDL_cholesterol	Intergenic	0.34	21909109	
-rs1084651	-0.56	mg/dL_decrease	G	A	3E-8	[0.36-0.76]_mg/dL_decrease	HDL_cholesterol	LPA	0.16	20686565	
 rs7395662	-0.07	s.d._decrease	A	G	6E-11	[NR]_s.d._decrease	HDL_cholesterol	MADD,FOLH1	0.61	19060911	
 rs181362	-0.04	unit_decrease	C	T	4E-18	[NR]_unit_decrease	HDL_cholesterol	UBE2L3	0.23	24097068	
 rs11869286	-0.03	unit_decrease	G	G	3E-17	[NR]_unit_decrease	HDL_cholesterol	STARD3	0.35	24097068	
