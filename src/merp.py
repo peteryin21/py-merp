@@ -1077,7 +1077,6 @@ class Merp():
                 if cluster_status[key] == True:
                     if key in na_counter.keys():
                         num_na += na_counter[key]
-            print 'check num_na'
           
             num_tests = num_tests - num_na
 
@@ -1104,7 +1103,7 @@ class Merp():
         abr_trait_handle = file(trait_file+"_abr_temp","r")
         trait_lines = abr_trait_handle.readlines()
         header = trait_lines[0].strip() + '\t' + "Warnings" + '\n'
-        path = "./filtered_files"
+        path = "./filtered_files/"
         if not os.path.exists(path):
             os.makedirs(path)
         newfilter_path = trait_file.lstrip('./traitFiles/')
@@ -1355,7 +1354,7 @@ class Merp():
         path = "./analysis/"
         if not os.path.exists(path):
             os.makedirs(path)
-        newtrait_path = trait_file.lstrip('./traitFiles/')
+        newtrait_path = trait_file.lstrip('./filtered_files/')
         handle_indiv_result = file(path+newtrait_path+ "_MR_result_indiv","w")
         handle_indiv_result.write("SNP" + '\t' + "a_hat" + '\t' +"se_a" + '\t' + "chisq" +  '\t' + "p_value" + '\n')
         for key in dict_trait.keys():
@@ -1401,7 +1400,7 @@ class Merp():
         p_value = 1 - stats.chi2.cdf(chisq,1) #degrees of freedom always one?
         #p_value figure out how to do scipy/numpy?
 
-        handle_result = file(path+newtrait_path+ + "_MR_result","w")
+        handle_result = file(path+newtrait_path+  "_MR_result","w")
         handle_result.write("a_hat = " + str(a_hat) + '\n' + "se(a) = " +str(sea) + '\n' + "chi_sq = " + str(chisq) + 
             '\n' + "p_value = " + str(p_value)) 
 
