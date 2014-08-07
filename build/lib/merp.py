@@ -222,16 +222,20 @@ class Merp():
 
     '''Helper functions for filter'''
 
-    def trait_included(self,trait,include_list):
-        for e in include_list:
+    def trait_included(self,trait,nhgri_ignore_list):
+        #pdb.set_trace()
+        for e in nhgri_ignore_list:
             if e.lower() in trait.lower():
+                #pdb.set_trace()
+
                 return True
         return False
 
-    def nhgri_test(self,snp,include_list,list_of_traits,remove_snps,nhgri_assoc):
+    def nhgri_test(self,snp,nhgri_ignore_list,list_of_traits,remove_snps,nhgri_assoc):
         mark = True
         for trait in list_of_traits:
-            if not Merp.trait_included(self,trait,include_list):
+
+            if not Merp.trait_included(self,trait,nhgri_ignore_list):
                 if snp not in nhgri_assoc.keys():
                     nhgri_assoc[snp] = [trait]
                 else:
@@ -352,7 +356,7 @@ class Merp():
 
 
 
-    def filter(self,trait_file,include_file,exclude_file,pmax1=0.01,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.05,out=False):
+    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.05,out=False):
  
         '''Metabolic Association Paramters'''
         #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
@@ -364,7 +368,7 @@ class Merp():
 
         '''LD Parameters'''
         #SNPs with R^2 value > rsq_threshold are clustered together, with only lead SNP passing on.
-        rsq_threshold = 0.05
+        #rsq_threshold = 0.05
 
         '''Metabolic Association Iteration Step'''
         #If number of total pmax1 violations exceeds max_fraction * total number of tests, then cut SNPS until below max_fraction of tests.
@@ -380,17 +384,18 @@ class Merp():
         if not Merp.file_checker(self,trait_file):
             return
 
-        include_list = []
-        exclude_list = []
+        nhgri_ignore_list = []
+        confounder_list = []
+        primary_confounders_list = []
         '''How to add usage error? '''
         #num_args = len(sys.argv) - 1
         # try:
         #   trait_file = sys.argv[1]
-        #   include_file = sys.argv[2]
-        #   exclude_file = sys.argv[3]
+        #   nhgri_ignore = sys.argv[2]
+        #   confounders = sys.argv[3]
             
         # except:
-        #   print "Usage: python filter.py [trait_file] [include_traits_file] [exclude_file]"
+        #   print "Usage: python filter.py [trait_file] [include_traits_file] [confounders]"
         #   sys.exit()
         #Read include list file and exclude list file(pval headers) 
 
@@ -451,80 +456,106 @@ class Merp():
         replacement_pval_snps = "data/replacement_pval_snps.txt"
 
 
-        with open(include_file,"r") as include:
-            lines = include.readlines()
-            for line in lines:
-                entry = line.rstrip('\n')
-                include_list.append(entry)
+        try:
+            with open(nhgri_ignore,"r") as include:
+                lines = include.readlines()
+                for line in lines:
+                    entry = line.rstrip('\n')
+                    if entry != "":
+                        nhgri_ignore_list.append(entry)
+        except:
+            print "Warning: No valid nhgri_ignore file specified. Filter will filter out for associations with trait of interest and potentially other similar traits. Please add nhgri_ignore='/path/to/file' "
+            return
+        try:
+            with open(confounders,"r") as excluded_headers:
+                lines = excluded_headers.readlines()
+                for line in lines:
+                    entry = line.rstrip('\n')
+                    if entry!="":
+                        confounder_list.append(entry)
+        except:
+            print "Warning: No valid confounder file specified. Filter will not filter for confounding using the pval summary file. Please add confounders='/path/to/file.' File may be blank. "
+            return
+        try:
+            with open(primary_confounders,"r") as p:
+                lines = p.readlines()
+                for line in lines:
+                    entry = line.rstrip('\n')
+                    if entry != "":
+                        primary_confounders_list.append(entry)
+        except:
+            print "Warning: No valid (optional) primary confounder file specifed. Filter will treat all confounders as secondary confounders (see documentation)."
+        print "\n"
 
-        with open(exclude_file,"r") as excluded_headers:
-            lines = excluded_headers.readlines()
-            for line in lines:
-                entry = line.rstrip('\n')
-                exclude_list.append(entry)
-
-
-
-        #Add all diseases we want to exlcude from NHGRI filtering to include_list
+        #Add all diseases we want to exlcude from NHGRI filtering to nhgri_ignore_list
         disease_list_handle = file("./data/disease_list.txt","r")
-        disease_line = disease_list_handle.readlines()
-        for line in disease_line:
+        lines = disease_list_handle.readlines()
+        for line in lines:
+            # if line == "":
+            #     break
+            #line = disease_list_handle.readline()
             entry = line.rstrip('\n').split('\t')
             disease = entry[0]
-            include_list.append(disease)
+            nhgri_ignore_list.append(disease)
 
 
         ####NHGRI PORTION#######
         ##Creates dictionary nhgri_dict mapping SNP rs# to list of traits it's associated with##
         ##Creates dictionary snp_nhgri_dict mapping snp to true if it passes nhgri test and false if not##
 
-        # trait_handle = file(trait_file,"r")
-        # trait_lines = trait_handle.readlines()
+        trait_handle = file(trait_file,"r")
         snp_list = []
-        with open(trait_file,"r") as f:
-            # trait_lines = trait_handle.readlines()
-            trait_lines = f.readlines()
-
-            for line in trait_lines[1:]:
-                line_list = line.rstrip('\n').split('\t')
-                snp = line_list[0]
-                if snp not in snp_list:
-                    snp_list.append(snp)
+        # with open(trait_file,"r") as f:
+        trait_lines = trait_handle.readlines()
+        # trait_lines = f.readlines()
+        #header = f.readline()
+        for line in trait_lines[1:]:
+            line_list = line.rstrip('\n').split('\t')
+            snp = line_list[0]
+            if snp not in snp_list:
+                snp_list.append(snp)
         # trait_handle.close()
+        snp_list_set = set(snp_list)
         print str(len(snp_list)) + " is number of unique SNPs in the IVF entering the filter . . ."
-        nhgri_handle = file(nhgri_file, "r")
-        nhgri_lines = nhgri_handle.readlines()
-        header = trait_lines[0]
+        # nhgri_handle = file(nhgri_file, "r")
+        # nhgri_lines = nhgri_handle.readlines()
+        # header = trait_lines[0]
+
         nhgri_dict = {}
-        for line in nhgri_lines[1:]:
+        with open(nhgri_file,'r') as n:
+            header = n.readline()
+            while True:
+
+                line = n.readline()
+            
+        # for line in nhgri_lines[1:]:
             #handles extra new line at end
-            if line == '\n':
-                break
-            mod_line = line.rstrip('\n').split('\t')
-            rs = mod_line[21]
-            trait = mod_line[7]
-            if rs in snp_list:
-                if rs in nhgri_dict.keys() and trait not in nhgri_dict[rs]:
-                    nhgri_dict[rs].append(trait)
-                else:
-                    nhgri_dict[rs] = [trait]
-        nhgri_handle.close()
-
-
+                if line == '\n' or line == "":
+                    break
+                mod_line = line.rstrip('\n').split('\t')
+                rs = mod_line[21]
+                trait = mod_line[7]
+                if rs in snp_list_set:
+                    if rs in nhgri_dict.keys() and trait not in nhgri_dict[rs]:
+                        nhgri_dict[rs].append(trait)
+                    else:
+                        nhgri_dict[rs] = [trait]
+        #nhgri_handle.close()
+        nhgri_dict_keys = set(nhgri_dict.keys())
         snp_nhgri_dict = {}
         remove_snps = {}
         nhgri_assoc = {}
         for snp in snp_list:
-            if snp in nhgri_dict.keys():
+            if snp in nhgri_dict_keys:
                 list_of_traits = nhgri_dict[snp]
-                snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,include_list,list_of_traits,remove_snps,nhgri_assoc)  
+                snp_nhgri_dict[snp] = Merp.nhgri_test(self,snp,nhgri_ignore_list,list_of_traits,remove_snps,nhgri_assoc)  
             elif out==False:
                 print snp + " is not found in NHGRI catalog. If you want you are bringing outside SNPs into filter, please add out=True as argument"
                 snp_nhgri_dict[snp] = False
                 pass
             elif out == True:
                 print snp + " is not in NHGRI catalog but kept in because out=True. Please be cautious for confounding."
-
+        pdb.set_trace()
         for key in nhgri_assoc.keys():
             print key + " is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: "
             for e in nhgri_assoc[key]:
@@ -537,6 +568,8 @@ class Merp():
         ######PVAL PORTION START########
         # pval_handle = file(pval_file, "r")
         #p = requests.get('http://coruscant.itmat.upenn.edu/merp/v3abr_allmetabolic_pvals_v2.txt', stream=True)
+
+        '''TODO Implement own pval file option e.g number of non traits (columns = header-#)'''
         p = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
         pval_lines = p.iter_lines()
         dict_snp = {}
@@ -545,17 +578,33 @@ class Merp():
         # header =  "SNP CHR POS P_SBP P_DBP P_HDL P_LDL P_TG P_BMI P_HEIGHT P_WHRadjBMI P_2hrGLUadjBMI P_FastGlu P_HbA1C P_FastIns P_HOMA-B P_HOMA-IR P_FastProIns"
         header = pval_lines.next()
         header_split = header.rstrip('\n').split(' ')
-        columns = len(header_split) - 6
+        #columns = len(header_split) - 6
+        columns = 0
        # correction_num = 0
-        excluded_index = []
+        included_index = []
+        prim_included_index = []
+        
         for p in header_split[6:]:
-            for excluded_trait in exclude_list:
-                if excluded_trait.lower() in p.lower():
-                    print p + " associations from our metabolic confounding filter will be ignored because found in pval_similar.txt"
-                    #will add the index of the column we want to exclude to a list 
-                    excluded_index.append(header_split.index(p))
-                    columns = columns - 1
+            for included_trait in confounder_list:
+                if included_trait.lower() == p.lower():
+                    if included_trait in primary_confounders_list:
+                        break
+
+                    print p + " associations from p-val file will be included in filter because found in " + confounders
+
+                    #will add the index of the column we want to include to a list 
+                    included_index.append(header_split.index(p))
+                    #columns = columns - 1
+                    columns +=1
+
                     #correction_num += 1
+            for prim_trait in primary_confounders_list:
+                if prim_trait.lower() == p.lower():
+                    prim_included_index.append(header_split.index(p))
+                    print p + " assoications from p-val file will be filtered as PRIMARY confounders"
+                    if prim_trait not in confounder_list:
+                        columns +=1
+
 
         '''Review why removed replacement pval thingy'''            
         # replace_handle = file(replacement_pval_snps, 'r')
@@ -570,26 +619,47 @@ class Merp():
         #           replace_dict[orig] = replacement
         #       else:
         #           print orig + " is repeated in replacement text file"
-        #           pass     
+        #           pass  
+        prim_viol_dict = {}   
         viol_dict1 = {}
         viol_dict2 = {}
         na_counter = {} #dictionary mapping rs# to number of NAs in the corresponding row
         for line in pval_lines:
+        # while True:
+        #     try:
+        #         line = pval_lines.next()
+        #     except:
+        #         break
+
             mod_line = line.rstrip('\n').split(' ')
             rs = mod_line[0]
-            if rs in snp_list:
+            if rs in snp_list_set:
+                count_p_prim = 0
                 count_p1 = 0
                 count_p2 = 0
                 na_count = 0
                 for e in mod_line[6:]:
-                    if mod_line.index(e) in excluded_index:
+                    ind = mod_line.index(e)
+                    #if column not specified in either confoudners or primary confounders file, then we don't look at it
+                    #if column in primary confounders and not in confounders, will still treat column as regular confounder if not removed for primary viol
+                    if ind not in included_index and ind not in prim_included_index:
                         continue
                     if e == "NA":
                         na_count+=1
                         continue
+                    if ind in prim_included_index:
+                        if float(e) <= pmaxprimary:
+                            count_p_prim +=1
+                            col = header_split[ind]
+                            if rs in prim_viol_dict.keys():
+                                prim_viol_dict[rs].append(col)
+                            else:
+                                prim_viol_dict[rs] = [col]
+
+                
                     if float(e) <= pmax1:
                         count_p1 = count_p1 + 1
-                        col = header_split[mod_line.index(e)]
+                        col = header_split[ind]
                         if rs in viol_dict1.keys():
                             #should give us column header
                             viol_dict1[rs].append(col)
@@ -610,22 +680,26 @@ class Merp():
             #only add to dict if rs in trait file
                 if rs not in dict_snp.keys(): 
                     #first compare true count to modified threshold then change count to modified count if trait_related is true
-                    if count_p1 <= threshold1:
-                        if count_p2 <= threshold2:
-                            #if trait in pval file, subtract 1 from count of number of sig associations
-                            dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                    if count_p_prim < 1:
+                        if count_p1 <= threshold1:
+                            if count_p2 <= threshold2:
+                                #if trait in pval file, subtract 1 from count of number of sig associations
+                                dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                            else:
+                                dict_snp[rs] = [False, count_p1]
+                                print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                for v in viol_dict2[rs]:
+                                    print v
                         else:
                             dict_snp[rs] = [False, count_p1]
-                            print rs + " is being tossed out because it has " + str(count_p2) + " p<" + str(pmax2) + " associations in association pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
-                            for v in viol_dict2[rs]:
+                            print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                            for v in viol_dict1[rs]:
                                 print v
-
                     else:
-                        dict_snp[rs] = [False, count_p1]
-                        print rs + " is being tossed out because it has " + str(count_p1) + " p<" + str(pmax1) + " associations in association pval file, which is greater than max threshold of " + str(threshold1) +", with:"
-                        for v in viol_dict1[rs]:
+                        dict_snp[rs] = [False,count_p1]
+                        print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                        for v in prim_viol_dict[rs]:
                             print v
-            
 
             '''Replacement pval code'''
             # elif rs in replace_dict.keys():
@@ -638,7 +712,9 @@ class Merp():
             #   else:
             #       dict_snp[rs] = [False, count_p1]
         # pval_handle.close()
-        for key in dict_snp.keys():
+        dict_snp_keys = set(dict_snp.keys())
+
+        for key in dict_snp_keys:
             if not dict_snp[key][0]:
                 if key not in remove_snps.keys():
                     remove_snps[key] = []
@@ -646,8 +722,8 @@ class Merp():
         '''IF NOT IN PVAL### keep in snp_list for now, later change so replaces?'''
 
         no_pval_snps = {}
-        for snp in snp_list:
-            if snp not in dict_snp.keys():
+        for snp in snp_list_set:
+            if snp not in dict_snp_keys:
                 no_pval_snps[snp] = []
         
         # #Calculate total number of significant assoc (<0.05)
@@ -984,7 +1060,7 @@ class Merp():
             #nhgri test
             if snp_nhgri_dict[snp] == True:
                 ##pval test
-                if snp in dict_snp.keys():
+                if snp in dict_snp_keys:
                     if dict_snp[snp][0] == True: 
                         
                         cluster_status[snp] = True

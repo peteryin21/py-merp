@@ -1,0 +1,49 @@
+LDL SNPs from lancet
+rs646776 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+rs6511720 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+rs11206510 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+LPA:rs1564348 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs562338 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+P_TG
+rs6544713 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+HNF1A:
+rs2650000 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+rs1169288 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+
+APOE-APOC...
+rs4420638 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+P_TG
+rs3846663 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_BMI
+rs1501908 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+
+From Supptable9
+rs11136341 OK
+rs11220462 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+P_TG
+rs1169288 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL 
+rs12027135 OK
+rs12916 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_BMI
+rs1800562 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+rs217386 not found look gene/ gene not there
+rs2332328 not found look genes/ not there
+rs3757354 OK
+rs514230 OK
+rs649129 not found look gene
+rs6511720 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+rs7225700 not foundlook at gene

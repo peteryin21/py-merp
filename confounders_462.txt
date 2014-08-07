@@ -1,0 +1,13 @@
+P_SBP
+P_HDL
+P_TG
+P_BMI
+P_WHRadjBMI
+P_2hrGLUadjBMI
+P_FastGlu
+P_HbA1C
+P_FastIns
+P_Homa-B
+P_Homa-IR
+P_FastProIns
+

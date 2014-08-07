@@ -1,0 +1,70 @@
+sbp log
+>>> m.filter('traitFiles/453_update',nhgri_ignore='nhgri_similar_453.txt',confounders='confounders_453.txt',primary_confounders='prim_confounders_cardio_453.txt',max_fraction=0.1)
+Trait File correctly formatted . . .
+
+
+24 is number of unique SNPs in the IVF entering the filter . . .
+
+
+P_HDL assoications from p-val file will be filtered as PRIMARY confounders
+P_TG assoications from p-val file will be filtered as PRIMARY confounders
+P_BMI assoications from p-val file will be filtered as PRIMARY confounders
+P_WHRadjBMI associations from p-val file will be included in filter because found in confounders_453.txt
+P_2hrGLUadjBMI associations from p-val file will be included in filter because found in confounders_453.txt
+P_FastGlu associations from p-val file will be included in filter because found in confounders_453.txt
+P_HbA1C associations from p-val file will be included in filter because found in confounders_453.txt
+P_FastIns associations from p-val file will be included in filter because found in confounders_453.txt
+P_HOMA-B associations from p-val file will be included in filter because found in confounders_453.txt
+P_HOMA-IR associations from p-val file will be included in filter because found in confounders_453.txt
+P_FastProIns associations from p-val file will be included in filter because found in confounders_453.txt
+rs1173771 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs1799945 tossed for1 p<0.001 associations in pval file, which is greater than max threshold of 0, with:
+P_HbA1C
+rs12946454 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs3184504 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+P_BMI
+rs11191548 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_BMI
+rs1004467 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_BMI
+rs17608766 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+rs13107325 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_HDL
+P_TG
+P_BMI
+rs11191548 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1173771 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs13107325 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1799945 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs17608766 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1004467 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3184504 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs11191548 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12946454 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1458038 is the only member of its cluster
+rs6015450 is the only member of its cluster
+rs1378942 is the only member of its cluster
+rs2521501 is the only member of its cluster
+rs633185 is the only member of its cluster
+rs932764 is the only member of its cluster
+rs419076 is the only member of its cluster
+rs7129220 is the only member of its cluster
+rs805303 is the only member of its cluster
+rs11953630 is the only member of its cluster
+rs4373814 is the only member of its cluster
+rs2932538 is the only member of its cluster
+rs1327235 is the only member of its cluster
+rs381815 is the only member of its cluster
+rs2681492 is the only member of its cluster
+rs17367504 is the only member of its cluster
+6is new number of total p <0.05 assoc with pvals in file after decreasing threshold from 4 to 3
+File successsfuly filtered. Final filtered file can be found as traitFiles/453_updatefiltered
+WARNING: Different units detected in final filtered file. Please make desired unit conversions in a text editor:
+units
+mm_hg_*
+mmhg_*
+>>> 
