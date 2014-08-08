@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
-rs17391905	-1.35	ms_decrease	T	G	3E-10	[0.90-1.80]_ms_decrease	QRS_duration	C1orf185,RNF11,CDKN2C,FAF1	0.05	21076409	
-rs1733724	.49	ms_increase	G	A	3E-8	[0.31-0.67]_ms_increase	QRS_duration	DKK1	0.25	21076409	

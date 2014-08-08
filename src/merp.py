@@ -599,10 +599,10 @@ class Merp():
                 if prim_trait.lower() == p.lower():
                     prim_included_index.append(header_split.index(p))
                     print p + " assoications from p-val file will be filtered as PRIMARY confounders"
-                    if prim_trait not in confounder_list:
-                        columns +=1
+                    # if prim_trait not in confounder_list:
+                    columns +=1
 
-
+        print columns + " confounding columns detected in pval file"
         '''Review why removed replacement pval thingy'''            
         # replace_handle = file(replacement_pval_snps, 'r')
         # replace_lines = replace_handle.readlines()
@@ -1159,9 +1159,11 @@ class Merp():
             total_num = math.ceil(max_fraction * num_tests)
             if float(num_sig_dict["new_num_sig"]) <= max_fraction * num_tests:
                 threshold_met = True
+                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is less than/equal to max_fraction " + str(max_fraction) + " of " + str(num_tests) + "number of tests =" + str(total_num) 
+
             elif float(num_sig_dict["new_num_sig"]) > max_fraction * num_tests:
                 print "Entering iterative association cutting step . . . "
-                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is greater than " + str(max_fraction) + " of " + str(num_tests) + "number of tests:" + str(total_num) 
+                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is greater than max_fraction" + str(max_fraction) + " of " + str(num_tests) + "number of tests =" + str(total_num) 
                 num_sig_dict["old_num_sig"] = num_sig_dict["new_num_sig"]
                 num_sig_dict["new_num_sig"] = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,num_sig_dict["old_num_sig"],pmax1)
                 cut = cut - 1
