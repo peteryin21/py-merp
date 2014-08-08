@@ -27,4 +27,6 @@ m.filter('traitFiles/382_update',nhgri_ignore='nhgri_similar_382.txt',confounder
 
 import merp 
 m = merp.Merp()
-m.filter('traitFiles/462_update',nhgri_ignore='nhgri_similar_462.txt',confounders='confounders_462.txt',primary_confounders='prim_confounders_462.txt',max_fraction=0.1,pmaxprimary=0.01)
+m.filter('traitFiles/1_update',nhgri_ignore='nhgri_similar_1.txt',confounders='confounders.txt',primary_confounders='prim_confounders_cardio.txt')
+
+Why did 4NAs not show up as warning for rs181362???

@@ -1,0 +1,537 @@
+>>> m.filter('traitFiles/1_update',nhgri_ignore='nhgri_similar_1.txt',confounders='confounders.txt',primary_confounders='prim_confounders_cardio.txt')
+Trait File correctly formatted . . .
+
+
+122 is number of unique SNPs in the IVF entering the filter . . .
+> /Library/Python/2.7/site-packages/merp.py(559)filter()
+-> for key in nhgri_assoc.keys():
+(Pdb) c
+rs326 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs1121980 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Body mass index
+rs10503669 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs2972146 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs7679 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs12229654 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Glycemic traits
+Gamma glutamyl transpeptidase
+Alcohol consumption
+rs12748152 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs731839 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+Adiponectin levels
+rs2144300 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Circulating myeloperoxidase levels (serum) 
+Triglycerides
+rs2954029 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs6754295 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs12678919 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs11613352 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs1936800 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Renal function-related traits (BUN)
+rs1800775 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs247617 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Metabolic syndrome
+rs2925979 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Adiponectin levels
+rs4765127 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs17482753 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Lipid traits
+rs964184 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs2083637 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Metabolic syndrome
+Waist circumference and related phenotypes
+rs328 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs4420638 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs174548 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Hematology traits
+Triglycerides
+Metabolite levels
+rs4846914 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs3905000 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+MRI atrophy measures
+rs998584 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+Adiponectin levels
+rs174547 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Phospholipid levels (plasma)
+Resting heart rate
+Metabolite levels
+Triglycerides
+rs1042034 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+rs2074356 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Glycemic traits
+Renal function-related traits (BUN)
+Gamma glutamyl transpeptidase
+Alcohol consumption
+Biomedical quantitative traits
+rs4775041 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Metabolite levels
+Triglycerides
+rs173539 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Metabolite levels
+Metabolic syndrome
+Metabolic syndrome (bivariate traits)
+rs17145738 is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: 
+Triglycerides
+
+
+P_SBP assoications from p-val file will be filtered as PRIMARY confounders
+P_DBP assoications from p-val file will be filtered as PRIMARY confounders
+P_LDL assoications from p-val file will be filtered as PRIMARY confounders
+P_TG assoications from p-val file will be filtered as PRIMARY confounders
+P_BMI assoications from p-val file will be filtered as PRIMARY confounders
+P_WHRadjBMI associations from p-val file will be included in filter because found in confounders.txt
+P_2hrGLUadjBMI associations from p-val file will be included in filter because found in confounders.txt
+P_FastGlu associations from p-val file will be included in filter because found in confounders.txt
+P_HbA1C associations from p-val file will be included in filter because found in confounders.txt
+P_FastIns associations from p-val file will be included in filter because found in confounders.txt
+P_HOMA-B associations from p-val file will be included in filter because found in confounders.txt
+P_HOMA-IR associations from p-val file will be included in filter because found in confounders.txt
+P_FastProIns associations from p-val file will be included in filter because found in confounders.txt
+rs12708980 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+rs7679 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs519113 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs247617 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs731839 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+P_BMI
+rs970548 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs4660293 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_DBP
+P_TG
+rs1936800 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+P_TG
+rs12686004 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs4765127 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+P_BMI
+rs10503669 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs3890182 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs12145743 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs4420638 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs1532085 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs2967605 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs4142995 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs2923084 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs6065906 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs1883025 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs4731702 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_TG
+rs998584 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_DBP
+P_TG
+rs1800588 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs7240405 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs2013208 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_BMI
+rs7941030 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_BMI
+rs13326165 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs3905000 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs10019888 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs2954029 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs11216126 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs964184 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs737337 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+rs4129767 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+P_BMI
+rs9987289 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs17173637 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs6805251 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs2083637 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs255049 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs1084651 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs4149268 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs2144300 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs605066 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_DBP
+P_TG
+rs3136441 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs7241918 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs2652834 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_DBP
+P_TG
+rs12678919 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs4939883 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs7120118 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs1864163 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs2814944 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_BMI
+rs3822072 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+P_TG
+rs11613352 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs12967135 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+P_BMI
+rs1121980 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+P_BMI
+rs3764261 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs6754295 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs2156552 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs2972146 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+P_BMI
+rs1461729 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs174547 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+P_LDL
+P_TG
+rs2925979 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs12748152 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs12801636 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_TG
+rs328 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs174548 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+P_LDL
+P_TG
+rs1800961 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs17404153 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs2606736 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs4775041 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs326 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs325 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs643531 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs1042034 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs1689800 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs9989419 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs1800775 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs17482753 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs261334 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs17145738 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs12328675 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs581080 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs4846914 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs1532624 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+P_TG
+rs10468017 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs471364 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs10489615 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+rs4148008 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs2293889 tossed for 1 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_LDL
+rs6450176 tossed for 2 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_TG
+P_BMI
+rs13107325 tossed for 4 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_SBP
+P_DBP
+P_TG
+P_BMI
+rs174546 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+P_LDL
+P_TG
+rs7134375 tossed for 3 p<0.01 *primary confounder* associations in pval file, which is greater than max threshold of 1, with:
+P_DBP
+P_TG
+P_BMI
+rs1883025 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4148008 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs17404153 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2923084 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs737337 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs964184 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4420638 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs6450176 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2606736 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs10019888 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3764261 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs605066 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2925979 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12328675 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs174546 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3822072 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1121980 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4846914 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs6805251 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12145743 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1800961 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2972146 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12801636 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4731702 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2652834 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1532085 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7241918 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12678919 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs11613352 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3136441 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3136441 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs970548 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12967135 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs17145738 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4660293 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7134375 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs731839 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4129767 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12748152 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs6065906 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs9987289 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2013208 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1936800 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs13107325 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4142995 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs13326165 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs17173637 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2954029 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2293889 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs581080 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7941030 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs998584 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1689800 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4765127 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1461729 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs326 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs247617 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs964184 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs247617 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1532624 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12229654 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2074356 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs10503669 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12686004 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs11216126 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12708980 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs519113 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs174548 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs643531 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs10489615 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs325 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs964184 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs261334 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs9989419 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2156552 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12678919 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1532085 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7241918 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs964184 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1883025 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1042034 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs9987289 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs174546 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs6065906 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4846914 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4420638 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2954029 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3136441 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1800961 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4731702 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs581080 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2925979 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2293889 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs13107325 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4148008 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12328675 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4765127 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1689800 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4660293 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs17145738 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2972146 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs737337 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2814944 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4129767 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12967135 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2652834 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs11613352 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs605066 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7941030 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1084651 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7134375 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2923084 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs6450176 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3764261 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3764261 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1800775 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs6754295 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2083637 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3905000 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1532085 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1532624 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4939883 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs174547 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs471364 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1800961 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7679 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2967605 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs173539 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs12678919 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs10468017 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4939883 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs964184 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1883025 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4846914 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7120118 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1532085 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3764261 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs255049 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs9989419 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs17482753 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs7240405 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4846914 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3890182 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1800775 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1800588 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs328 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2156552 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs3764261 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs1864163 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs9989419 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4775041 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs10503669 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2144300 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs4149268 excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes
+rs2602836 is the only member of its cluster
+rs4650994 is the only member of its cluster
+rs1047891 is the only member of its cluster
+rs702485 is the only member of its cluster
+rs17695224 is the only member of its cluster
+rs4917014 is the only member of its cluster
+rs499974 is the only member of its cluster
+rs11246602 is the only member of its cluster
+rs2290547 is the only member of its cluster
+rs4983559 is the only member of its cluster
+rs12979813 is the only member of its cluster
+rs16940212 is the most sig out of cluster 11: 
+rs1077835
+rs16940212
+rs7395662 is the only member of its cluster
+rs7134594 is the most sig out of cluster 13: 
+rs2338104
+rs7134594
+rs181362 is the only member of its cluster
+rs16942887 is the most sig out of cluster 15: 
+rs2271293
+rs16942887
+rs4759375 is the only member of its cluster
+rs11869286 is the only member of its cluster
+rs7255436 is the only member of its cluster
+rs838880 is the only member of its cluster
+rs386000 is the only member of its cluster
+16is new number of total p <0.05 assoc with pvals in file after decreasing threshold from 4 to 3
+4is new number of total p <0.05 assoc with pvals in file after decreasing threshold from 3 to 2
+rs2366858: WARNING: SNP not found in LD data or Pval data.
+Keeping in for now- please double-check associations with this SNP before proceeding with analysis
+rs9282541: WARNING: SNP not found in LD data or Pval data.
+Keeping in for now- please double-check associations with this SNP before proceeding with analysis
+File successsfuly filtered. Final filtered file can be found as traitFiles/1_updatefiltered

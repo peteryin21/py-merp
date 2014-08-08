@@ -223,11 +223,8 @@ class Merp():
     '''Helper functions for filter'''
 
     def trait_included(self,trait,nhgri_ignore_list):
-        #pdb.set_trace()
         for e in nhgri_ignore_list:
             if e.lower() in trait.lower():
-                #pdb.set_trace()
-
                 return True
         return False
 
@@ -356,7 +353,7 @@ class Merp():
 
 
 
-    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.05,out=False):
+    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False):
  
         '''Metabolic Association Paramters'''
         #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
@@ -555,7 +552,6 @@ class Merp():
                 pass
             elif out == True:
                 print snp + " is not in NHGRI catalog but kept in because out=True. Please be cautious for confounding."
-        pdb.set_trace()
         for key in nhgri_assoc.keys():
             print key + " is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: "
             for e in nhgri_assoc[key]:
@@ -588,14 +584,15 @@ class Merp():
             for included_trait in confounder_list:
                 if included_trait.lower() == p.lower():
                     if included_trait in primary_confounders_list:
-                        break
+                        pass
+                    else:
 
-                    print p + " associations from p-val file will be included in filter because found in " + confounders
+                        print p + " associations from p-val file will be included in filter because found in " + confounders
 
-                    #will add the index of the column we want to include to a list 
-                    included_index.append(header_split.index(p))
-                    #columns = columns - 1
-                    columns +=1
+                        #will add the index of the column we want to include to a list 
+                        included_index.append(header_split.index(p))
+                        #columns = columns - 1
+                        columns +=1
 
                     #correction_num += 1
             for prim_trait in primary_confounders_list:
@@ -1140,6 +1137,10 @@ class Merp():
         
         cut = threshold1
         while threshold_met == False:
+            #if all remaining snps have 1 or fewer p<0.05 associations, but this still consists of more than 10% of all tests, we are ok with this.
+            # if cut == 1:
+            #     threshold_met = True
+            #     continue
             ####JUST LOOK AT ELIGIBLE SNPS
             num_snps = 0
             for key in cluster_status.keys():
@@ -1155,14 +1156,16 @@ class Merp():
                         num_na += na_counter[key]
           
             num_tests = num_tests - num_na
-
+            total_num = math.ceil(max_fraction * num_tests)
             if float(num_sig_dict["new_num_sig"]) <= max_fraction * num_tests:
                 threshold_met = True
             elif float(num_sig_dict["new_num_sig"]) > max_fraction * num_tests:
-                
+                print "Entering iterative association cutting step . . . "
+                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is greater than " + str(max_fraction) + " of " + str(num_tests) + "number of tests:" + str(total_num) 
                 num_sig_dict["old_num_sig"] = num_sig_dict["new_num_sig"]
                 num_sig_dict["new_num_sig"] = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,num_sig_dict["old_num_sig"],pmax1)
                 cut = cut - 1
+
                 if cut < 0:
                     #print "Fatal error: cut below 0, consider having a higher cutoff threshold of violations or higher max_fraction "
                     continue
