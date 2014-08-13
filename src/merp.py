@@ -204,7 +204,7 @@ class Merp():
         trait_list = []
         if len(traits) == 0:
             print "Usage: python update.py [trait]"
-            sys.exit()
+            return
         for trait in traits:
             trait_list.append(trait)
         # allele_file = "data/1000_genomes"
@@ -231,19 +231,14 @@ class Merp():
     def nhgri_test(self,snp,nhgri_ignore_list,list_of_traits,remove_snps,nhgri_assoc):
         mark = True
         for trait in list_of_traits:
-
             if not Merp.trait_included(self,trait,nhgri_ignore_list):
                 if snp not in nhgri_assoc.keys():
                     nhgri_assoc[snp] = [trait]
                 else:
                     nhgri_assoc[snp].append(trait)
-                #print snp + " has NHGRI catalog association with " + trait + " and is not exempt through nhgri_similar.txt. Throwing out."
                 if snp not in remove_snps.keys():
                     remove_snps[snp] = []
-                
-
                 mark = False
-
         return mark
 
     def most_sig(self,snp_list,pval_dict):
@@ -257,52 +252,37 @@ class Merp():
                 sig_snp = e
         return sig_snp
 
-    #######pval violation >0.05 by chance algorithm#####
-    # def dict_count(self,d):
-    #     count = 0
-    #     for key in d:
-    #         #If passes conditions count it
-    #         if d[key][0] == True:
-    #             count += 1
-    #     print count
-    #     return count
-    #Help function takes dictionary and cutoff and turns all keys with num_sig greater/= to cutoff to false
-    #Then returns number of sig
-    def dict_purge_count(self,d,cluster_d,cut,old_num_sig,pmax1):
-        
+    #Helper function takes dictionary and cutoff and turns all keys with num_sig greater or equal to cutoff to false. Returns number of sig assoc total remaining
+    def dict_purge_count(self,d,cluster_d,cut,old_num_sig,pmax1,log,verbose):
         return_sig = 0
         tossed = {}
         for key in d:
             if key in cluster_d:
                 if d[key][1] >= cut:
-                    cluster_d[key] = False 
-                    #tossed[key] = []
-
-            #get new number of sig
+                    if cluster_d[key] == True:
+                        tossed[key] =[]
+                        cluster_d[key] = False 
         ##currently ignore if not in pval file  
         for snp in d.keys():
-            
-            if snp in d: #unsure if dict_snp or dict
+            if snp in d: 
                 if snp in cluster_d:
                     if cluster_d[snp] == True: 
                         return_sig = return_sig + d[snp][1]
+        if verbose == True:
+            print str(return_sig) + " is the new number of total p <" + str(pmax1) +" associations with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
+        log += str(return_sig) + " is the new number of total p <" + str(pmax1) +" associations with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut) + '\n'
+        if verbose == True:
+            print "SNPs thrown out from this cut:"
+        log += "SNPs thrown out from this cut:" + '\n'
+        for key in tossed.keys():
+            if verbose == True:
+                print key
+            log += key + '\n'
 
-        # for snp in snp_list:
-        #   if snp == "rs4826508":
-        #     
-        #   if key in d: #unsure if dict_snp or dict
-        #       if key in cluster_d:
-        #           if cluster_d[key] == True: 
-        #               return_sig = return_sig + d[snp][1]
 
-        print str(return_sig) + "is new number of total p <" + str(pmax1) +" assoc with pvals in file after decreasing threshold from " + str(cut+1)+" to " + str(cut)
-        #print "SNPs thrown out from this cut:"
-        # for key in tossed.keys():
-        #     print key
         return return_sig
 
     def unit_checker(self,trait_file):
-        #check this out, says unit in unit dict but not...
         unit_tags = ["decrease","lower","shorter","less","more","increase","higher","taller","greater"]
         unit_dict = {}
         handle = file(trait_file,"r")
@@ -349,105 +329,30 @@ class Merp():
                         repeat_to_write[snp] =[line,p,pid,unit]
                         #if all equal up to now/new snp has fewer freq unit/pid then use the snp existing
 
-
-
-
-
-    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,lowband=False):
+    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,lowband=False,verbose=True):
  
-        '''Metabolic Association Paramters'''
-        #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
-        # pmax1 = 0.05
-        # threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
-        #pmax 2: if a SNP has more than threshold2 (usually 0) associations of pmax2, SNP excluded.
-        # pmax2 = 0.001
-        # threshold2 = 0 # No SNP can have a metabolic p association of less than .001
-
-        '''LD Parameters'''
-        #SNPs with R^2 value > rsq_threshold are clustered together, with only lead SNP passing on.
-        #rsq_threshold = 0.05
-
-        '''Metabolic Association Iteration Step'''
-        #If number of total pmax1 violations exceeds max_fraction * total number of tests, then cut SNPS until below max_fraction of tests.
-        # max_fraction = 0.05
-
-
-
-
+        '''Metabolic Association Paramters
+        
+        pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
+        threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
+        pmax 2: if a SNP has more than threshold2 (usually 0) associations of pmax2, SNP excluded.
+        threshold2 = 0 # No SNP can have a metabolic p association of less than .001
+        pmaxprimary: if a SNP has a single violation of p<pmaxprimary, SNP excluded 
+        max_fraction: If number of total pmax1 violations exceeds max_fraction * total number of tests, then cut SNPS until below max_fraction of tests.
+        
+        LD Parameters
+        rsq_threshold: SNPs with R^2 value > rsq_threshold are clustered together, with only lead SNP passing on.
+        '''
 
         if "update" not in trait_file:
             print "Warning: check to make sure you are using the updated file tagged with '_update' if using the pipeline"
             return
         if not Merp.file_checker(self,trait_file):
             return
-
+        log = ""
         nhgri_ignore_list = []
         confounder_list = []
         primary_confounders_list = []
-        '''How to add usage error? '''
-        #num_args = len(sys.argv) - 1
-        # try:
-        #   trait_file = sys.argv[1]
-        #   nhgri_ignore = sys.argv[2]
-        #   confounders = sys.argv[3]
-            
-        # except:
-        #   print "Usage: python filter.py [trait_file] [include_traits_file] [confounders]"
-        #   sys.exit()
-        #Read include list file and exclude list file(pval headers) 
-
-        # ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
-        # #move this later down. Add a removal for loop over violating snps from pval or nhgri and remove from rs_list
-        # rs_list = []
-        # with open(trait_file,"r") as trait:
-        #     lines = trait.readlines()
-        #     for line in lines[1:]:
-        #         entry = line.rstrip('\n').split('\t')
-        #         rs_list.append(entry[0])
-        # #remove biolating snps from rs_list TODO        
-        # rs = ('\n\t').join(rs_list)
-        # rs =  '\n\t' +rs 
-
-        # data_1000 = {
-        #     "searchPairwise": "true",
-        #     "snpList": rs,
-        #     "hapMapRelease": "onekgpilot",
-        #     "hapMapPanel": "CEU",
-        #     "RSquaredLimit": "0",
-        #     "distanceLimit": "500000",
-        #     "downloadType": "Browser",
-        #     "arrayFilter": "query",
-        #     "columnList[]": "DP",
-        #     "columnList[]": "GP",
-        #     "columnList[]": "AM",
-        #     "submit":"search"
-        # }
-        # ##backup ld search in case not in 1000genomes build
-        # data_hm22 = {
-        #     "searchPairwise": "true",
-        #     "snpList": rs,
-        #     "hapMapRelease": "rel22",
-        #     "hapMapPanel": "CEU",
-        #     "RSquaredLimit": "0",
-        #     "distanceLimit": "500000",
-        #     "downloadType": "Browser",
-        #     "arrayFilter": "query",
-        #     "columnList[]": "DP",
-        #     "columnList[]": "GP",
-        #     "columnList[]": "AM",
-        #     "submit":"search"
-        # }
-        # r_1000 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_1000)
-        # ld_result = r_1000.text.split('\n')
-
-        # r_hm22 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_hm22)
-        # ld_result_hm22= r_hm22.text.split('\n')
-        ##create list of lines of ld_result
-
-        
-
-        #LD_file = "bin/1LD.txt"
-
         nhgri_file = "data/finalgwas.txt"
         pval_file = "data/pval_file.txt"
         try:
@@ -458,7 +363,7 @@ class Merp():
                     if entry != "":
                         nhgri_ignore_list.append(entry)
         except:
-            print "Warning: No valid nhgri_ignore file specified. Filter will filter out for associations with trait of interest and potentially other similar traits. Please add nhgri_ignore='/path/to/file' "
+            print "Warning: No valid nhgri_ignore file specified. Filter may filter out for associations with trait of interest and potentially other similar traits. Please add nhgri_ignore='/path/to/file' (May be blank if bringing IVFs from outside NHGRI catalog) "
             return
         try:
             with open(confounders,"r") as excluded_headers:
@@ -479,15 +384,11 @@ class Merp():
                         primary_confounders_list.append(entry)
         except:
             print "Warning: No valid (optional) primary confounder file specifed. Filter will treat all confounders as secondary confounders (see documentation)."
-        print "\n"
 
         #Add all diseases we want to exlcude from NHGRI filtering to nhgri_ignore_list
         disease_list_handle = file("./data/disease_list.txt","r")
         lines = disease_list_handle.readlines()
         for line in lines:
-            # if line == "":
-            #     break
-            #line = disease_list_handle.readline()
             entry = line.rstrip('\n').split('\t')
             disease = entry[0]
             nhgri_ignore_list.append(disease)
@@ -499,31 +400,21 @@ class Merp():
 
         trait_handle = file(trait_file,"r")
         snp_list = []
-        # with open(trait_file,"r") as f:
         trait_lines = trait_handle.readlines()
-        # trait_lines = f.readlines()
-        #header = f.readline()
         for line in trait_lines[1:]:
             line_list = line.rstrip('\n').split('\t')
             snp = line_list[0]
             if snp not in snp_list:
                 snp_list.append(snp)
-        # trait_handle.close()
+        trait_handle.close()
         snp_list_set = set(snp_list)
         print str(len(snp_list)) + " is number of unique SNPs in the IVF entering the filter . . ."
-        # nhgri_handle = file(nhgri_file, "r")
-        # nhgri_lines = nhgri_handle.readlines()
-        # header = trait_lines[0]
 
         nhgri_dict = {}
         with open(nhgri_file,'r') as n:
             header = n.readline()
             while True:
-
                 line = n.readline()
-            
-        # for line in nhgri_lines[1:]:
-            #handles extra new line at end
                 if line == '\n' or line == "":
                     break
                 mod_line = line.rstrip('\n').split('\t')
@@ -534,7 +425,6 @@ class Merp():
                         nhgri_dict[rs].append(trait)
                     else:
                         nhgri_dict[rs] = [trait]
-        #nhgri_handle.close()
         nhgri_dict_keys = set(nhgri_dict.keys())
         snp_nhgri_dict = {}
         remove_snps = {}
@@ -550,17 +440,17 @@ class Merp():
             elif out == True:
                 print snp + " is not in NHGRI catalog but kept in because out=True. Please be cautious for confounding."
         for key in nhgri_assoc.keys():
-            print key + " is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: "
+            if verbose == True:
+                print key + " is excluded for  NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: "
+            log += key + " is excluded for NHGRI catalog association with the following traits that are not exempt through nhgri_similar.txt: " +'\n'
             for e in nhgri_assoc[key]:
-                print e
+                if verbose == True:
+                    print e
+                log += e + '\n'
 
-
-        print '\n'
         ####NHGRI PORTION END#######
                 
         ######PVAL PORTION START########
-        # pval_handle = file(pval_file, "r")
-        #p = requests.get('http://coruscant.itmat.upenn.edu/merp/v3abr_allmetabolic_pvals_v2.txt', stream=True)
 
         '''TODO Implement own pval file option e.g number of non traits (columns = header-#)'''
         if lowband == False:
@@ -570,33 +460,21 @@ class Merp():
         else:
             pval = file('data/pval_file.txt','r')
             header = pval.readline()
-        dict_snp = {}
-        # pval_lines = pval_handle.readlines()
-        #header = pval_lines[0]
-        # header =  "SNP CHR POS P_SBP P_DBP P_HDL P_LDL P_TG P_BMI P_HEIGHT P_WHRadjBMI P_2hrGLUadjBMI P_FastGlu P_HbA1C P_FastIns P_HOMA-B P_HOMA-IR P_FastProIns"
-        
+        dict_snp = {} 
         header_split = header.rstrip('\n').split(' ')
-        #columns = len(header_split) - 6
         columns = 0
-       # correction_num = 0
         included_index = []
         prim_included_index = []
-        
         for p in header_split[6:]:
             for included_trait in confounder_list:
                 if included_trait.lower() == p.lower():
                     if included_trait in primary_confounders_list:
                         pass
                     else:
-
                         print p + " associations from p-val file will be included in filter because found in " + confounders
-
                         #will add the index of the column we want to include to a list 
                         included_index.append(header_split.index(p))
-                        #columns = columns - 1
                         columns +=1
-
-                    #correction_num += 1
             for prim_trait in primary_confounders_list:
                 if prim_trait.lower() == p.lower():
                     prim_included_index.append(header_split.index(p))
@@ -604,21 +482,7 @@ class Merp():
                     # if prim_trait not in confounder_list:
                     columns +=1
 
-        print str(columns) + " confounding columns detected in pval file"
-        '''Review why removed replacement pval thingy'''            
-        # replace_handle = file(replacement_pval_snps, 'r')
-        # replace_lines = replace_handle.readlines()
-        # replace_dict = {}
-        # for line in replace_lines[1:]:
-        #   entry = line.rstrip('\n').split('\t')
-        #   orig = entry[0]
-        #   replacement = entry[1]
-        #   if orig in no_pval_snps.keys():
-        #       if orig not in replace_dict.keys():
-        #           replace_dict[orig] = replacement
-        #       else:
-        #           print orig + " is repeated in replacement text file"
-        #           pass  
+        print str(columns) + " confounding column headers detected in pval file"
         prim_viol_dict = {}   
         viol_dict1 = {}
         viol_dict2 = {}
@@ -628,7 +492,6 @@ class Merp():
                 line = pval.readline()
                 if line == '' or line =="'\n":
                     break
-            #for line in p:
                 mod_line = line.rstrip('\n').split(' ')
                 rs = mod_line[0]
                 if rs in snp_list_set:
@@ -653,8 +516,6 @@ class Merp():
                                     prim_viol_dict[rs].append(col)
                                 else:
                                     prim_viol_dict[rs] = [col]
-
-                    
                         if float(e) <= pmax1:
                             count_p1 = count_p1 + 1
                             col = header_split[ind]
@@ -663,7 +524,6 @@ class Merp():
                                 viol_dict1[rs].append(col)
                             else:
                                 viol_dict1[rs] = [col]
-
                         if float(e) <= pmax2:
                             count_p2 = count_p2 + 1
                             col = header_split[mod_line.index(e)]
@@ -685,19 +545,31 @@ class Merp():
                                     dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
                                 else:
                                     dict_snp[rs] = [False, count_p1]
-                                    print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                    if verbose == True:
+                                        print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                    log += rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:" + '\n'
                                     for v in viol_dict2[rs]:
-                                        print v
+                                        if verbose == True:
+                                            print v
+                                        log += v + '\n'
                             else:
                                 dict_snp[rs] = [False, count_p1]
-                                print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                                if verbose == True:
+                                    print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                                log += rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:" + '\n'
                                 for v in viol_dict1[rs]:
-                                    print v
+                                    if verbose == True:
+                                        print v
+                                    log += v + '\n'
                         else:
                             dict_snp[rs] = [False,count_p1]
-                            print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                            if verbose == True:
+                                print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                            log += rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:" +'\n'
                             for v in prim_viol_dict[rs]:
-                                print v
+                                if verbose == True:    
+                                    print v
+                                log += v + '\n'
             pval.close()
         elif lowband == False:
             for line in pval_lines:
@@ -757,67 +629,48 @@ class Merp():
                                     dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
                                 else:
                                     dict_snp[rs] = [False, count_p1]
-                                    print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                    if verbose == True:
+                                        print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                    log += rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:" + '\n'
                                     for v in viol_dict2[rs]:
-                                        print v
+                                        if verbose == True:
+                                            print v
+                                        log += v + '\n'
                             else:
                                 dict_snp[rs] = [False, count_p1]
-                                print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                                if verbose == True:
+                                    print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                                log += rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:" + '\n'
                                 for v in viol_dict1[rs]:
-                                    print v
+                                    if verbose == True:
+                                        print v
+                                    log += v + '\n'
                         else:
                             dict_snp[rs] = [False,count_p1]
-                            print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                            if verbose == True:
+                                print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                            log += rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:" +'\n'
                             for v in prim_viol_dict[rs]:
-                                print v
+                                if verbose == True:    
+                                    print v
+                                log += v + '\n'
 
-            '''Replacement pval code'''
-            # elif rs in replace_dict.keys():
-            #   if count_p1 <= threshold1:
-            #       if count_p2 <= threshold2:
-            #           #if trait in pval file, subtract 1 from count of number of sig associations
-            #           dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
-            #       else:
-            #           dict_snp[rs] = [False, count_p1]
-            #   else:
-            #       dict_snp[rs] = [False, count_p1]
-        # pval_handle.close()
         dict_snp_keys = set(dict_snp.keys())
-
         for key in dict_snp_keys:
             if not dict_snp[key][0]:
                 if key not in remove_snps.keys():
                     remove_snps[key] = []
-
-        '''IF NOT IN PVAL### keep in snp_list for now, later change so replaces?'''
 
         no_pval_snps = {}
         for snp in snp_list_set:
             if snp not in dict_snp_keys:
                 no_pval_snps[snp] = []
         
-        # #Calculate total number of significant assoc (<0.05)
-        # num_sig = 0
-        # trait_handle = file(trait_file,"r")
-        # trait_lines = trait_handle.readlines()
-        # for line in trait_lines[1:]:
-        #     line_list = line.rstrip('\n').split('\t')
-        #     if len(line_list) > 5:
-        #         snp = line_list[0]
-        #     else:
-        #         print "file format error."
-        #     if snp in dict_snp:
-        #         #Create new dict with only trait files
-        #         if dict_snp[snp][0] == True: 
-        #             num_sig = num_sig + dict_snp[snp][1]
-        # trait_handle.close()
-
         ''' PVAL PORTION END '''
 
         '''LD PORTION BEGIN'''
 
         trait_handle = file(trait_file,"r")
-        # trait_lines = f.readlines()
         pval_dict = {}
         repeated_snps = []
         trait_lines = trait_handle.readlines()
@@ -858,20 +711,13 @@ class Merp():
                     pval_dict[snp] = 0.0
                 elif float(math.log(float(p_new))) < float(math.log(float(pval_dict[snp]))):
                     pval_dict[snp] = p_new
-                #else if equal or the new one has higher p, then keep as is
-                
+                #else if equal or the new one has higher p, then keep as is 
         trait_handle.close()
-
-        #Go through and rewrite traitfile without repeating snps
-
         '''Repeating SNPs handling'''
         repeat_to_write = {}
         with open(trait_file,"r") as f:
             trait_lines = f.readlines()
             header = trait_lines[0]
-        # trait_handle = file(trait_file,"r")
-        # trait_lines = trait_handle.readlines()
-        # header = trait_lines[0]
             abridged_trait_handle = file("./"+trait_file + "_abr_temp","w")
             abridged_trait_handle.write(header)
             for line in trait_lines[1:]:
@@ -886,26 +732,26 @@ class Merp():
                         unit = unit.replace(tag,"*")
                 '''Here add something about excluding nhgri and pval bad ones''' 
                 #remove_snps contains snps that have violated NHGRI or pval test
-                if snp not in remove_snps.keys():
+                remove_snps_keys = set(remove_snps.keys())
+                excluded_list = []
+                excluded_set = set(excluded_list)
+                if snp not in remove_snps_keys:
                     if snp not in repeated_snps:
                         abridged_trait_handle.write(line)
                     else:
-                        
-
                         Merp.which_repeat(self,snp,p,pid,unit,unit_counter,pid_counter,pval_dict,repeat_to_write,line)
-                            
-                        # if float(Math.log(p)) == float(Math.log(pval_dict[snp])):
-                        #     abridged_trait_handle.write(line)
                 else:
-                    print snp + " excluded from LD clustering because of NHGRI and PVAL violations. Testing purposes"
+                    if snp not in excluded_set:
+                        if verbose == True:
+                            print snp + " excluded from LD clustering because of NHGRI and/or PVAL violations."
+                        log += snp + " excluded from LD clustering because of NHGRI and/or PVAL violations." + '\n'
+                        excluded_set.add(snp)
             for snp in repeat_to_write.keys():
                 #line is the first entry of value list in dict
                 abridged_trait_handle.write(repeat_to_write[snp][0])
             abridged_trait_handle.close()
-        #trait_handle.close()
 
         ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
-        #move this later down. Add a removal for loop over violating snps from pval or nhgri and remove from rs_list
         rs_list = []
         with open(trait_file + "_abr_temp","r") as trait:
             lines = trait.readlines()
@@ -977,13 +823,10 @@ class Merp():
                             index_dict[snp] = cluster_index
                             cluster_index +=1
                             non_assoc_snps.append(snp)
-
                 elif "rs" in proxy:
                     rsq = line_list[3]
-
                     #Create dict of association of tuple to rsq
                     ld_assoc_dict[(snp,proxy)] = rsq
-
                     if float(rsq) >= rsq_threshold:
                         if snp not in index_dict.keys() and proxy not in index_dict.keys():
                             cluster_dict[cluster_index] = [snp,proxy]
@@ -994,7 +837,6 @@ class Merp():
                             snp_index = index_dict[snp]
                             cluster_dict[snp_index].append(proxy)
                             index_dict[proxy] = snp_index
-
                         elif snp not in index_dict.keys() and proxy in index_dict.keys():
                             proxy_index = index_dict[proxy]
                             cluster_dict[proxy_index].append(snp)
@@ -1013,28 +855,21 @@ class Merp():
                                 del cluster_dict[proxy_index]
                             else:
                                 pass
-
-        ###HERE GO THROUGH SAME THING FOR LD-result hm2 except check for only not inld
-
-        '''Review necessity of this''' 
+        '''If any SNPs not in ld, repeat with hm22 data to try to fill gaps''' 
         not_in_ld2 = []  
         if len(not_in_ld)>=1:
             for line in ld_result_hm22[1:]:
                 line_list = line.split('\t')
                 if len(line_list) != 1:
                     snp = line_list[0]
-                    # if snp == "rs2366858":
-                    #   
                     proxy = line_list[1]
                     #key difference
                     if snp in not_in_ld:
-
-                        if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
+                        if "WARNING" in proxy: 
                             #relies on the fact that query snp shows up first
                             if "Query snp not in" in line_list[2] or "No LD data" in line_list[2]: 
                                 if snp not in not_in_ld2:
                                     not_in_ld2.append(snp)
-                                 # should go back to line in ld_lines
                             elif "No matching proxy snps found" in line_list[2]:
                         #This means that snp is it's own cluster, treat as cluster with only one element
                                 if snp not in not_in_ld2 and snp not in non_assoc_snps:
@@ -1056,7 +891,6 @@ class Merp():
                                     snp_index = index_dict[snp]
                                     cluster_dict[snp_index].append(proxy)
                                     index_dict[proxy] = snp_index
-
                                 elif snp not in index_dict.keys() and proxy in index_dict.keys():
                                     proxy_index = index_dict[proxy]
                                     cluster_dict[proxy_index].append(snp)
@@ -1075,12 +909,10 @@ class Merp():
                                         del cluster_dict[proxy_index]
                                     else:
                                         pass
-
         for snp in not_in_ld:
             for key in index_dict.keys():
-                if snp==key: #test
+                if snp==key: 
                     not_in_ld.remove(snp)
-
         abr_trait_handle = file(trait_file+"_abr_temp","r")
         trait_lines = abr_trait_handle.readlines()
         header = trait_lines[0]
@@ -1097,30 +929,20 @@ class Merp():
                     assoc_list = cluster_dict.get(index)
                     sig_rs = Merp.most_sig(self,assoc_list,pval_dict)
                     most_sig_cluster[index] = sig_rs
-                    '''Keep this out for now. Rely on improved pval file'''
-                    #if snp not in pval, then look for one that is in pval and replace? Or just let it be?
-
-                    #Case where most sig snp not found in pval file
-                    # case = False
-                    
-                    # while case == False:
-                    #   if sig_rs not in dict_snp.keys():
-                        #while
-                    #       sig_rs = most_sig(assoc_list.remove(sig_rs))
-                    #   if sig_rs in dict_snp.keys():
-                    #       case == True
-
-                    # if case == False:
-                    #   pass
                     if sig_rs not in printed.keys():
-                        if len(assoc_list) > 1:                     
-                            print sig_rs + " is the most sig out of cluster " + str(index) + ": "
+                        if len(assoc_list) > 1:  
+                            if verbose == True:                   
+                                print sig_rs + " is the most sig out of cluster " + str(index) + ": "
+                            log += sig_rs + " is the most sig out of cluster " + str(index) + ": " + '\n'
                             printed[sig_rs] = []
                             for snp in assoc_list:
-                                print snp 
+                                if verbose == True:
+                                    print snp 
+                                log += snp + '\n'
                         else:
-                            print sig_rs + " is the only member of its cluster"
-
+                            if verbose == True:
+                                print sig_rs + " is the only member of its cluster"
+                            log += sig_rs + " is the only member of its cluster" +'\n'
         abr_trait_handle.close()
         for key in most_sig_cluster.keys():
             snp = most_sig_cluster[key]
@@ -1132,70 +954,20 @@ class Merp():
                 ##pval test
                 if snp in dict_snp_keys:
                     if dict_snp[snp][0] == True: 
-                        
                         cluster_status[snp] = True
-
-                        ###1/2/14. I think this section is the part that makes sure that if a SNP is LD assoc
-                        #with a SNP that fails nghri filter, that it is kicked out, though we use a different
-                        #threshold for this, higher one. Should add this back in, v2, also check for pval violations with assoc snps
-                        #
-                        ###WE ONLY CARE ABOUT LEAD SNP IN EACH ONE, EVEN IF PASSES, SHOULD WE INLCUDE THINGS IN LD?
-                        #has passed both nhgri and pval test
-                        #now check to see if rsq between lead snp and each rs in cluster is greather than nhgri threshold of 0.1, 
-                        #more strict? Commenting out for now till understand i think its not necessary
-                        # for rs in assoc_list:
-                        #   rsq = ld_assoc_dict[(snp,rs)]
-
-                        #   if rsq >= rsq_nhgri_threshold:
-                        #       if snp_nhgri_dict[rs] == False:
-                        #           cluster_status[snp] = False
-                        #           break
-                        #       else: 
-                        #           pass
-                        #           #elif rsq >= rsq_nhgri_lower_threshold:
-                        #           #   if snp_nhgri_dict[rs] == False:
-                        #           #       cluster_status[snp] = "IDK"
-                        #           #       print "ambigious for" + snp
-                        #           #       pass
-                        #           #   else: 
-                        #           cluster_status[snp] = True
-                        #   else:
-                        #       cluster_status[snp] = True
                     else:
                         cluster_status[snp] = False
                 else:
                     cluster_status[snp] = False
             else:
                 cluster_status[snp] = False
-            ''' If snp is not in pval file, keep in and put warning'''
-            #if not in pval or not in ld and it is not violated by nhgri, put status as true, still wanna write it.
-           
-           #only care about snps that arent in pval if they are the most sig of their cluster
+            
             if snp in no_pval_snps.keys():
                 if snp_nhgri_dict[snp]:
-                    # print snp + ': WARNING: SNP not found in in pval_assoc.txt.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
                     cluster_status[snp] = True
-
-
         for snp in not_in_ld:
             if snp_nhgri_dict[snp]:
-                #print snp + ': WARNING: SNP not found in LD data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
                 cluster_status[snp] = True
-
-        #Calculate total number of significant assoc (<0.05)
-        # num_sig = 0
-        # with open(trait_file,"r") as f:
-        #     trait_lines = f.readlines()
-        #     for line in trait_lines[1:]:
-        #         line_list = line.rstrip('\n').split('\t')
-        #         if len(line_list) > 5:
-        #             snp = line_list[0]
-        #         else:
-        #             print "file format error."
-        #         if snp in dict_snp:
-        #             #Create new dict with only trait files
-        #             if dict_snp[snp][0] == True: 
-        #                 num_sig = num_sig + dict_snp[snp][1]
         num_sig_dict = {}
         num_sig_dict["old_num_sig"] = 0
         num_sig_dict["new_num_sig"] = 0
@@ -1204,56 +976,48 @@ class Merp():
                 if cluster_status[snp] == True:
                     #if snp is being considered in final analysis, then add its number of pval viol under threshold 1 to a sum
                     num_sig_dict["new_num_sig"] += dict_snp[snp][1]
-
-            
         threshold_met = False
-        
         cut = threshold1
+        '''Iterative p-value association cutting step'''
         while threshold_met == False:
-            #if all remaining snps have 1 or fewer p<0.05 associations, but this still consists of more than 10% of all tests, we are ok with this.
-            # if cut == 1:
-            #     threshold_met = True
-            #     continue
-            ####JUST LOOK AT ELIGIBLE SNPS
             num_snps = 0
             for key in cluster_status.keys():
                 if cluster_status[key] == True and key not in no_pval_snps.keys() and key not in not_in_ld:
                     num_snps +=1
             num_tests = num_snps * columns
             num_na = 0
-            #test this out
-
             for key in cluster_status.keys():
                 if cluster_status[key] == True:
                     if key in na_counter.keys():
                         num_na += na_counter[key]
-          
             num_tests = num_tests - num_na
             total_num = math.ceil(max_fraction * num_tests)
+            if verbose == True:
+                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations"
+            log += str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations" + '\n'
             if float(num_sig_dict["new_num_sig"]) <= total_num:
                 threshold_met = True
-                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is less than/equal to max_fraction " + str(max_fraction) + " of " + str(num_tests) + "number of tests =" + str(total_num) 
-
+                if verbose == True:
+                    print "This is less than/equal to max_fraction (" + str(max_fraction) + ") of " + str(num_tests) + " number of tests = " + str(total_num) 
+                    print "Good to go!"
+                log += "This is less than/equal to max_fraction (" + str(max_fraction) + ") of " + str(num_tests) + " number of tests = " + str(total_num) +'\n' +"Good to go!"
             elif float(num_sig_dict["new_num_sig"]) > total_num:
-                print "Entering iterative association cutting step . . . "
-                print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is greater than max_fraction" + str(max_fraction) + " of " + str(num_tests) + "number of tests =" + str(total_num) 
+                if verbose == True:
+                    print "This is greater than max_fraction (" + str(max_fraction) + ") of " + str(num_tests) + " number of tests = " + str(total_num)
+                    print "Entering iterative association cutting step . . . "
+                log += "This is greater than max_fraction (" + str(max_fraction) + ") of " + str(num_tests) + " number of tests = " + str(total_num) +'\n' +"Entering iterative association cutting step . . . " + '\n'
                 num_sig_dict["old_num_sig"] = num_sig_dict["new_num_sig"]
-                num_sig_dict["new_num_sig"] = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,num_sig_dict["old_num_sig"],pmax1)
+
+                num_sig_dict["new_num_sig"] = Merp.dict_purge_count(self,dict_snp,cluster_status,cut,num_sig_dict["old_num_sig"],pmax1,log,verbose)
                 cut = cut - 1
-
                 if cut < 0:
-                    #print "Fatal error: cut below 0, consider having a higher cutoff threshold of violations or higher max_fraction "
                     continue
-
         snps_to_write = []
         non_assoc_write_temp = []
         for key in cluster_status.keys():
             if cluster_status[key] == True:
                 snps_to_write.append(key)
         '''Try to get path to work, keep trying'''
-        # path="./traitFiles/final_trait_files"
-        # if not os.path.exists(path):
-        #     os.makedirs(path)
         abr_trait_handle = file(trait_file+"_abr_temp","r")
         trait_lines = abr_trait_handle.readlines()
         header = trait_lines[0].strip() + '\t' + "Warnings" + '\n'
@@ -1266,9 +1030,7 @@ class Merp():
         for line in trait_lines[1:]:
             line_list = line.split('\t')
             snp = line_list[0]
-
             '''Do we really not care about SNPs not in LD data?'''
-            
             if snp in snps_to_write:
                 flag = ""
                 if snp in not_in_ld:
@@ -1277,10 +1039,6 @@ class Merp():
                     flag += "|No-Pval"
                 elif na_counter[snp] > 0:
                     flag+="|" + str(na_counter[snp]) + "-NAs"
-
-
-               
-
                 if "LD" in flag and "Pval" in flag:
                     # print snp + ' is not in LD data search for 1000genomes or Hm22 and also not in pval file. We reccommend tossing this SNP. Alternatively, you may manually check for LD'
                     print snp + ': WARNING: SNP not found in LD data or Pval data.' + '\n' + 'Keeping in for now- please double-check associations with this SNP before proceeding with analysis' 
@@ -1296,8 +1054,16 @@ class Merp():
         if len(snps_to_write) == 0:
             updated_handle.write('\n' + 'Oh no! It seems as if all SNPs have been filtered out. Check the your pval_ignore.txt and nhgri_ignore.txt to make sure you are ignoring related traits in NHGRI catalog and metabolic pval file. See documentation at py-merp.github.io for more info.' + '\n' + 'If you believe our filtering algorithm is too selective, feel free to modify the paramters for pval threshold1, pval threshold2 and r^2 thresholds found at the top of the filter function in src/merp.py. Reinstall after editing.')
 
+
         os.remove(trait_file+"_abr_temp")
         abr_trait_handle.close()
+
+        log_path = './logs/'
+        if not os.path.exists(log_path):
+            os.makedirs(log_path)
+        newtrait_file = trait_file.lstrip('./traitFiles/')
+        log_handle = file(log_path + newtrait_file + "filtered.log.txt",'w')
+        log_handle.write(log)
 
         Merp.unit_checker(self,trait_file + "filtered")
 
@@ -1537,7 +1303,7 @@ class Merp():
                     except:
                         print key + " is problematic"
                         #ADD FIX FOR IF EFFECT IS 0, toss out earlier
-                        sys.exit()
+                        return
                     xtot += x
                     ytot += y
                 else:
@@ -1564,17 +1330,6 @@ class Merp():
         print "ADD SOME LOG SUMMARY + WHERE FILES ARE"
 
     def plot(self,indiv_file,summ_file,Trait,Disease):
-        
-
-        # try:
-        #   indiv_file = sys.argv[1]
-        #   summ_file = sys.argv[2]
-        #   Trait = sys.argv[3]
-        #   Disease = sys.argv[4]
-            
-        # except:
-        #   print "Usage: python calc_to_plot.py [indiv_file] [summ_file] [Trait] [Disease]"
-        #   sys.exit()
         indiv_handle = file(indiv_file, "r")
         summ_handle = file(summ_file, "r")
 
