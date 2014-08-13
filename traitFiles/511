@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs857721	.00	g/dl_decrease	A	1E-10	[0.001-0.002]_g/dl_decrease	Other_erythrocyte_phenotypes	SPTA1	NR	19862010	
-rs9373124	.00	g/dl_decrease	C	7E-14	[0.002-0.003]_g/dl_decrease	Other_erythrocyte_phenotypes	HBS1L,MYB	NR	19862010	
-rs9483788	.00	1_M_cells/mm^3_increase	G	1E-47	[0.012-0.016]_1_M_cells/mm^3_increase	Other_erythrocyte_phenotypes	HBS1L,MYB	NR	19862010	
-rs2075671	.00	1_M_cell/mm^3_increase	A	1E-9	[0.005-0.009]_1_M_cell/mm^3_increase	Other_erythrocyte_phenotypes	EPO	NR	19862010	

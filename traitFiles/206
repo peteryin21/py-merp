@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1412829	1.42	[NR]	C	2E-10	[1.27-1.58]	Glioma_(high-grade)	Intergenic	0.39	19578366	
-rs6010620	1.52	[NR]	G	3E-9	[1.32-1.75]	Glioma_(high-grade)	RTEL1	0.77	19578366	
-rs4809324	1.60	[NR]	C	2E-9	[1.37-1.87]	Glioma_(high-grade)	RTEL1	0.10	19578366	

@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2107595	1.39	[NR]	A	2E-16	[1.27-1.53]	Stroke_(ischemic)	HDAC9	0.16	23041239	
-rs6843082	1.36	[NR]	G	3E-16	[1.27-1.47]	Stroke_(ischemic)	PITX2	0.21	23041239	
-rs879324	1.25	[NR]	A	2E-8	[1.15-1.35]	Stroke_(ischemic)	ZFHX3	0.19	23041239	
-rs13407662	1.95	[NR]	T	5E-8	[1.53-2.48]	Stroke_(ischemic)	Intergenic	0.04	23041239	
-rs556621	1.21	[NR]	A	5E-8	[1.13-1.30]	Stroke_(ischemic)	CDC5L,SUPT3H	0.30	22941190	
-rs2200733	1.26	[NR]	T	2E-10	[1.17-1.35]	Stroke_(ischemic)	NR	0.11	18991354	

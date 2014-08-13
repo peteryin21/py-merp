@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1884302	4.38	[NR]	C	1E-39	[3.51-5.45]	Sagittal_craniosynostosis	BMP2	0.30	23160099	
-rs10262453	4.17	[NR]	A	6E-20	[3.13-5.88]	Sagittal_craniosynostosis	BBS9	0.69	23160099	

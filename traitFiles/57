@@ -1,2 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs7182874	.37	unit_decrease	T	9E-9	[0.24-0.50]_unit_decrease	Relative_hand_skill_in_reading_disability	PCSK6,VIMP,LOC100507472,CHSY1,SNRPA1	0.71	24068947	

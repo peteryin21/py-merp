@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2749097	.12	unit_decrease	G	2E-9	[0.08-0.16]_unit_decrease	Alcohol_consumption_(transferrin_glycosylation)	PGM1	0.19	21665994	
-rs1049296	.29	unit_decrease	T	5E-43	[0.25-0.33]_unit_decrease	Alcohol_consumption_(transferrin_glycosylation)	TF	0.17	21665994	
-rs1799899	.40	unit_decrease	A	1E-9	[0.27-0.53]_unit_decrease	Alcohol_consumption_(transferrin_glycosylation)	TF	0.06	21665994	
-rs1534166	.29	unit_decrease	A	2E-17	[0.22-0.36]_unit_decrease	Alcohol_consumption_(transferrin_glycosylation)	SRPRB	0.30	21665994	
-rs3811647	.36	unit_increase	A	1E-35	[0.30-0.42]_unit_increase	Alcohol_consumption_(transferrin_glycosylation)	TF	0.32	21665994	
-rs1800562	.63	unit_decrease	A	2E-32	[0.53-0.73]_unit_decrease	Alcohol_consumption_(transferrin_glycosylation)	HFE	0.045	21665994	

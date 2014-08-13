@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2199936	2.80	percent_decrease	A	2E-10	[1.82-3.78]_percent_decrease	Lipoprotein-associated_phospholipase_A2_activity_change_in_response_to_statin_therapy	ABCG2	0.11	23118302	
-rs10455872	4.80	percent_increase	G	2E-16	[0.82-2.78]_percent_increase	Lipoprotein-associated_phospholipase_A2_activity_change_in_response_to_statin_therapy	LPA	0.05	23118302	

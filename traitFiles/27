@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs10852932	.03	cm_increase	T	2E-11	[0.02-0.04]_cm_increase	Aortic_root_size	SMG6,SRR,TSR1,SGSM2	0.36	19584346	
-rs17470137	.03	cm_increase	A	1E-11	[0.02-0.04]_cm_increase	Aortic_root_size	CCDC100,PPIC	0.29	19584346	
-rs4026608	.03	cm_decrease	C	2E-9	[0.02-0.04]_cm_decrease	Aortic_root_size	HMGA2	0.38	19584346	
-rs10770612	.03	cm_increase	G	2E-8	[0.02-0.04]_cm_increase	Aortic_root_size	PDE3A	0.19	19584346	

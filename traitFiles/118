@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2420371	1.16	unit_decrease	G	4E-80	[1.04-1.28]_unit_decrease	Hemostatic_factors_and_hematological_phenotypes	F5	0.18	22443383	
-rs17310467,_rs6088735,_rs6060278,_rs867186	19.27	iu/ml_increase_(GCTG)	S	4E-34	[16.174-22.372]_iu/ml_increase_(GCTG)	Hemostatic_factors_and_hematological_phenotypes	GSS,EDEM2,PROCR	0.105	22443383	

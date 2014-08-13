@@ -1,6 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs11781551	.01	unit_decrease	A	2E-11	[0.01-0.01]_unit_decrease	Carotid_intima_media_thickness	ZHX2	0.48	21909108	
-rs445925	.02	unit_decrease	A	2E-8	[0.01-0.03]_unit_decrease	Carotid_intima_media_thickness	APOC1	0.11	21909108	
-rs6601530	.01	unit_increase	G	2E-8	[0.01-0.01]_unit_increase	Carotid_intima_media_thickness	PINX1	0.45	21909108	
-rs17398575	.16	unit_increase	A	2E-12	[0.11-0.21]_unit_increase	Carotid_intima_media_thickness	PIK3CG	0.25	21909108	
-rs1878406	.20	unit_increase	T	7E-12	[0.14-0.26]_unit_increase	Carotid_intima_media_thickness	EDNRA	0.13	21909108	

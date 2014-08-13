@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs889472	.07	mg/dl_increase	C	1E-9	[0.048-0.094]_mg/dl_increase	Renal_function-related_traits_(urea)	MAF	0.57	22797727	
-rs3775948	.18	mg/dl_increase	C	2E-65	[0.16-0.20]_mg/dl_increase	Renal_function-related_traits_(urea)	SLC2A9	0.59	22797727	
-rs2725220	.14	mg/dl_increase	C	4E-30	[0.11-0.16]_mg/dl_increase	Renal_function-related_traits_(urea)	ABCG2	0.32	22797727	
-rs504915	.23	mg/dl_increase	T	3E-63	[0.20-0.25]_mg/dl_increase	Renal_function-related_traits_(urea)	SLC22A12	0.82	22797727	

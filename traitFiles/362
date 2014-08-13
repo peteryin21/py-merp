@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1482853	.06	mm_increase	C	6E-21	[0.036-0.076]_mm_increase	Adiposity_in_newborns	LEKR1,CCNL1	0.620	23575227	
-rs1482853	.47	%_increase	C	3E-13	[0.28-0.66]_%_increase	Adiposity_in_newborns	LEKR1,CCNL1	0.620	23575227	

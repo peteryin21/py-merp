@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1024161	1.44	[NR]	A	4E-13	[1.30-1.59]	Alopecia_areata	CTLA4,ICOS	0.40	20596022	
-rs7682241	1.34	[NR]	A	4E-8	[1.21-1.48]	Alopecia_areata	IL2,IL21	0.33	20596022	
-rs9479482	1.65	[NR]	A	4E-19	[1.48-1.83]	Alopecia_areata	ULBP3,ULBP6	0.57	20596022	
-rs3118470	1.41	[NR]	G	2E-12	[1.27-1.56]	Alopecia_areata	IL2RA	0.30	20596022	
-rs1701704	1.34	[NR]	C	3E-8	[1.21-1.48]	Alopecia_areata	IKZF4	0.33	20596022	
-rs9275572	2.21	[NR]	G	1E-35	[1.98-2.47]	Alopecia_areata	HLA-DQA2	0.59	20596022	

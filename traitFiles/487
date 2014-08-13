@@ -1,2 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2391388	.18	unit_incease	C	3E-11	[0.125-0.23]__unit_incease	Palmitic_acid_(16:0)_plasma_levels	ALG14,RWDD3,CNN3,TMEM56	0.451	23362303	

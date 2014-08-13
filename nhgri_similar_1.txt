@@ -1,5 +1,0 @@
-HDL
-Cholesterol
-Obesity 
-Lipid metabolism phenotypes
-MRI atrophy measures

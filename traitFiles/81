@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4561508	.04	unit_increase	T	1E-9	[0.024-0.048]_unit_increase	Serum_total_protein_level	TNFRSF13B	0.11	23022100	
-rs204999	.03	unit_increase	A	3E-9	[0.017-0.033]_unit_increase	Serum_total_protein_level	Intergenic	0.74	23022100	
-rs4561508	.05	unit_increase	T	2E-11	[-0.09020-0.18420]_unit_increase	Serum_total_protein_level	TNFRSF13B	0.37	23022100	
-rs4561508	.04	unit_increase	T	2E-18	[0.031-0.049]_unit_increase	Serum_total_protein_level	TNFRSF13B	0.11	23022100	
-rs204999	.03	unit_increase	A	4E-11	[0.019-0.034]_unit_increase	Serum_total_protein_level	Intergenic	0.74	23022100	
-rs3777200	.02	unit_increase	T	1E-8	[0.013-0.027]_unit_increase	Serum_total_protein_level	ELL2	0.27	23022100	

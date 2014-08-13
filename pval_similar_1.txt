@@ -1,4 +1,0 @@
-HDL
-TC
-Height
-DBP

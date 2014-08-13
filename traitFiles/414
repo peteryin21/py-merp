@@ -1,2 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs102275	.23	unit_increase	C	2E-32	[0.192-0.268]__unit_increase	Oleic_acid_(18:1n-9)_plasma_levels	C11orf10,C11orf9,FADS1,FADS2,FADS3,FEN1,RAB3IL1	0.328	23362303	

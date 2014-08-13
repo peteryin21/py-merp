@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs10235789	.12	unit_increase	C	7E-11	[0.08-0.16]_unit_increase	Iris_characteristics	SEMA3A	NR	21835309	
-rs3739070	.25	unit_increase	A	2E-12	[0.19-0.31]_unit_increase	Iris_characteristics	TRAF3IP1	NR	21835309	
-rs4900109	.17	unit_increase	G	8E-21	[0.13-0.21]_unit_increase	Iris_characteristics	SLC324A4	NR	21835309	

@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs9607469	.05	mm2_increase	A	3E-12	[0.04-0.06]_mm2_increase	Optic_disc_parameters	CARD10	0.14(Rotterdam)	21307088	
-rs1192415	.10	mm2_increase	G	8E-17	[NR]_mm2_increase	Optic_disc_parameters	CDC7,TGFBR3	NR	21307088	
-rs7916697	.09	mm2_decrease	A	2E-15	[NR]_mm2_decrease	Optic_disc_parameters	ATOH7	NR	21307088	
-rs1900004	.07	mm_decrease	T	3E-35	[0.06-0.08]_mm_decrease	Optic_disc_parameters	ATOH7,PBLD	0.22	20548946	
-rs1192415	.06	mm_increase	G	3E-28	[0.05-0.07]_mm_increase	Optic_disc_parameters	CDC7,TGFBR3	0.18	20548946	
-rs1362756	.03	mm_increase	C	5E-9	[0.02-0.04]_mm_increase	Optic_disc_parameters	SALL1	0.28	20548946	

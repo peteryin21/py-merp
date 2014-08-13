@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2414095	.11	unit_increase	A	2E-16	[0.090-0.130]_unit_increase	Follicule_stimulating_hormone	CYP19A1	0.31	24049095	
-rs3764618	NR	[NR]	G	4E-8	[NR]	Follicule_stimulating_hormone	NR	0.08	24049095	

@@ -1,6 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4788196	.07	unit_increase	G	9E-11	[0.048-0.092]_unit_increase	Pubertal_anthropometrics	MAPK3	0.44	23449627	
-rs281379	.07	unit_increase	G	5E-8	[0.043-0.097]_unit_increase	Pubertal_anthropometrics	MAMSTR	0.52	23449627	
-rs1172294	.08	unit_decrease	G	1E-8	[0.053-0.107]_unit_decrease	Pubertal_anthropometrics	ADCY3,DNAJC27,POMC	0.45	23449627	
-rs7628864	.11	unit_decrease	G	3E-9	[0.073-0.147]_unit_decrease	Pubertal_anthropometrics	VGLL3	0.38	23449627	
-rs7759938	.11	unit_increase	C	4E-9	[0.079-0.141]_unit_increase	Pubertal_anthropometrics	LIN28B	0.32	23449627	

@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs6834314	2.60	%_increase	A	3E-9	[1.90-3.40]_%_increase	Liver_enzyme_levels_(alanine_transaminase)	HSD17B13,MAPK10	0.75	22001757	
-rs2954021	1.60	%_increase	A	5E-9	[0.60-2.60]_%_increase	Liver_enzyme_levels_(alanine_transaminase)	TRIB1	0.50	22001757	
-rs10883437	2.30	%_increase	T	4E-9	[1.40-3.10]_%_increase	Liver_enzyme_levels_(alanine_transaminase)	CPN1	0.64	22001757	
-rs738409	6.00	%_increase	G	1E-45	[5.0-7.0]_%_increase	Liver_enzyme_levels_(alanine_transaminase)	PNPLA3,SAMM50	0.23	22001757	

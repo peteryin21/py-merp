@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs3130573	1.25	[NR]	G	6E-10	[1.17-1.35]	Systemic_sclerosis	PSORS1C1	0.32	21750679	
-rs6457617	1.61	[NR]	T	2E-37	[1.49-1.72]	Systemic_sclerosis	HLA,DQB1	0.50	21750679	
-rs2233287	1.31	[NR]	A	5E-9	[1.15-1.43]	Systemic_sclerosis	TNIP1	0.10	21750679	
-rs7574865	1.38	[NR]	T	2E-13	[1.27-1.50]	Systemic_sclerosis	STAT4	0.22	21750679	
-rs10488631	1.50	[NR]	C	2E-13	[1.35-1.67]	Systemic_sclerosis	TNPO,IRF5	NR	20383147	
-rs3821236	1.30	[NR]	A	3E-9	[1.19-1.41]	Systemic_sclerosis	STAT4	0.20	20383147	

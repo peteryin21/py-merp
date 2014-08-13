@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs7754840	1.52	[NR]	C	7E-16	[1.372-1.680]	Diabetes_(gestational)	CDKAL1	0.445	22233651	
-rs10830962	1.45	[NR]	G	2E-13	[1.315-1.608]	Diabetes_(gestational)	MTNR1B	0.430	22233651	

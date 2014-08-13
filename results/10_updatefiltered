@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs10830963	.07	mmol/l_increase	C	G	3E-50	[0.06-0.08]_mmol/l_increase	Fasting_plasma_glucose	MTNR1B	0.28	19060907
-rs560887	.06	mmol/l_increase	G	C	1E-57	[0.05-0.07]_mmol/l_increase	Fasting_plasma_glucose	G6PC2	0.70	19060907

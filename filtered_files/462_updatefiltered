@@ -1,9 +1,0 @@
-SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
-rs10490626	-0.05	unit_decrease	G	A	2E-12	[NR]_unit_decrease	LDL_cholesterol	INSIG2	0.08	24097068	
-rs2328223	.03	unit_increase	A	C	6E-9	[NR]_unit_increase	LDL_cholesterol	SNX5	0.21	24097068	
-rs364585	-0.03	unit_decrease	G	A	4E-10	[NR]_unit_decrease	LDL_cholesterol	SPTLC3	0.38	24097068	
-rs17111684	-9.01	unit_decrease	G	A	2E-17	[NR]_unit_decrease	LDL_cholesterol	PCSK9	0.12	23726366	No-LD|No-Pval
-rs17249141	-32.93	unit_decrease	C	T	2E-17	[NR]_unit_decrease	LDL_cholesterol	LDLR	0.0126	23726366	No-LD|No-Pval
-rs11591147	-0.47	%_SD_lower	G	T	2E-44	[0.41-0.53]_%_SD_lower	LDL_cholesterol	PCSK9	0.01	18193044	No-LD|12-NAs
-rs514230	-0.04	unit_decrease	T	A	9E-12	[NR]_unit_decrease	LDL_cholesterol	IRF2BP2	0.48	24097068	
-rs8017377	.03	unit_increase	C	A	3E-15	[NR]_unit_increase	LDL_cholesterol	NYNRIN	0.46	24097068	

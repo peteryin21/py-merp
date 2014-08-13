@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2687201	1.18	[NR]	T	5E-9	[1.12-1.25]	Digestive_system_disease_(Barrett's_esophagus_and_esophageal_adenocarcinoma_combined)	FOXP1	0.303	24121790	
-rs11789015	1.20	[NR]	A	1E-9	[1.14-1.27]	Digestive_system_disease_(Barrett's_esophagus_and_esophageal_adenocarcinoma_combined)	BARX1	0.717	24121790	
-rs10419226	1.18	[NR]	A	4E-10	[1.12-1.24]	Digestive_system_disease_(Barrett's_esophagus_and_esophageal_adenocarcinoma_combined)	CRTC1	0.456	24121790	

@@ -1,6 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs37369	NR	[NR]	T	2E-182	[NR]	Urinary_metabolites	AGXT2	0.092	21572414	
-rs4921914	NR	[NR]	C	1E-28	[NR]	Urinary_metabolites	NAT2	0.23	21572414	
-rs830124	NR	[NR]	A	1E-46	[NR]	Urinary_metabolites	WDR66,HPD	0.152	21572414	
-rs8101881	NR	[NR]	C	6E-27	[NR]	Urinary_metabolites	SLC7A9	0.35	21572414	
-rs17279437	NR	[NR]	A	3E-19	[NR]	Urinary_metabolites	SLC6A20	0.115	21572414	

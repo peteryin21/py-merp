@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs13538	.09	unit_increase	A	2E-23	[0.07-0.10]_unit_increase	Metabolite_levels__(X-11787)	NAT8	NR	23934736	
-rs6546857	.09	unit_increase	A	1E-23	[0.07-0.10]_unit_increase	Metabolite_levels__(X-11787)	ALMS1	0.477	23934736	

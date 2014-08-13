@@ -1,6 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs6136	22.60	%_increase	T	4E-61	[19.86-25.34]_%_increase	Soluble_levels_of_adhesion_molecules	SELP	NR	20167578	
-rs2235302	7.30	%_decrease	T	4E-16	[5.54-9.06]_%_decrease	Soluble_levels_of_adhesion_molecules	SELP	NR	20167578	
-rs579459	14.00	%_increase	T	2E-41	[12.04-15.96]_%_increase	Soluble_levels_of_adhesion_molecules	ABO	NR	20167578	
-rs3093030	4.15	%_increase	T	4E-23	[3.33-4.97]_%_increase	Soluble_levels_of_adhesion_molecules	ICAM-1	NR	20167578	
-rs649129	3.95	%_decrease	T	1E-15	[2.99-4.91]_%_decrease	Soluble_levels_of_adhesion_molecules	ABO	NR	20167578	

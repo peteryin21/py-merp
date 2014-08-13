@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4478858	1.26	[NR]	G	3E-8	[NR]	Alcohol_dependence	NKAIN1,SNRNP40,ZCCHC17,FABP3,SERINC2	NR	23455491	
-rs7590720	1.35	[NR]	G	1E-8	[1.22-1.49]	Alcohol_dependence	PECR	0.29	19581569	

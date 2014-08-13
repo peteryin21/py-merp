@@ -1,8 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs401681	7.00	%_increase	C	1E-10	[NR]_%_increase	Serum_prostate-specific_antigen_levels	TERT	0.55	21160077	
-rs10788160	10.20	%_increase	A	5E-15	[NR]_%_increase	Serum_prostate-specific_antigen_levels	FGFR2	0.31	21160077	
-rs10993994	9.20	%_increase	T	7E-13	[NR]_%_increase	Serum_prostate-specific_antigen_levels	MSMB	0.39	21160077	
-rs11067228	8.30	%_increase	A	2E-11	[NR]_%_increase	Serum_prostate-specific_antigen_levels	TBX3	0.56	21160077	
-rs4430796	9.40	%_increase	A	6E-11	[NR]_%_increase	Serum_prostate-specific_antigen_levels	HNF1B	0.52	21160077	
-rs17632542	39.10	%_increase	T	3E-46	[NR]_%_increase	Serum_prostate-specific_antigen_levels	KLK3	0.91	21160077	
-rs266849	NR	[NR]	A	6E-10	[NR]	Serum_prostate-specific_antigen_levels	NR	0.83	21160077	

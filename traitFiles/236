@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs10455872	.28	mmol/L_decrease	A	1E-9	[0.20-0.36]_mmol/L_decrease	Response_to_statin_therapy	LPA	NR	22368281	
-rs8014194	NR	[NR]	A	2E-8	[NR]	Response_to_statin_therapy	CLMN,FLJ45244,DICER1	0.24	20339536	
-rs10091038	NR	[NR]	A	3E-8	[NR]	Response_to_statin_therapy	LOC646909,DUSP4,KIF13B	0.43	20339536	
-rs4149056	4.50	[NR]	C	2E-9	[2.60-7.70]	Response_to_statin_therapy	SLCO1B1	0.13	18650507	

@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs322458	NR	[NR]	G	2E-8	[NR]	Aging_(facial)	STXBP5L,FBXO40	NR	23223146	
-rs322458,_rs17740066	NR	[NR]	S	6E-9	[NR]	Aging_(facial)	STXBP5L,FBXO40	NR	23223146	
-rs322458,_rs6782025	NR	[NR]	S	4E-9	[NR]	Aging_(facial)	STXBP5L,FBXO40	NR	23223146	
-rs322458,_rs6775899	NR	[NR]	S	1E-9	[NR]	Aging_(facial)	STXBP5L,FBXO40,POLQ	NR	23223146	

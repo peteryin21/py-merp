@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs6599175	1.48	[NR]	G	1E-9	[1.30-1.68]	Multiple_myeloma_(hyperdiploidy)	NR	0.16	23502783	
-rs4487645	1.43	[NR]	C	1E-9	[1.27-1.60]	Multiple_myeloma_(hyperdiploidy)	NR	0.65	23502783	
-rs139371	1.37	[NR]	A	2E-9	[1.24-1.52]	Multiple_myeloma_(hyperdiploidy)	NR	0.46	23502783	
-rs2272007	1.47	[NR]	A	2E-9	[1.30-1.67]	Multiple_myeloma_(hyperdiploidy)	NR	0.16	23502783	

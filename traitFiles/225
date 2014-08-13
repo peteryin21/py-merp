@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2155219	1.22	[NR]	T	1E-8	[1.14-1.31]	IgE_grass_sensitization	C11orf30,LRRC32	0.47	22036096	
-rs17513503	1.39	[NR]	G	1E-8	[1.24-1.56]	IgE_grass_sensitization	TMEM232,SLCA25A46	0.09	22036096	
-rs7775228	1.33	[NR]	C	2E-9	[1.21-1.45]	IgE_grass_sensitization	HLAregion	0.13	22036096	

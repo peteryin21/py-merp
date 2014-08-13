@@ -1,9 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs3806624	1.26	[NR]	G	1E-12	[1.18-1.34]	Hodgkin's_lymphoma	EOMES	0.45	24149102	
-rs7745098	1.21	[NR]	G	3E-9	[1.14-1.29]	Hodgkin's_lymphoma	HBS1L,MYB	0.48	24149102	
-rs501764	1.39	[NR]	C	4E-10	[NR]	Hodgkin's_lymphoma	NR	0.19	24149102	
-rs2019960	1.37	[NR]	G	6E-10	[NR]	Hodgkin's_lymphoma	NR	0.23	24149102	
-rs6903608	1.62	[NR]	G	5E-27	[NR]	Hodgkin's_lymphoma	NR	0.27	24149102	
-rs1432295	1.22	[NR]	G	2E-8	[1.14-1.30]	Hodgkin's_lymphoma	REL	0.40	21037568	
-rs6903608	1.70	[NR]	G	3E-50	[1.58-1.82]	Hodgkin's_lymphoma	HLA-DRA	0.27	21037568	
-rs2019960	1.33	[NR]	G	1E-13	[1.23-1.44]	Hodgkin's_lymphoma	PVT1	0.23	21037568	
