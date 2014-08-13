@@ -1,0 +1,8 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
+rs6801957	.77	ms_increase	C	T	1E-28	[0.63-0.91]_ms_increase	QRS_duration	SCN10A	0.41	21076409	
+rs883079	.49	ms_increase	T	C	1E-10	[0.33-0.65]_ms_increase	QRS_duration	TBX5	0.29	21076409	
+rs17391905	-1.35	ms_decrease	T	G	3E-10	[0.90-1.80]_ms_decrease	QRS_duration	C1orf185,RNF11,CDKN2C,FAF1	0.05	21076409	
+rs7784776	.39	ms_increase	A	G	1E-9	[0.25-0.53]_ms_increase	QRS_duration	IGFBP3	0.43	21076409	
+rs1886512	-0.4	ms_decrease	T	A	1E-8	[0.26-0.54]_ms_decrease	QRS_duration	KLF12	0.37	21076409	
+rs2242285	.37	ms_increase	G	A	1E-8	[0.23-0.51]_ms_increase	QRS_duration	LRIG1,SLC25A26	0.42	21076409	
+rs1733724	.49	ms_increase	G	A	3E-8	[0.31-0.67]_ms_increase	QRS_duration	DKK1	0.25	21076409	

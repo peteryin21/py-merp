@@ -1,0 +1,18 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
+rs4530754	-0.03	unit_decrease	A	G	4E-12	[NR]_unit_decrease	LDL_cholesterol	CSNK1G3	0.46	24097068	
+rs10490626	-0.05	unit_decrease	G	A	2E-12	[NR]_unit_decrease	LDL_cholesterol	INSIG2	0.08	24097068	
+rs2030746	.02	unit_increase	C	T	9E-9	[NR]_unit_increase	LDL_cholesterol	LOC84931	0.4	24097068	
+rs2328223	.03	unit_increase	A	C	6E-9	[NR]_unit_increase	LDL_cholesterol	SNX5	0.21	24097068	
+rs364585	-0.03	unit_decrease	G	A	4E-10	[NR]_unit_decrease	LDL_cholesterol	SPTLC3	0.38	24097068	
+rs11563251	.03	unit_increase	C	T	5E-8	[NR]_unit_increase	LDL_cholesterol	UGT1A1	0.12	24097068	
+rs3780181	-0.04	unit_decrease	A	G	2E-9	[NR]_unit_decrease	LDL_cholesterol	VLDLR	0.08	24097068	
+rs12713956	-.147	unit_decrease	A	G	4E-8	[NR]_unit_decrease	LDL_cholesterol	APOB	0.183	23726366	
+rs6756629	.16	s.d._increase	A	G	3E-10	[NR]_s.d._increase	LDL_cholesterol	ABCG5	0.92	19060911	|4-NAs
+rs6102059	-0.06	s.d._decrease	C	T	4E-9	[0.03-0.10]_s.d._decrease	LDL_cholesterol	MAFB	0.32	19060906	
+rs514230	-0.04	unit_decrease	T	A	9E-12	[NR]_unit_decrease	LDL_cholesterol	IRF2BP2	0.48	24097068	
+rs11136341	.05	unit_increase	A	G	7E-12	[NR]_unit_increase	LDL_cholesterol	PLEC1	0.4	24097068	
+rs2479409	.06	unit_increase	A	G	3E-50	[NR]_unit_increase	LDL_cholesterol	PCSK9	0.32	24097068	
+rs3757354	-0.04	unit_decrease	C	T	2E-17	[NR]_unit_decrease	LDL_cholesterol	MYLIP	0.24	24097068	
+rs8017377	.03	unit_increase	C	A	3E-15	[NR]_unit_increase	LDL_cholesterol	NYNRIN	0.46	24097068	
+rs12027135	-0.03	unit_decrease	T	A	2E-14	[NR]_unit_decrease	LDL_cholesterol	LDLRAP1	0.46	24097068	
+rs12670798	.03	unit_increase	A	C	5E-14	[NR]_unit_increase	LDL_cholesterol	DNAH11	0.25	24097068	

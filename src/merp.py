@@ -353,7 +353,7 @@ class Merp():
 
 
 
-    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False):
+    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,lowband=False):
  
         '''Metabolic Association Paramters'''
         #pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
@@ -449,10 +449,7 @@ class Merp():
         #LD_file = "bin/1LD.txt"
 
         nhgri_file = "data/finalgwas.txt"
-        pval_file = "data/v3abr_allmetabolic_pvals_v2.txt"
-        replacement_pval_snps = "data/replacement_pval_snps.txt"
-
-
+        pval_file = "data/pval_file.txt"
         try:
             with open(nhgri_ignore,"r") as include:
                 lines = include.readlines()
@@ -566,13 +563,18 @@ class Merp():
         #p = requests.get('http://coruscant.itmat.upenn.edu/merp/v3abr_allmetabolic_pvals_v2.txt', stream=True)
 
         '''TODO Implement own pval file option e.g number of non traits (columns = header-#)'''
-        p = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
-        pval_lines = p.iter_lines()
+        if lowband == False:
+            pval = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
+            pval_lines = pval.iter_lines()
+            header = pval_lines.next()
+        else:
+            pval = file('data/pval_file.txt','r')
+            header = pval.readline()
         dict_snp = {}
         # pval_lines = pval_handle.readlines()
         #header = pval_lines[0]
         # header =  "SNP CHR POS P_SBP P_DBP P_HDL P_LDL P_TG P_BMI P_HEIGHT P_WHRadjBMI P_2hrGLUadjBMI P_FastGlu P_HbA1C P_FastIns P_HOMA-B P_HOMA-IR P_FastProIns"
-        header = pval_lines.next()
+        
         header_split = header.rstrip('\n').split(' ')
         #columns = len(header_split) - 6
         columns = 0
@@ -602,7 +604,7 @@ class Merp():
                     # if prim_trait not in confounder_list:
                     columns +=1
 
-        print columns + " confounding columns detected in pval file"
+        print str(columns) + " confounding columns detected in pval file"
         '''Review why removed replacement pval thingy'''            
         # replace_handle = file(replacement_pval_snps, 'r')
         # replace_lines = replace_handle.readlines()
@@ -621,82 +623,153 @@ class Merp():
         viol_dict1 = {}
         viol_dict2 = {}
         na_counter = {} #dictionary mapping rs# to number of NAs in the corresponding row
-        for line in pval_lines:
-        # while True:
-        #     try:
-        #         line = pval_lines.next()
-        #     except:
-        #         break
+        if lowband == True:
+            while True:
+                line = pval.readline()
+                if line == '' or line =="'\n":
+                    break
+            #for line in p:
+                mod_line = line.rstrip('\n').split(' ')
+                rs = mod_line[0]
+                if rs in snp_list_set:
+                    count_p_prim = 0
+                    count_p1 = 0
+                    count_p2 = 0
+                    na_count = 0
+                    for e in mod_line[6:]:
+                        ind = mod_line.index(e)
+                        #if column not specified in either confoudners or primary confounders file, then we don't look at it
+                        #if column in primary confounders and not in confounders, will still treat column as regular confounder if not removed for primary viol
+                        if ind not in included_index and ind not in prim_included_index:
+                            continue
+                        if e == "NA":
+                            na_count+=1
+                            continue
+                        if ind in prim_included_index:
+                            if float(e) <= pmaxprimary:
+                                count_p_prim +=1
+                                col = header_split[ind]
+                                if rs in prim_viol_dict.keys():
+                                    prim_viol_dict[rs].append(col)
+                                else:
+                                    prim_viol_dict[rs] = [col]
 
-            mod_line = line.rstrip('\n').split(' ')
-            rs = mod_line[0]
-            if rs in snp_list_set:
-                count_p_prim = 0
-                count_p1 = 0
-                count_p2 = 0
-                na_count = 0
-                for e in mod_line[6:]:
-                    ind = mod_line.index(e)
-                    #if column not specified in either confoudners or primary confounders file, then we don't look at it
-                    #if column in primary confounders and not in confounders, will still treat column as regular confounder if not removed for primary viol
-                    if ind not in included_index and ind not in prim_included_index:
-                        continue
-                    if e == "NA":
-                        na_count+=1
-                        continue
-                    if ind in prim_included_index:
-                        if float(e) <= pmaxprimary:
-                            count_p_prim +=1
+                    
+                        if float(e) <= pmax1:
+                            count_p1 = count_p1 + 1
                             col = header_split[ind]
-                            if rs in prim_viol_dict.keys():
-                                prim_viol_dict[rs].append(col)
+                            if rs in viol_dict1.keys():
+                                #should give us column header
+                                viol_dict1[rs].append(col)
                             else:
-                                prim_viol_dict[rs] = [col]
+                                viol_dict1[rs] = [col]
 
-                
-                    if float(e) <= pmax1:
-                        count_p1 = count_p1 + 1
-                        col = header_split[ind]
-                        if rs in viol_dict1.keys():
-                            #should give us column header
-                            viol_dict1[rs].append(col)
-                        else:
-                            viol_dict1[rs] = [col]
-
-                    if float(e) <= pmax2:
-                        count_p2 = count_p2 + 1
-                        col = header_split[mod_line.index(e)]
-                        if rs in viol_dict2.keys():
-                            #should give us column header
-                            viol_dict2[rs].append(col)
-                        else:
-                            viol_dict2[rs] = [col]
-                na_counter[rs] = na_count
+                        if float(e) <= pmax2:
+                            count_p2 = count_p2 + 1
+                            col = header_split[mod_line.index(e)]
+                            if rs in viol_dict2.keys():
+                                #should give us column header
+                                viol_dict2[rs].append(col)
+                            else:
+                                viol_dict2[rs] = [col]
+                    na_counter[rs] = na_count
             # count_p1 = count_p1 - correction_num
             # count_p2 = count_p2 - correction_num
             #only add to dict if rs in trait file
-                if rs not in dict_snp.keys(): 
-                    #first compare true count to modified threshold then change count to modified count if trait_related is true
-                    if count_p_prim < 1:
-                        if count_p1 <= threshold1:
-                            if count_p2 <= threshold2:
-                                #if trait in pval file, subtract 1 from count of number of sig associations
-                                dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                    if rs not in dict_snp.keys(): 
+                        #first compare true count to modified threshold then change count to modified count if trait_related is true
+                        if count_p_prim < 1:
+                            if count_p1 <= threshold1:
+                                if count_p2 <= threshold2:
+                                    #if trait in pval file, subtract 1 from count of number of sig associations
+                                    dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                                else:
+                                    dict_snp[rs] = [False, count_p1]
+                                    print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                    for v in viol_dict2[rs]:
+                                        print v
                             else:
                                 dict_snp[rs] = [False, count_p1]
-                                print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
-                                for v in viol_dict2[rs]:
+                                print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                                for v in viol_dict1[rs]:
                                     print v
                         else:
-                            dict_snp[rs] = [False, count_p1]
-                            print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
-                            for v in viol_dict1[rs]:
+                            dict_snp[rs] = [False,count_p1]
+                            print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                            for v in prim_viol_dict[rs]:
                                 print v
-                    else:
-                        dict_snp[rs] = [False,count_p1]
-                        print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
-                        for v in prim_viol_dict[rs]:
-                            print v
+            pval.close()
+        elif lowband == False:
+            for line in pval_lines:
+                mod_line = line.rstrip('\n').split(' ')
+                rs = mod_line[0]
+                if rs in snp_list_set:
+                    count_p_prim = 0
+                    count_p1 = 0
+                    count_p2 = 0
+                    na_count = 0
+                    for e in mod_line[6:]:
+                        ind = mod_line.index(e)
+                        #if column not specified in either confoudners or primary confounders file, then we don't look at it
+                        #if column in primary confounders and not in confounders, will still treat column as regular confounder if not removed for primary viol
+                        if ind not in included_index and ind not in prim_included_index:
+                            continue
+                        if e == "NA":
+                            na_count+=1
+                            continue
+                        if ind in prim_included_index:
+                            if float(e) <= pmaxprimary:
+                                count_p_prim +=1
+                                col = header_split[ind]
+                                if rs in prim_viol_dict.keys():
+                                    prim_viol_dict[rs].append(col)
+                                else:
+                                    prim_viol_dict[rs] = [col]
+
+                    
+                        if float(e) <= pmax1:
+                            count_p1 = count_p1 + 1
+                            col = header_split[ind]
+                            if rs in viol_dict1.keys():
+                                #should give us column header
+                                viol_dict1[rs].append(col)
+                            else:
+                                viol_dict1[rs] = [col]
+
+                        if float(e) <= pmax2:
+                            count_p2 = count_p2 + 1
+                            col = header_split[mod_line.index(e)]
+                            if rs in viol_dict2.keys():
+                                #should give us column header
+                                viol_dict2[rs].append(col)
+                            else:
+                                viol_dict2[rs] = [col]
+                    na_counter[rs] = na_count
+                # count_p1 = count_p1 - correction_num
+                # count_p2 = count_p2 - correction_num
+                #only add to dict if rs in trait file
+                    if rs not in dict_snp.keys(): 
+                        #first compare true count to modified threshold then change count to modified count if trait_related is true
+                        if count_p_prim < 1:
+                            if count_p1 <= threshold1:
+                                if count_p2 <= threshold2:
+                                    #if trait in pval file, subtract 1 from count of number of sig associations
+                                    dict_snp[rs] = [True, count_p1] # Record number of associations wiht p<0.05 afte rfiltering for less than 4
+                                else:
+                                    dict_snp[rs] = [False, count_p1]
+                                    print rs + " tossed for" + str(count_p2) + " p<" + str(pmax2) + " associations in pval file, which is greater than max threshold of " + str(threshold2) + ", with:"
+                                    for v in viol_dict2[rs]:
+                                        print v
+                            else:
+                                dict_snp[rs] = [False, count_p1]
+                                print rs + " tossed for " + str(count_p1) + " p<" + str(pmax1) + " associations in pval file, which is greater than max threshold of " + str(threshold1) +", with:"
+                                for v in viol_dict1[rs]:
+                                    print v
+                        else:
+                            dict_snp[rs] = [False,count_p1]
+                            print rs + " tossed for " + str(count_p_prim) + " p<" + str(pmaxprimary) + " *primary confounder* associations in pval file, which is greater than max threshold of 1, with:"
+                            for v in prim_viol_dict[rs]:
+                                print v
 
             '''Replacement pval code'''
             # elif rs in replace_dict.keys():
@@ -1157,11 +1230,11 @@ class Merp():
           
             num_tests = num_tests - num_na
             total_num = math.ceil(max_fraction * num_tests)
-            if float(num_sig_dict["new_num_sig"]) <= max_fraction * num_tests:
+            if float(num_sig_dict["new_num_sig"]) <= total_num:
                 threshold_met = True
                 print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is less than/equal to max_fraction " + str(max_fraction) + " of " + str(num_tests) + "number of tests =" + str(total_num) 
 
-            elif float(num_sig_dict["new_num_sig"]) > max_fraction * num_tests:
+            elif float(num_sig_dict["new_num_sig"]) > total_num:
                 print "Entering iterative association cutting step . . . "
                 print str(num_sig_dict["new_num_sig"]) + " is the number of total p<" + str(pmax1) + " associations, which is greater than max_fraction" + str(max_fraction) + " of " + str(num_tests) + "number of tests =" + str(total_num) 
                 num_sig_dict["old_num_sig"] = num_sig_dict["new_num_sig"]

@@ -1,0 +1,23 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
+rs2602836	.02	unit_increase	G	A	5E-8	[NR]_unit_increase	HDL_cholesterol	ADH5	0.44	24097068	22snps	
+rs4650994	.02	unit_increase	A	G	7E-9	[NR]_unit_increase	HDL_cholesterol	ANGPTL1	0.49	24097068	
+rs702485	.02	unit_increase	A	G	6E-12	[NR]_unit_increase	HDL_cholesterol	DAGLB	0.45	24097068	
+rs6805251	.02	unit_increase	C	T	1E-8	[NR]_unit_increase	HDL_cholesterol	GSK3B	0.39	24097068	
+rs17695224	-0.03	unit_decrease	G	A	2E-13	[NR]_unit_decrease	HDL_cholesterol	HAS1	0.26	24097068	
+rs4917014	.02	unit_increase	T	G	1E-8	[NR]_unit_increase	HDL_cholesterol	IKZF1	0.32	24097068	
+rs499974	-0.03	unit_decrease	C	A	1E-8	[NR]_unit_decrease	HDL_cholesterol	MOGAT2,DGAT2	0.19	24097068	
+rs11246602	.03	unit_increase	T	C	2E-10	[NR]_unit_increase	HDL_cholesterol	OR4C46	0.15	24097068	
+rs2013208	.03	unit_increase	C	T	9E-12	[NR]_unit_increase	HDL_cholesterol	RBM5	0.5	24097068	
+rs2290547	-0.03	unit_decrease	G	A	4E-9	[NR]_unit_decrease	HDL_cholesterol	SETD2	0.2	24097068	
+rs4983559	.02	unit_increase	A	G	1E-8	[NR]_unit_increase	HDL_cholesterol	ZBTB42,AKT1	0.4	24097068	
+rs16940212	.02	mg/dL_increase	G	T	1E-24	[0.018-0.027]_mg/dL_increase	HDL_cholesterol	Intergenic	0.34	21909109	edited	
+rs7395662	-0.07	s.d._decrease	A	G	6E-11	[NR]_s.d._decrease	HDL_cholesterol	MADD,FOLH1	0.61	19060911	
+rs181362	-0.04	unit_decrease	C	T	4E-18	[NR]_unit_decrease	HDL_cholesterol	UBE2L3	0.23	24097068	
+rs4759375	.06	unit_increase	C	T	3E-8	[NR]_unit_increase	HDL_cholesterol	SBNO1	0.08	24097068	
+rs11869286	-0.03	unit_decrease	G	G	3E-17	[NR]_unit_decrease	HDL_cholesterol	STARD3	0.35	24097068	
+rs7255436	-0.03	unit_decrease	A	C	2E-8	[NR]_unit_decrease	HDL_cholesterol	ANGPTL4	0.47	24097068	
+rs737337	-0.06	unit_decrease	T	C	5E-17	[NR]_unit_decrease	HDL_cholesterol	ANGPTL8	0.11	24097068	
+rs7134594	-0.04	unit_decrease	T	C	2E-13	[NR]_unit_decrease	HDL_cholesterol	MVK	0.48	24097068	
+rs16942887	.08	unit_increase	G	A	8E-54	[NR]_unit_increase	HDL_cholesterol	LCAT	0.14	24097068	
+rs838880	.05	unit_increase	T	C	6E-32	[NR]_unit_increase	HDL_cholesterol	SCARB1	0.34	24097068	
+rs386000	.05	unit_increase	G	C	3E-23	[NR]_unit_increase	HDL_cholesterol	LILRA3	0.26	24097068	

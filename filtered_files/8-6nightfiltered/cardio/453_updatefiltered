@@ -1,5 +1,5 @@
 SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
-rs1458038	.71	mmHg_increase	C	T	2E-23	[NR]_mmHg_increase	Systolic_blood_pressure	FGF5	0.29	21909115	
+rs1458038	.71	mmHg_increase	C	T	2E-23	[NR]_mmHg_increase	Systolic_blood_pressure	FGF5	0.29	21909115	10snps	
 rs6015450	.90	mmHg_increase	A	G	4E-23	[NR]_mmHg_increase	Systolic_blood_pressure	GNAS,EDN3	0.12	21909115	
 rs2521501	.65	mmHg_increase	A	T	5E-19	[NR]_mmHg_increase	Systolic_blood_pressure	FURIN,FES	0.31	21909115	
 rs633185	-0.57	mmHg_decrease	C	G	1E-17	[NR]_mmHg_decrease	Systolic_blood_pressure	FLJ32810,TMEM133	0.28	21909115	

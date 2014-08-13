@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Non-Risk_Allele	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID	Warnings
+rs10491003	.03	unit_increase	C	T	5E-9	[0.017-0.037]_unit_increase	Calcium_levels	GATA3	0.09	24068962	
+rs7336933	-0.02	unit_decrease	G	A	9E-10	[0.014-0.03]_unit_decrease	Calcium_levels	DGKH,KIAA0564	0.15	24068962	
+rs1570669	-0.02	unit_decrease	G	A	9E-12	[0.012-0.024]_unit_decrease	Calcium_levels	CYP24A1	0.66	24068962	
+rs1801725	.07	unit_increase	G	T	9E-86	[0.063-0.079]_unit_increase	Calcium_levels	CASR	0.15	24068962	
