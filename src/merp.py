@@ -1065,7 +1065,7 @@ class Merp():
         log_handle = file(log_path + newtrait_file + "filtered.log.txt",'w')
         log_handle.write(log)
 
-        Merp.unit_checker(self,trait_file + "filtered")
+        Merp.unit_checker(self,'./filtered_files/' + newtrait_file + "filtered")
 
         #If A and B are both in dict 1 and significant assoc, change b index to A's in dict 2, add B and all clusters with B
         # to index of A's cluster list and remove index of B's entry of cluster lists.
