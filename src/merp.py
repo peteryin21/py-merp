@@ -99,7 +99,7 @@ class Merp():
             #Don't remove spaces in rs bc in filter will have to match up with nhgri otherwise key error
             dict_trait[entry[1]].append((entry[5],entry[3].replace(" ",""),unit,entry[6].replace(" ",""),entry[2].replace(" ",""),ci,entry[1],entry[0].replace(" ",""),entry[7].replace(" ",""),entry[8].replace(" ",""))) 
         handle_index = file("index","w")
-        
+        os.remove("result.txt")
         counter = 0
         path ='./traitFiles/'
         if not os.path.exists(path):
