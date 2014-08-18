@@ -1,0 +1,8 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs17000918	NR	[NR]	A	4E-9	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	FLJ44385	NR	22610502	
+rs16850864	NR	[NR]	A	7E-9	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	MTHFD2L	NR	22610502	
+rs16850885	NR	[NR]	A	7E-9	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	EPGN,MTHFD2L	NR	22610502	
+rs11564024	NR	[NR]	C	3E-8	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	LOC392008	NR	22610502	
+rs9582259	NR	[NR]	C	3E-8	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	SLC15A1	NR	22610502	
+rs10998624	NR	[NR]	A	1E-9	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	SUPV3L1,VPS26A	NR	22610502	
+rs12247397	NR	[NR]	G	3E-9	[NR]	Immune_reponse_to_smallpox_(secreted_IL-1beta)	LOC389936	NR	22610502	

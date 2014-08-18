@@ -354,7 +354,7 @@ class Merp():
         confounder_list = []
         primary_confounders_list = []
         nhgri_file = "data/finalgwas.txt"
-        pval_file = "data/pval_file.txt"
+        pval_file = "bin/pval_file.txt"
         try:
             with open(nhgri_ignore,"r") as include:
                 lines = include.readlines()
@@ -458,7 +458,7 @@ class Merp():
             pval_lines = pval.iter_lines()
             header = pval_lines.next()
         else:
-            pval = file('data/pval_file.txt','r')
+            pval = file('bin/pval_file.txt','r')
             header = pval.readline()
         dict_snp = {} 
         header_split = header.rstrip('\n').split(' ')
@@ -1087,8 +1087,9 @@ class Merp():
             for line in lines[1:]:
                 entry = line.split('\t')
                 if len(entry) <=1:
-                    print "Extra new lines detected. Please remove excess new lines."
-                    return False
+                    continue
+                    # print "Extra new lines detected. Please remove excess new lines."
+                    # return False
                 rs = entry[0]
                 beta = entry[1]
                 unit = entry[2]
@@ -1307,7 +1308,7 @@ class Merp():
                     xtot += x
                     ytot += y
                 else:
-                    print "This SNP is not in the disease data : " + key
+                    print key + " is not in the disease data and is excluded from analysis"
                     
             
                
@@ -1327,7 +1328,7 @@ class Merp():
         disease_handle.close()
         trait_handle.close()
         handle_result.close()
-        print "ADD SOME LOG SUMMARY + WHERE FILES ARE"
+        print "Calculation finished! Summary and individual effect results in /analysis"
 
     def plot(self,indiv_file,summ_file,Trait,Disease):
         indiv_handle = file(indiv_file, "r")

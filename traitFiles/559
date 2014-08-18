@@ -1,0 +1,9 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9398652	12.60	ms_decrease	A	4E-15	[9.54-15.66]_ms_decrease	Resting_heart_rate	GJA1	0.10	20639392	
+rs452036	7.80	ms_decrease	A	4E-14	[5.84-9.76]_ms_decrease	Resting_heart_rate	MYH6	0.36	20639392	
+rs223116	7.40	ms_decrease	A	3E-8	[4.85-9.95]_ms_decrease	Resting_heart_rate	MYH7,NDNG	0.24	20639392	
+rs17287293	8.60	ms_increase	G	2E-10	[6.03-11.17]_ms_increase	Resting_heart_rate	Intergenic	0.15	20639392	
+rs281868	6.30	ms_decrease	G	4E-10	[4.36-8.24]_ms_decrease	Resting_heart_rate	SLC35F1	0.50	20639392	
+rs314370	7.60	ms_decrease	C	6E-10	[5.23-9.97]_ms_decrease	Resting_heart_rate	SLC12A9	0.19	20639392	
+rs12666989	7.00	ms_decrease	C	2E-8	[4.63-9.37]_ms_decrease	Resting_heart_rate	UFSP1	0.18	20639392	
+rs174547	6.20	ms_decrease	C	2E-9	[4.22-8.18]_ms_decrease	Resting_heart_rate	FADS1	0.33	20639392	

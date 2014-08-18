@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs4654748	1.45	ng/ml_decrease	C	8E-18	[0.90-2.00]_ng/ml_decrease	Folate_pathway_vitamin_levels	ALPL	0.50	19303062	
+rs602662	49.77	pg/ml_increase	A	3E-20	[37.09-62.45]_pg/ml_increase	Folate_pathway_vitamin_levels	FUT2	0.53	19303062	

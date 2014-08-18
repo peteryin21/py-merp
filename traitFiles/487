@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9318552	.39	unit_increase	T	5E-8	[0.25-0.53]_unit_increase	Diastolic_blood_pressure_(alcohol_consumption_interaction)	RNF219-AS1	0.79	24376456	

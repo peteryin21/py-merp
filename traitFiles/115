@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs3130501	1.74	[NR]	G	2E-8	[1.43-2.13]	Stevens-Johnson_syndrome_and_toxic_epidermal_necrolysis_(SJS-TEN)	POU5F1	0.74	21801394	
+rs9469003	1.73	[NR]	C	2E-9	[1.44-2.08]	Stevens-Johnson_syndrome_and_toxic_epidermal_necrolysis_(SJS-TEN)	HCP5	0.15	21801394	

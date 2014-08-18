@@ -1,0 +1,2 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2395029	3.47	[NR]	G	3E-19	[2.39-5.04]	AIDS_progression	HCP5,MICB,MCCD1,BAT1,LTB,TNF	0.03	19115949	

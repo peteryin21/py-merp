@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1229984	1.56	[NR]	T	1E-20	[1.41-1.69]	Upper_aerodigestive_tract_cancers	ADH1B	0.94	21437268	
+rs971074	1.33	[NR]	G	9E-17	[1.25-1.43]	Upper_aerodigestive_tract_cancers	ADH7	NR	21437268	
+rs1494961	1.12	[NR]	C	1E-8	[1.08-1.17]	Upper_aerodigestive_tract_cancers	HEL308,ADH,FAM175A	0.49	21437268	
+rs4767364	1.13	[NR]	A	2E-8	[1.08-1.18]	Upper_aerodigestive_tract_cancers	ALDH2	0.29	21437268	

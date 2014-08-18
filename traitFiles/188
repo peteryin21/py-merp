@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs8176722	1.28	[NR]	A	9E-10	[1.19-1.39]	Malaria	ABO	NR	23717212	
+rs12788102	2.15	[NR]	A	2E-16	[1.79-2.59]	Malaria	HBB	NR	23717212	
+rs10900585	1.64	[NR]	T	2E-10	[NR]	Malaria	ATP2B4	0.62	22895189	
+rs8176719	1.48	[NR]	G	4E-21	[NR]	Malaria	ABO	0.37	22895189	
+rs372091	2.17	[NR]	C	6E-14	[NR]	Malaria	HBB	0.972	22895189	

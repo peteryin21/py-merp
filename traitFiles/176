@@ -1,0 +1,7 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs3755132	1.45	[NR]	G	1E-14	[1.29-1.64]	Wilms_tumor	DDX1,MYCN	0.14	22544364	
+rs1027643	1.43	[NR]	T	5E-10	[1.18-1.73]	Wilms_tumor	NR	0.05	22544364	
+rs790356	1.28	[NR]	G	4E-15	[1.17-1.39]	Wilms_tumor	DLG2	0.5	22544364	
+rs2283873	2.05	[NR]	A	5E-12	[1.57-2.69]	Wilms_tumor	NR	0.02	22544364	
+rs5955543	2.64	[NR]	G	1E-9	[1.74-4.01]	Wilms_tumor	NR	0.01	22544364	
+rs807624	1.33	[NR]	A	1E-14	[1.22-1.45]	Wilms_tumor	DDX1,MYCN	0.35	22544364	

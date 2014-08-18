@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2046045	.12	unit_decrease	T	3E-27	[0.093-0.137]_unit_decrease	Thyroid_function	PDE8B	0.618	22494929	
+rs10917477	.06	unit_decrease	A	2E-8	[0.038-0.078]_unit_decrease	Thyroid_function	CAPZB	0.511	22494929	
+rs10028213	.08	unit_increase	C	3E-10	[0.059-0.109]_unit_increase	Thyroid_function	NR3C2	0.823	22494929	
+rs3813582	.07	unit_increase	T	6E-10	[0.046-0.090]_unit_increase	Thyroid_function	LOC440389,MAF	0.681	22494929	

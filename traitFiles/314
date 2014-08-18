@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs13111850	NR	[NR]	G	3E-11	[NR]	Immune_reponse_to_smallpox_(secreted_IL-10)	SPOCK3	NR	22610502	
+rs13231718	NR	[NR]	C	5E-9	[NR]	Immune_reponse_to_smallpox_(secreted_IL-10)	DYNC1I1	NR	22610502	
+rs17231212	NR	[NR]	G	2E-8	[NR]	Immune_reponse_to_smallpox_(secreted_IL-10)	LOC100129730	NR	22610502	

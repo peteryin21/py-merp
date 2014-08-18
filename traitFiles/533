@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs12566888	NR	[NR]	A	4E-16	[NR]	Platelet_aggregation	PEAR1	0.102	20526338	
+rs869244	NR	[NR]	A	3E-12	[NR]	Platelet_aggregation	ADRA2A	0.353	20526338	
+rs12566888	NR	[NR]	A	5E-19	[NR]	Platelet_aggregation	PEAR1	0.103	20526338	
+rs2893923	NR	[NR]	T	5E-8	[NR]	Platelet_aggregation	JMJD1C	0.336	20526338	
+rs1671152	NR	[NR]	T	8E-14	[NR]	Platelet_aggregation	GP6	0.142	20526338	

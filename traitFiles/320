@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs6687813	10.10	%_increase	A	2E-14	[2.7-17.9]_%_increase	D-dimer_levels	F5	0.06	21502573	
+rs12029080	10.40	%_increase	G	6E-52	[6.6-14.3]_%_increase	D-dimer_levels	F3	0.31	21502573	
+rs13109457	6.30	%_increase	A	3E-18	[2.3-10.4]_%_increase	D-dimer_levels	FGA,FGG	0.25	21502573	

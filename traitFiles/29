@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs35705950	2.43	[NR]	T	2E-50	[2.13-2.77]	Idiopathic_pulmonary_fibrosis	MUC5B,MUC5AC,TOLLIP	0.14	24429156	
+rs17690703	1.43	[NR]	C	6E-9	[1.27-1.61]	Idiopathic_pulmonary_fibrosis	SPPL2C,CRHR1,MAPT,STH,KANSL1	0.76	24429156	
+rs5743894,_rs111521887	1.49	[NR]	G	1E-12	[1.33-1.68]	Idiopathic_pulmonary_fibrosis	TOLLIP,MUC5B,BRSK2	0.18	24429156	
+rs5743890	1.64	[NR]	A	3E-11	[1.41-1.92]	Idiopathic_pulmonary_fibrosis	TOLLIP,MUC5B,BRSK2	0.83	24429156	
+rs2736100	2.11	[NR]	A	3E-8	[1.61-2.78]	Idiopathic_pulmonary_fibrosis	TERT	0.41	18835860	

@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs4074961	.07	unit_increase	T	4E-13	[0.053-0.092]_unit_increase	Axial_length	RSPO1,SNIP1,RSPO1,GNL2,EPHA10,DNALI1,CDCA8,C1orf109	0.4361	24144296	
+rs994767	.07	unit_decrease	A	1E-11	[0.051-0.092]_unit_decrease	Axial_length	ZC3H11B,LOC388739,LOC728518	0.4085	24144296	
+rs9811920	.08	unit_increase	A	5E-11	[0.056-0.104]_unit_increase	Axial_length	MGC4308,LOC648640,DOC1,C3ORF26,TBC1D23,FILIP1L,COL8A1	0.3975	24144296	
+rs12193446	.12	unit_increase	A	1E-8	[0.08-0.164]_unit_increase	Axial_length	LAMA2,ARHGAP18	0.9092	24144296	
+rs11073058	.07	unit_increase	T	4E-11	[0.047-0.086]_unit_increase	Axial_length	GJD2,ACTC1	0.4532	24144296	

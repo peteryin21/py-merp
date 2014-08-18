@@ -1,0 +1,12 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs769449	.08	unit_increase	A	2E-16	[NR]_unit_increase	Alzheimer's_disease_biomarkers	APOE,TOMM40	NR	23562540	
+rs769449	.09	unit_increase	A	2E-18	[NR]_unit_increase	Alzheimer's_disease_biomarkers	APOE,TOMM40	NR	23562540	
+rs9877502	.05	unit_increase	A	5E-9	[NR]_unit_increase	Alzheimer's_disease_biomarkers	SNAR-I,GEMC1,OSTNIL1-RAP,UTS2D,CCDC50	NR	23562540	
+rs514716	.07	unit_decrease	G	1E-8	[NR]_unit_decrease	Alzheimer's_disease_biomarkers	GLIS3	NR	23562540	
+rs514716	.07	unit_decrease	G	3E-9	[NR]_unit_decrease	Alzheimer's_disease_biomarkers	GLIS3	NR	23562540	
+rs6922617	.09	unit_decrease	A	4E-8	[NR]_unit_decrease	Alzheimer's_disease_biomarkers	NCR2,TREM	NR	23562540	
+rs509208	NR	[NR]	G	3E-8	[NR]	Alzheimer's_disease_biomarkers	BCHE	0.16	23419831	
+rs429358	NR	[NR]	C	5E-14	[NR]	Alzheimer's_disease_biomarkers	APOE	0.28	23419831	
+rs56131196	NR	[NR]	A	4E-12	[NR]	Alzheimer's_disease_biomarkers	APOC1	0.29	23419831	
+rs6857	NR	[NR]	T	1E-10	[NR]	Alzheimer's_disease_biomarkers	PVRL2	0.28	23419831	
+rs59007384	NR	[NR]	T	7E-9	[NR]	Alzheimer's_disease_biomarkers	TOMM40	0.32	23419831	

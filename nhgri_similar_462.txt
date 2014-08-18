@@ -1,5 +1,0 @@
-LDL 
-cholesterol
-Response to statin therapy (LDL-C)
-C-reactive protein
-Lipid metabolism phenotypes

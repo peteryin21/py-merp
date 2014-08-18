@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs6043979,_rs932541,_rs6044001,_rs6044003	NR	[NR]	S	1E-8	[NR]	Intelligence	KIF16B	NR	22449649	
+rs3758171,_rs1329573,_rs3824344,_rs7020413	NR	[NR]	S	4E-8	[NR]	Intelligence	PAX5	NR	22449649	
+rs3815908,_rs2303690,_rs3936340,_rs2560966	NR	[NR]	S	3E-8	[NR]	Intelligence	ELSPBP1	NR	22449649	

@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9275572	1.27	[NR]	T	4E-16	[1.19-1.33]	Chronic_hepatitis_C_infection	HLA-DQB1,HLA-DQA1	0.359	24376798	
+rs1012068	1.75	[NR]	G	1E-13	[1.51-2.03]	Chronic_hepatitis_C_infection	DEPDC5	0.12	21725309	
+rs7270101	NR	[NR]	C	9E-76	[NR]	Chronic_hepatitis_C_infection	ITPA	0.11	20173735	
+rs1127354	NR	[NR]	A	2E-58	[NR]	Chronic_hepatitis_C_infection	ITPA	0.069	20173735	
+rs8099917	2.31	[NR]	G	6E-9	[1.74-3.06]	Chronic_hepatitis_C_infection	IL28B,IL28A,IL29	0.24	20060832	

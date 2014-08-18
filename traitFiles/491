@@ -1,0 +1,6 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs117026326	2.20	[NR]	T	1E-53	[1.99-2.42]	Sjögren's_syndrome	GTF2I,GTF2IRD1	0.1501	24097066	
+rs10168266	1.44	[NR]	T	2E-17	[1.32-1.57]	Sjögren's_syndrome	STAT4	0.3357	24097066	
+rs5029939	1.67	[NR]	G	8E-9	[1.40-1.99]	Sjögren's_syndrome	TNFAIP3	0.0445	24097066	
+rs9271588	1.75	[NR]	T	9E-37	[1.59-1.89]	Sjögren's_syndrome	HLA-DRB1,HLA-DQA1	0.532	24097066	
+rs4282438	1.58	[NR]	G	9E-25	[1.45-1.72]	Sjögren's_syndrome	HLA-DPB1,COL11A2	0.3546	24097066	

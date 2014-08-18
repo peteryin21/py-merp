@@ -1,0 +1,13 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1421085	1.44	[NR]	C	3E-28	[1.35-1.54]	Obesity_(early_onset_extreme)	FTO	0.41	23563609	
+rs476828	1.33	[NR]	C	9E-14	[1.23-1.43]	Obesity_(early_onset_extreme)	MC4R	0.24	23563609	
+rs12463617	1.42	[NR]	C	2E-13	[1.29-1.56]	Obesity_(early_onset_extreme)	TMEM18	0.85	23563609	
+rs1993709	1.38	[NR]	G	5E-13	[1.26-1.50]	Obesity_(early_onset_extreme)	NEGR1	0.81	23563609	
+rs1957894	1.50	[NR]	T	3E-10	[1.32-1.70]	Obesity_(early_onset_extreme)	PRKCH	0.06	23563609	
+rs11208659	1.42	[NR]	C	2E-9	[1.27-1.59]	Obesity_(early_onset_extreme)	LEPR	0.08	23563609	
+rs564343	1.22	[NR]	A	2E-9	[1.15-1.31]	Obesity_(early_onset_extreme)	PACS1	0.41	23563609	
+rs11109072	1.67	[NR]	A	4E-9	[1.41-1.99]	Obesity_(early_onset_extreme)	RMST	0.03	23563609	
+rs3101336	1.21	[NR]	C	2E-8	[1.13-1.29]	Obesity_(early_onset_extreme)	NEGR1	0.60	23563609	
+rs1558902	1.37	[NR]	A	5E-19	[1.26-1.50]	Obesity_(early_onset_extreme)	FTO	NR	20421936	
+rs17700144,_rs10871777	1.22	[NR]	A	6E-11	[1.09-1.37]	Obesity_(early_onset_extreme)	MC4R	NR	20421936	
+rs17150703,_rs473034	1.18	[NR]	A	2E-8	[1.03-1.35]	Obesity_(early_onset_extreme)	TNKS,MSRA	NR	20421936	

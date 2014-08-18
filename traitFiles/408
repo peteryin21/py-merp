@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1015362,_rs4911414	1.76	[NR]	G	2E-24	[1.49-2.08]	Skin_sensitivity_to_sun	ASIP	0.08	18488028	
+rs1805007	2.94	[NR]	T	2E-55	[2.42-3.58]	Skin_sensitivity_to_sun	MC1R	0.06	17952075	

@@ -1,0 +1,9 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs6931262	.06	unit_increase	T	3E-8	[0.04-0.08]_unit_increase	Waist-hip_ratio	RREB1	0.25	23966867	
+rs1294421	1.16	[NR]	G	2E-10	[NR]	Waist-hip_ratio	LY86	0.62	23563607	
+rs7745274	1.15	[NR]	A	9E-10	[NR]	Waist-hip_ratio	RSPO3	0.55	23563607	
+rs2820464	1.16	[NR]	G	7E-9	[NR]	Waist-hip_ratio	LYPLAL1	0.66	23563607	
+rs13389219	1.13	[NR]	C	3E-8	[NR]	Waist-hip_ratio	COBLL1	0.57	23563607	
+rs1055144	.04	unit_increase	T	1E-24	[NR]_unit_increase	Waist-hip_ratio	NFE2L3	0.21	20935629	
+rs6784615	.04	unit_increase	T	4E-10	[NR]_unit_increase	Waist-hip_ratio	NISCH,STAB1	0.94	20935629	
+rs6861681	.02	unit_increase	A	2E-9	[NR]_unit_increase	Waist-hip_ratio	CPEB4	0.34	20935629	

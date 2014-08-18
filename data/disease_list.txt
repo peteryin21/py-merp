@@ -1,0 +1,227 @@
+Fuchs's corneal dystrophy
+Epirubicin-induced leukopenia 
+Knee osteoarthritis
+Non-small cell lung cancer
+Arthritis (juvenile idiopathic)
+Thoracic aortic aneurysms and dissections
+Chronic kidney disease and serum creatinine levels
+Blue vs. brown eyes
+Scoliosis
+Kidney stones
+Tourette syndrome
+Meningococcal disease
+Idiopathic pulmonary fibrosis
+Neuroblastoma (high-risk)
+Corneal astigmatism
+Endometrial cancer
+Nodular sclerosis Hodgkin lymphoma
+Moyamoya disease
+Squamous cell carcinoma
+Chronic myeloid leukemia
+Hypertension risk in short sleep duration
+Vascular dementia
+Heart failure
+Gallstones
+Biliary atresia
+Essential tremor
+Neonatal lupus
+Hypospadias
+End-stage renal disease (non-diabetic)
+Red vs. non-red hair color
+Myeloproliferative neoplasms
+Methotrexate clearance (acute lymphoblastic leukemia)
+Glaucoma (exfoliation)
+Otosclerosis
+Major mood disorders
+Response to gemcitabine in pancreatic cancer 
+Adverse response to carbamapezine
+Bipolar disorder and major depressive disorder (combined)
+Nevirapine-induced rash
+Burning and freckling
+Age-related macular degeneration (CNV vs. GA)
+Allergic rhinitis
+Esophageal cancer  (alcohol interaction)
+Age-related macular degeneration (wet)
+Non-alcoholic fatty liver disease histology (other)
+Meningioma 
+Leishmaniasis (visceral)
+Epilepsy
+Red vs non-red hair color
+Periodontitis
+Hemostatic factors and hematological phenotypes
+Diabetes (gestational)
+Breast cancer (male) 
+Bipolar disorder and schizophrenia
+Airflow obstruction 
+Nonalcoholic fatty liver disease
+Pancreatitis
+Hepatocellular carcinoma (hepatitis B virus related)
+Thyrotoxic hypokalemic periodic paralysis
+Atrial fibrillation/atrial flutter
+Hypertriglyceridemia
+Tuberculosis
+Crohn's disease and psoriasis
+Autism
+Sagittal craniosynostosis
+Duodenal ulcer 
+Narcolepsy
+Primary sclerosing cholangitis
+Drug-induced liver injury (flucloxacillin)
+Skin sensitivity to sun
+Dengue shock syndrome 
+Stroke
+Nephropathy (idiopathic membranous)
+Dilated cardiomyopathy
+Tetralogy of Fallot
+Myocardial infarction
+Barrett's esophagus
+Sclerosing cholangitis and ulcerative colitis (combined)
+AIDS progression
+Cleft lip
+Eosinophilic esophagitis (pediatric)
+Multiple myeloma
+Gastric cancer
+Drug-induced liver injury (amoxicillin-clavulanate)
+Type 1 diabetes nephropathy
+Stevens-Johnson syndrome and toxic epidermal necrolysis (SJS-TEN)
+Temperament (bipolar disorder)
+Ovarian cancer
+Esophageal cancer and gastric cancer
+Glioma (high-grade)
+Osteoarthritis
+Urinary bladder cancer
+Ewing sarcoma
+Major depressive disorder
+Testicular cancer
+Beta thalassemia/hemoglobin E disease
+Nephrolithiasis
+Myasthenia gravis 
+Uterine fibroids
+Addiction
+Infantile hypertrophic pyloric stenosis
+Abdominal aortic aneurysm
+Keloid
+Psoriatic arthritis
+Malaria
+Retinal vascular caliber
+Age-related macular degeneration (GA)
+Upper aerodigestive tract cancers
+Testicular germ cell tumor
+Non-obstructive azoospermia
+Hepatitis B (viral clearance)
+Inflammatory bowel disease (early onset)
+Multiple cancers (lung cancer, gastric cancer, and squamous cell carcinoma)
+Glaucoma
+Blue vs. green eyes
+Stroke (ischemic)
+Type 2 diabetes and other traits
+Renal function and chronic kidney disease
+Chronic Hepatitis C infection
+Follicular lymphoma
+Epilepsy (generalized)
+Hepatocellular carcinoma
+Renal cell carcinoma
+Chronic obstructive pulmonary disease
+Hepatitis C induced liver cirrhosis
+Thyroid cancer
+Blond vs. brown hair color
+Osteoporosis
+Basal cell carcinoma 
+Nephropathy
+Alopecia areata
+Wilms tumor
+Testicular germ cell cancer
+Hodgkin's lymphoma
+Hepatitis B
+Hypothyroidism
+Age-related macular degeneration (CNV)
+Lymphoma
+Progressive supranuclear palsy
+Esophageal cancer (squamous cell)
+Endometriosis
+Kawasaki disease
+Pancreatic cancer
+Leprosy
+Dupuytren's disease
+Acute lymphoblastic leukemia (childhood)
+Neuroblastoma
+Myocardial infarction (early onset)
+Antineutrophil cytoplasmic antibody-associated vasculitis 
+Venous thromboembolism
+Migraine
+Glaucoma (primary open-angle)
+Esophageal cancer
+Bladder cancer
+Paget's disease
+Intracranial aneurysm
+Lung adenocarcinoma
+Restless legs syndrome
+Sudden cardiac arrest
+Male-pattern baldness
+HIV-1 control
+Melanoma
+Alzheimer's disease (late onset)
+Atopic dermatitis
+Electrocardiographic traits
+Behcet's disease
+Chronic lymphocytic leukemia
+Atrial fibrillation
+Nasopharyngeal carcinoma
+Graves' disease
+Polycystic ovary syndrome
+Glioma
+Ankylosing spondylitis
+Systemic sclerosis
+Lung cancer
+Orofacial clefts
+Schizophrenia
+Alzheimer's disease
+Vitiligo
+Psoriasis
+Colorectal cancer
+Celiac disease
+Primary biliary cirrhosis
+Menarche (age at onset)
+Myopia (pathological)
+Breast cancer
+Parkinson's disease
+Age-related macular degeneration
+Rheumatoid arthritis
+Type 1 diabetes
+Systemic lupus erythematosus
+Coronary heart disease
+Prostate cancer
+Multiple sclerosis
+Ulcerative colitis
+Inflammatory bowel disease
+Type 2 diabetes
+Crohn's disease
+Panic disorder
+Hypertension (young onset)
+Obesity and blood pressure
+IFN-related cytopenia
+Cystic fibrosis severity
+Cardiac hypertrophy
+Ribavirin-induced anemia
+Carotid atherosclerosis in HIV infection
+Orofacial clefts (interaction)
+Creutzfeldt-Jakob disease
+Schizophrenia, bipolar disorder and depression (combined)
+Glomerulosclerosis
+Sarcoidosis
+Crohn's disease and celiac disease
+Attention deficit hyperactivity disorder
+Hirschsprung's disease
+Hepatitis C induced liver fibrosis
+Alzheimer's disease (age of onset)
+Creutzfeldt-Jakob disease (variant)
+Hippocampal atrophy
+Obesity (extreme)
+Diabetic retinopathy 
+Amyotrophic lateral sclerosis
+Celiac disease and Rheumatoid arthritis
+Bipolar disorder
+Asthma
+Chronic Kidney Disease
+disease
+Disease

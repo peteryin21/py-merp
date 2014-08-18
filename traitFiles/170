@@ -1,0 +1,11 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2250417	.10	unit_increase	T	2E-32	[0.08-0.12]_unit_increase	Inflammatory_biomarkers	BCO2,IL18,TEX12	0.48	24182552	
+rs7577696	.08	unit_increase	G	3E-19	[0.060-0.100]_unit_increase	Inflammatory_biomarkers	SRD5A2,DPY30,SPAST,SLC30A6,NLRC4	0.41	24182552	
+rs6743376	.13	unit_increase	A	2E-26	[0.11-0.15]_unit_increase	Inflammatory_biomarkers	IL1F10	0.43	24182552	
+rs643434	NR	[NR]	A	9E-25	[NR]	Inflammatory_biomarkers	ABO	0.258	22291609	
+rs12034598	NR	[NR]	A	9E-14	[NR]	Inflammatory_biomarkers	CR1	0.408	22291609	
+rs12075	NR	[NR]	A	4E-51	[NR]	Inflammatory_biomarkers	DARC	0.49	22291609	
+rs3026968	NR	[NR]	T	9E-14	[NR]	Inflammatory_biomarkers	CADM3	0.12	22291609	
+rs1341665	NR	[NR]	A	2E-20	[NR]	Inflammatory_biomarkers	CRP	0.963	22291609	
+rs3845624	NR	[NR]	C	2E-11	[NR]	Inflammatory_biomarkers	DARC	0.47	22291609	
+rs4910742	NR	[NR]	G	2E-9	[NR]	Inflammatory_biomarkers	HBB	0.066	22291609	

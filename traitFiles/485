@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2230199	1.61	[NR]	C	1E-12	[1.40-1.85]	Age-related_macular_degeneration_(CNV)	C3	0.193	22705344	
+rs10033900	1.31	[NR]	T	6E-9	[1.19-1.44]	Age-related_macular_degeneration_(CNV)	CF1	0.463	22705344	
+rs10490924	3.67	[NR]	T	2E-138	[3.33-4.05]	Age-related_macular_degeneration_(CNV)	ARMS2,HTRA1	0.206	22705344	

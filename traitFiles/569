@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs6967330	1.26	[NR]	A	3E-14	[1.18-1.33]	Asthma_(childhood,_severe)	CDHR3	0.19	24241537	
+rs2305480	1.32	[NR]	G	6E-23	[1.23-1.39]	Asthma_(childhood,_severe)	GSDMB	0.6	24241537	
+rs928413	1.24	[NR]	G	9E-13	[1.17-1.32]	Asthma_(childhood,_severe)	IL33	0.28	24241537	
+rs3894194	1.59	[NR]	A	3E-21	[1.44-1.76]	Asthma_(childhood,_severe)	GSDMA	NR	24241537	

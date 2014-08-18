@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs9894429	.12	%_increase	T	9E-14	[NR]_%_increase	Eye_color_traits	NPLOC4,HGS	NR	20463881	
+rs1003719	.10	%_decrease	A	2E-10	[NR]_%_decrease	Eye_color_traits	TTC3,DSCR9	NR	20463881	

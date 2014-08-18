@@ -1,0 +1,4 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs13117307	1.28	[NR]	T	3E-10	[1.19-1.38]	Cervical_cancer	EXOC1	0.10	23817570	
+rs8067378	1.19	[NR]	G	9E-10	[1.13-1.26]	Cervical_cancer	GSDMB	0.22	23817570	
+DRB1*1301-DQA1*0103-DQB1*0603	2.13	[NR]	D	9E-10	[1.67-2.70]	Cervical_cancer	HLA	NR	23482656	

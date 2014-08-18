@@ -1,0 +1,3 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs4273712	12.50	ml_increase	G	2E-13	[NR]_ml_increase	Intracranial_volume	RSPO3,RNF146,CENPW	0.27	22504418	
+rs9303525	14.90	ml_decrease	G	8E-15	[NR]_ml_decrease	Intracranial_volume	MAPT,GRN,CRHR1,STH	0.22	22504418	

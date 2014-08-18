@@ -1,0 +1,12 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1260326	.01	unit_increase	T	3E-14	[0.0093-0.0155]_unit_increase	Serum_albumin_level	GCKR,FNDC4	0.41	23022100	
+rs4806073	.03	unit_increase	C	3E-15	[0.019-0.032]_unit_increase	Serum_albumin_level	HPN,SCN1B	0.93	23022100	
+rs1260326	.03	unit_increase	T	2E-8	[0.017-0.037]_unit_increase	Serum_albumin_level	GCKR,FNDC4	0.56	23022100	
+rs11078597	.02	unit_increase	C	7E-13	[0.015-0.026]_unit_increase	Serum_albumin_level	SERPINF2,WDR81	0.18	23022100	
+rs694419	.01	unit_increase	T	1E-8	[0.0062-0.0124]_unit_increase	Serum_albumin_level	TNFRSF11A,ZCCHC2	0.52	23022100	
+rs16948098	.02	unit_increase	A	2E-8	[0.015-0.031]_unit_increase	Serum_albumin_level	FRMD5,WDR76	0.06	23022100	
+rs1260326	.01	unit_increase	T	4E-19	[0.011-0.017]_unit_increase	Serum_albumin_level	GCKR-FNDC4	0.41	23022100	
+rs4806073	.03	unit_increase	C	4E-18	[0.021-0.033]_unit_increase	Serum_albumin_level	HPN,SCN1B	0.93	23022100	
+rs11078597	.02	unit_increase	C	1E-14	[0.015-0.026]_unit_increase	Serum_albumin_level	SERPINF2,WDR81	0.18	23022100	
+rs694419	.01	unit_increase	T	4E-9	[0.0064-0.0126]_unit_increase	Serum_albumin_level	TNFRSF11A,ZCCHC2	0.52	23022100	
+rs2280401	.01	unit_increase	A	6E-9	[0.0089-0.0179]_unit_increase	Serum_albumin_level	RPS11,FCGRT	0.17	23022100	

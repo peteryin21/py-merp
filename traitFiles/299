@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs1158867	.12	ug/ml_decrease	C	4E-36	[0.10-0.14]_ug/ml_decrease	Protein_C_levels	PROC	0.42	20802025	
+rs867186	.47	ug/ml_increase	C	2E-200	[0.44-0.50]_ug/ml_increase	Protein_C_levels	PROCR	0.10	20802025	
+rs6120849	.14	ug/ml_decrease	T	7E-37	[0.12-0.16]_ug/ml_decrease	Protein_C_levels	EDEM2	0.23	20802025	
+rs17145713	.06	ug/ml_decrease	T	3E-8	[0.04-0.08]_ug/ml_decrease	Protein_C_levels	BAZ1B	0.20	20802025	

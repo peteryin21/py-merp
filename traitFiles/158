@@ -1,0 +1,5 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs651007	.08	U/L_decrease	A	1E-56	[0.069-0.089]_U/L_decrease	Serum_alkaline_phosphatase_levels	SURF6,ABO	0.226	24094242	
+rs8176720	.04	U/L_increase	C	3E-21	[0.033-0.049]_U/L_increase	Serum_alkaline_phosphatase_levels	ABO	0.452	24094242	
+rs7025162	.05	U/L_decrease	A	3E-27	[0.039-0.055]_U/L_decrease	Serum_alkaline_phosphatase_levels	SURF6,ABO	0.384	24094242	
+rs657152	.06	U/L_decrease	T	4E-8	[NR]_U/L_decrease	Serum_alkaline_phosphatase_levels	ABO	0.46	24094242	

@@ -1,0 +1,11 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs4650608	NR	[NR]	T	8E-9	[NR]	Bipolar_disorder	PTGFR	NR	22182935	
+rs2271893	NR	[NR]	G	2E-10	[NR]	Bipolar_disorder	LMAN2L	NR	22182935	
+rs7618915	NR	[NR]	G	3E-10	[NR]	Bipolar_disorder	Intergenic	NR	22182935	
+rs9834970	NR	[NR]	C	1E-12	[NR]	Bipolar_disorder	TRANK1	NR	22182935	
+rs4948418	NR	[NR]	T	4E-10	[NR]	Bipolar_disorder	ANK3	NR	22182935	
+rs4765913	1.14	[NR]	A	2E-8	[NR]	Bipolar_disorder	CANCNA1C	NR	21926972	
+rs12576775	1.14	[NR]	G	4E-8	[NR]	Bipolar_disorder	ODZ4	NR	21926972	
+rs1064395	1.17	[NR]	A	2E-9	[NR]	Bipolar_disorder	NCAN	0.16	21353194	
+rs10994336	1.45	[NR]	T	9E-9	[NR]	Bipolar_disorder	ANK3	0.05	18711365	
+rs1012053	1.59	[NR]	A	2E-8	[1.35-1.87]	Bipolar_disorder	DGKH	0.84	17486107	

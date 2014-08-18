@@ -1,0 +1,11 @@
+SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
+rs2155219	1.18	[NR]	T	1E-18	[1.13-1.22]	Allergic_sensitization	C11orf30,LRRC32	0.47	23817571	
+rs1059513	1.30	[NR]	T	1E-14	[1.21-1.39]	Allergic_sensitization	STAT6	0.9	23817571	
+rs10056340	1.20	[NR]	G	5E-14	[1.15-1.28]	Allergic_sensitization	SLC25A46,TSLP,WDR36,CAMK4	0.17	23817571	
+rs6906021	1.15	[NR]	C	2E-12	[1.11-1.2]	Allergic_sensitization	HLA-DQB1,HLA-DQA1,	0.45	23817571	
+rs3771175	1.20	[NR]	T	5E-11	[1.14-1.28]	Allergic_sensitization	IL1RL1,IL18R1,IL18RAP	0.86	23817571	
+rs17616434	1.23	[NR]	T	5E-11	[1.18-1.29]	Allergic_sensitization	TLR1,TLR6,TLR10,MIR574,FAM114A1	0.78	23817571	
+rs9865818	1.12	[NR]	G	3E-10	[1.09-1.16]	Allergic_sensitization	LPP,BCL6	0.41	23817571	
+rs4410871	1.14	[NR]	T	5E-10	[1.09-1.19]	Allergic_sensitization	MYC,PVT1	0.28	23817571	
+rs17454584	1.15	[NR]	G	6E-10	[1.1-1.2]	Allergic_sensitization	IL2,ADAD1,KIAA1109,IL21	0.26	23817571	
+rs6932730	1.14	[NR]	T	4E-8	[1.09-1.20]	Allergic_sensitization	HLA-B,MICA,HLA-C,MICB	0.82	23817571	
