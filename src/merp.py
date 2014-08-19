@@ -135,7 +135,7 @@ class Merp():
         if nuc == "C":
             return "G"
 
-    def update_help(self,trait,allele_lines):
+    def update_help(self,trait,allele_lines,local):
         handle = file(trait,"r")
         lines = handle.readlines()
         snp_dict = {}
@@ -150,24 +150,49 @@ class Merp():
             snp_dict[snp] = risk_allele
         handle.close()
         non_risk_dict = {}
-        for line in allele_lines:
-            entry = line.rstrip('\n').split('\t')
-            snp = entry[5]
-            if snp in snp_dict.keys():
-                allele_one = entry[2]
-                allele_two = entry[3]
-                risk = snp_dict[snp]
-                if risk == allele_one:
-                    non_risk_dict[snp] = allele_two
-                elif risk == allele_two:
-                    non_risk_dict[snp] = allele_one
-                else:
-                    #if neither allele is the risk, take complements and work from there
-                    complement = Merp.get_complement(self,risk)
-                    if complement == allele_one:
-                        non_risk_dict[snp] = Merp.get_complement(self,allele_two)
-                    if complement == allele_two:
-                        non_risk_dict[snp] = Merp.get_complement(self,allele_one)
+        if local == False:
+            for line in allele_lines:
+                entry = line.rstrip('\n').split('\t')
+                snp = entry[5]
+                if snp in snp_dict.keys():
+                    allele_one = entry[2]
+                    allele_two = entry[3]
+                    risk = snp_dict[snp]
+                    if risk == allele_one:
+                        non_risk_dict[snp] = allele_two
+                    elif risk == allele_two:
+                        non_risk_dict[snp] = allele_one
+                    else:
+                        #if neither allele is the risk, take complements and work from there
+                        complement = Merp.get_complement(self,risk)
+                        if complement == allele_one:
+                            non_risk_dict[snp] = Merp.get_complement(self,allele_two)
+                        if complement == allele_two:
+                            non_risk_dict[snp] = Merp.get_complement(self,allele_one)
+        elif local == True:
+            with open(allele_lines,"r") as f:
+                header = f.readline()
+                while True:
+                    line = f.readline()
+                    if line == "" or line == "\n":
+                        break
+                    entry = line.rstrip('\n').split('\t')
+                    snp = entry[5]
+                    if snp in snp_dict.keys():
+                        allele_one = entry[2]
+                        allele_two = entry[3]
+                        risk = snp_dict[snp]
+                        if risk == allele_one:
+                            non_risk_dict[snp] = allele_two
+                        elif risk == allele_two:
+                            non_risk_dict[snp] = allele_one
+                        else:
+                            #if neither allele is the risk, take complements and work from there
+                            complement = Merp.get_complement(self,risk)
+                            if complement == allele_one:
+                                non_risk_dict[snp] = Merp.get_complement(self,allele_two)
+                            if complement == allele_two:
+                                non_risk_dict[snp] = Merp.get_complement(self,allele_one)
 
         handle = file(trait,"r")
         lines = handle.readlines()
@@ -200,23 +225,26 @@ class Merp():
             print not_in_genomes
 
 
-    def update(self,*traits):
+    def update(self,trait,local=False):
         trait_list = []
-        if len(traits) == 0:
-            print "Usage: python update.py [trait]"
-            return
-        for trait in traits:
-            trait_list.append(trait)
+        # if len(traits) == 0:
+        #     print "Usage: python update.py [trait]"
+        #     return
+        # for trait in traits:
+        #     trait_list.append(trait)
         # allele_file = "data/1000_genomes"
-        r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
-        allele_lines = r.iter_lines()
+        if local == False:
+            r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
+            allele_lines = r.iter_lines()
+        else:
+            allele_lines = 'data/1000_genomes'
         negative_list = ["decrease","lower","shorter"]
         nucleotides = ['A','T','G','C']
         # allele_handle = file(allele_file, "r")
         # allele_lines = allele_handle.readlines()
         allele_dict = {}
-        for trait in trait_list:
-            Merp.update_help(self,trait,allele_lines)
+        # for trait in trait_list:
+        Merp.update_help(self,trait,allele_lines,local)
         ##loop back through trait file and add beta sign changing along with rewriting all lines 
    
 
@@ -329,7 +357,7 @@ class Merp():
                         repeat_to_write[snp] =[line,p,pid,unit]
                         #if all equal up to now/new snp has fewer freq unit/pid then use the snp existing
 
-    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,lowband=False,verbose=True):
+    def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,localp=False,verbose=True):
  
         '''Metabolic Association Paramters
         
