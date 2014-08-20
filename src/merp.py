@@ -237,7 +237,7 @@ class Merp():
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
         else:
-            allele_lines = 'data/1000_genomes'
+            allele_lines = 'data/rs_file.txt'
         negative_list = ["decrease","lower","shorter"]
         nucleotides = ['A','T','G','C']
         # allele_handle = file(allele_file, "r")
@@ -481,7 +481,7 @@ class Merp():
         ######PVAL PORTION START########
 
         '''TODO Implement own pval file option e.g number of non traits (columns = header-#)'''
-        if lowband == False:
+        if localp == False:
             pval = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
             pval_lines = pval.iter_lines()
             header = pval_lines.next()
@@ -515,7 +515,7 @@ class Merp():
         viol_dict1 = {}
         viol_dict2 = {}
         na_counter = {} #dictionary mapping rs# to number of NAs in the corresponding row
-        if lowband == True:
+        if localp == True:
             while True:
                 line = pval.readline()
                 if line == '' or line =="'\n":
@@ -599,7 +599,7 @@ class Merp():
                                     print v
                                 log += v + '\n'
             pval.close()
-        elif lowband == False:
+        elif localp == False:
             for line in pval_lines:
                 mod_line = line.rstrip('\n').split(' ')
                 rs = mod_line[0]
