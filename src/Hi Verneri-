@@ -1,0 +1,10 @@
+Hi Verneri- 
+
+Nice chatting with you today! As I mentioned, the tutorial covers pretty much everything to get started.
+A couple things to point out.
+
+-For the update function, you can add the argument local=True and download your file in /data and call it 'rs_file.txt.' The default streams our 1000 genomes file from a server. A sample rs_file is included in demo to show you the format. After running the update function with a trait file of interest, there may be a list of SNPs printed for which 1000 genomes data was not found (or your own provided data). In this case I reference dbSNP to manually add the alleles in with a text editor (probably the most non-ideal step in this version). 
+
+For the filter function, the default is streaming an all metabolic p value file for which information is in the documentation. Again, you can download a local version from coruscant.itmat.upenn.edu/merp/ (it's v4), put in /data and rename to pval_file.txt. Then add argument localp=True (this is covered in docs). I think this file  would be a good starting point for confounding filtering, although which primary confounders we select, and wheter there are any other confounders we may add to the file we can discuss. 
+
+Let me know if there are any obstacles or questions at any time and I'll try to get a response back ASAP.
