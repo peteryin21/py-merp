@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs494453	NR	[NR]	C	4E-8	[NR]	Osteoporosis-related_phenotypes	RAP1A	0.24	20548944	
-rs2062375	.14	g/cm2_increase	G	3E-11	[NR]_g/cm2_increase	Osteoporosis-related_phenotypes	TNFRSF11B	0.45	20548944	

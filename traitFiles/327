@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs7203560	.53	unit_decrease	G	1E-33	[0.45-0.62]_unit_decrease	Mean_corpuscular_hemoglobin_concentration	Alpha-globincluster	0.06801	23263863	
-rs2213169	.22	unit_increase	T	1E-13	[0.16-0.28]_unit_increase	Mean_corpuscular_hemoglobin_concentration	HBE1,HBB,HBD,HBBP1,HBG1	0.1362	23263863	
-rs2266928	.12	unit_decrease	A	3E-11	[0.083-0.152]_unit_decrease	Mean_corpuscular_hemoglobin_concentration	Alpha-globincluster	NR	23263863	

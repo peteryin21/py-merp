@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs9733352	.06	unit_increase	C	4E-8	[0.038-0.082]_unit_increase	Apolipoprotein_Levels	DOCK1	NR	23031429	
-rs445925	.15	unit_increase	G	2E-14	[0.11-0.19]_unit_increase	Apolipoprotein_Levels	APOE,APOC1	NR	23031429	
-rs445925	.23	unit_decrease	G	4E-11	[0.16-0.30]_unit_decrease	Apolipoprotein_Levels	APOE/APOC1	NR	23031429	

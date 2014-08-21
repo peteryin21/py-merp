@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1803274	.71	SD_decrease	T	6E-262	[0.67-0.75]_SD_decrease	Butyrylcholinesterase_levels	BCHE	0.21	21862451	
-rs4950806	.14	SD_decrease	T	9E-16	[0.10-0.18]_SD_decrease	Butyrylcholinesterase_levels	RNPEP	0.40	21862451	
-rs11675251	.15	SD_decrease	A	4E-18	[0.12-0.18]_SD_decrease	Butyrylcholinesterase_levels	ABI2	0.45	21862451	

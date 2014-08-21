@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2363956	1.22	[NR]	C	2E-8	[1.14-1.3]	Breast_cancer_(estrogen-receptor_negative,_progesterone-receptor_negative,_and_human_epidermal_growth_factor-receptor_negative)	Intergenic	NR	24325915	
-rs10771399	1.39	[NR]	G	2E-8	[1.25-1.56]	Breast_cancer_(estrogen-receptor_negative,_progesterone-receptor_negative,_and_human_epidermal_growth_factor-receptor_negative)	PTHLH	NR	24325915	

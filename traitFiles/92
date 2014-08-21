@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs507666	17.30	ng/mL_decrease	A	3E-91	[NR]_ng/mL_decrease	Soluble_ICAM-1	ABO	0.20	21533024	
-rs1799969	24.90	ng/mL_decrease	A	1E-120	[NR]_ng/mL_decrease	Soluble_ICAM-1	ICAM1	0.11	21533024	
-rs5498	13.80	ng/mL_increase	G	6E-89	[NR]_ng/mL_increase	Soluble_ICAM-1	ICAM1	0.43	21533024	
-rs507666	17.73	umol/L_decrease	G	5E-29	[NR]_umol/L_decrease	Soluble_ICAM-1	ABO	0.20	18604267	
-rs1799969	28.19	umol/L_decrease	A	4E-47	[NR]_umol/L_decrease	Soluble_ICAM-1	ICAM1	0.12	18604267	
-rs5498	13.22	umol/L_increase	A	5E-25	[NR]_umol/L_increase	Soluble_ICAM-1	ICAM1	0.43	18604267	

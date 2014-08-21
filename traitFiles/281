@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4343	16.20	%_variance	G	3E-25	[NR]_%_variance	Angiotensin-converting_enzyme_activity	ACE	0.31	20066004	
-rs495828	4.90	%_variance	A	3E-8	[NR]_%_variance	Angiotensin-converting_enzyme_activity	ABO	0.17	20066004	

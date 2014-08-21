@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1834640	12.50	[NR]	G	1E-50	[8.33-20.0]	Skin_pigmentation	SLC24A5	0.08	17999355	
-rs1042602	4.36	[NR]	C	4E-10	[2.64-7.20]	Skin_pigmentation	TYR	0.84	17999355	
-rs16891982	4.86	[NR]	C	3E-11	[2.88-8.21]	Skin_pigmentation	SLC45A2	0.83	17999355	

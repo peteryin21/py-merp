@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs37369	.47	unit_increase	T	1E-40	[0.4-0.54]_unit_increase	Serum_dimethylarginine_levels_(symmetric)	AGXT2	0.088	24159190	
-rs1884139	.18	unit_decrease	T	1E-18	[0.14-0.22]_unit_decrease	Serum_dimethylarginine_levels_(symmetric)	DDAH1	0.371	24159190	
-rs34400381	.36	unit_increase	A	2E-10	[0.25-0.47]_unit_increase	Serum_dimethylarginine_levels_(symmetric)	SLC25A45	0.043	24159190	

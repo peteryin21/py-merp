@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs12203592	.21	unit_increase	T	7E-14	[0.15-0.27]_unit_increase	Non-melanoma_skin_cancer	IRF4	NR	23548203	
-rs12202284	.15	unit_increase	A	5E-8	[0.091-0.209]_unit_increase	Non-melanoma_skin_cancer	IRF4,EXOC2	NR	23548203	
-rs1805007	.34	unit_increase	C	3E-10	[0.24-0.44]_unit_increase	Non-melanoma_skin_cancer	MC1R	NR	23548203	

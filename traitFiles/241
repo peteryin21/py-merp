@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs3820706	2.38	[NR]	G	2E-9	[1.44-3.93]	Adverse_response_to_chemotherapy_in_breast_cancer_(alopecia)	CACNB4	0.57	24025145	
-rs16830728	3.61	[NR]	T	3E-8	[2.17-5.98]	Adverse_response_to_chemotherapy_in_breast_cancer_(alopecia)	STAM2	0.59	24025145	

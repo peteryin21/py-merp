@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4072037	.01	mmol/L_decrease	C	2E-36	[0.008-0.012]_mmol/L_decrease	Magnesium_levels	MUC1	0.46	20700443	
-rs13146355	.01	mmol/L_decrease	G	6E-13	[0.003-0.007]_mmol/L_decrease	Magnesium_levels	SHROOM3	0.56	20700443	
-rs7965584	.07	mmol/L_decrease	G	1E-16	[0.005-0.009]_mmol/L_decrease	Magnesium_levels	ATP2B1	0.29	20700443	
-rs11144134	.01	mmol/L_decrease	T	8E-15	[0.009-0.013]_mmol/L_decrease	Magnesium_levels	TRPM6	0.92	20700443	
-rs3925584	.01	mmol/L_decrease	C	5E-16	[0.004-0.008]_mmol/L_decrease	Magnesium_levels	DCDC5	0.45	20700443	
-rs448378	.00	mmol/L_decrease	G	1E-8	[0.002-0.006]_mmol/L_decrease	Magnesium_levels	MDS1	0.47	20700443	

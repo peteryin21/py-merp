@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1358980	NR	[NR]	T	2E-11	[NR]	Sexual_dimorphism_in_anthropometric_traits	VEGFA	NR	23754948	
-rs6717858	NR	[NR]	T	6E-16	[NR]	Sexual_dimorphism_in_anthropometric_traits	COBLL1,SNORA70F,GRB14	NR	23754948	
-rs2820443	NR	[NR]	T	7E-16	[NR]	Sexual_dimorphism_in_anthropometric_traits	LYPLAL1,SLC30A10,ZC3H11B	NR	23754948	

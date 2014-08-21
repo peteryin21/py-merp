@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs603965	1.82	[NR]	G	8E-11	[1.52-2.19]	Multiple_myeloma_(IgH_translocation)	CCND1	0.56	23502783	
-rs603965	1.95	[NR]	G	2E-11	[1.61-2.38]	Multiple_myeloma_(IgH_translocation)	CCND1	0.55	23502783	

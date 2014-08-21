@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1537370	.53	unit_increase	T	2E-11	[0.38-0.69]_unit_increase	Coronary_artery_calcification	CDKN2A,CDKN2B	0.46	23561647	
-rs1333049	.20	%_increase	C	3E-24	[0.16-0.24]_%_increase	Coronary_artery_calcification	CDKN2B	NR	22144573	
-rs9349379	.20	%_decrease	A	4E-22	[0.16-0.24]_%_decrease	Coronary_artery_calcification	PHACTR1	NR	22144573	

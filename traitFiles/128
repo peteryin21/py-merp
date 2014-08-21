@@ -1,9 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs11761528	.16	umol/L_decrease	T	3E-36	[0.14-0.18]_umol/L_decrease	Dehydroepiandrosterone_sulphate_levels	ZKSCAN5	0.08	21533175	
-rs2637125	.09	umol/L_decrease	A	3E-19	[0.07-0.11]_umol/L_decrease	Dehydroepiandrosterone_sulphate_levels	SULT2A1	0.15	21533175	
-rs7181230	.05	[NR]	G	5E-11	[0.03-0.07_u_mol/L_increase	Dehydroepiandrosterone_sulphate_levels	BMF	0.33	21533175	
-rs2497306	.04	umol/L_decrease	C	5E-9	[0.02-0.06]_umol/L_decrease	Dehydroepiandrosterone_sulphate_levels	HHEX	0.49	21533175	
-rs2185570	.06	u_mol/L_decrease	C	2E-8	[0.04-0.08]_u_mol/L_decrease	Dehydroepiandrosterone_sulphate_levels	CYP2C9	0.13	21533175	
-rs17277546	.11	umol/L_decrease	A	2E-11	[0.07-0.15]_umol/L_decrease	Dehydroepiandrosterone_sulphate_levels	TRIM4,CYP3A43	0.05	21533175	
-rs6738028	.04	umol/L_decrease	G	2E-8	[0.02-0.06]_umol/L_decrease	Dehydroepiandrosterone_sulphate_levels	BCL2L11	0.40	21533175	
-rs740160	.15	umol/L_increase	T	2E-16	[0.11-0.19]_umol/L_increase	Dehydroepiandrosterone_sulphate_levels	ARPC1A	0.05	21533175	

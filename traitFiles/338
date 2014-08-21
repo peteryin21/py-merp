@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4930103	NR	[NR]	A	5E-16	[NR]	DNA_methylation_(parent-of-origin)	H19,MIR675	0.49	23725790	
-rs10012307	NR	[NR]	T	2E-8	[NR]	DNA_methylation_(parent-of-origin)	TERF1P3	0.06	23725790	
-rs7931462	NR	[NR]	G	2E-9	[NR]	DNA_methylation_(parent-of-origin)	RPL26P31	0.02	23725790	
-rs10497324	NR	[NR]	A	2E-9	[NR]	DNA_methylation_(parent-of-origin)	Intergenic	0.04	23725790	
-rs13135284	NR	[NR]	C	5E-8	[NR]	DNA_methylation_(parent-of-origin)	Intergenic	0.26	23725790	
-rs10934011	NR	[NR]	G	1E-9	[NR]	DNA_methylation_(parent-of-origin)	Intergenic	0.21	23725790	

@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs6094710	1.28	[NR]	A	2E-10	[1.18-1.39]	Osteoarthritis_(hip)	NCOA3	0.04	23989986	
-rs3757837	1.27	[NR]	C	8E-10	[1.15-1.41]	Osteoarthritis_(hip)	CAMK2B	0.06	23989986	

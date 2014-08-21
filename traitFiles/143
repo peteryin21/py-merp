@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs6564851	.15	umol/L_increase	G	2E-24	[0.120-0.177]_umol/L_increase	Carotenoid_and_tocopherol_levels	BCMO1	0.39	19185284	
-rs12272004	.07	umol/L_increase	A	8E-10	[0.049-0.095]_umol/L_increase	Carotenoid_and_tocopherol_levels	APOA5	0.07	19185284	

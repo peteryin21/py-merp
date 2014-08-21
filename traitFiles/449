@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1260326	.07	mmol/L_increase	T	3E-10	[0.05-0.09]_mmol/L_increase	Two-hour_glucose_challenge	GCKR	NR	20081857	
-rs2877716	.09	mmol/L_increase	C	7E-16	[0.07-0.11]_mmol/L_increase	Two-hour_glucose_challenge	ADCY5	NR	20081857	
-rs10423928	.09	mmol/L_increase	A	3E-12	[0.07-0.11]_mmol/L_increase	Two-hour_glucose_challenge	GIPR	NR	20081857	

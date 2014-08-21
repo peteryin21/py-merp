@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4475146	.47	unit_decrease	A	4E-26	[0.38-0.55]_unit_decrease	Gout	SLC2A9	0.2237	23263486	
-rs1481012	.55	unit_decrease	A	2E-32	[0.46-0.64]_unit_decrease	Gout	ABCG2	0.8903	23263486	
-c.1580C>G	3.12	[NR]	G	2E-16	[2.38-4.17]	Gout	ALDH16A1	0.019	21983786	
-rs2231142	1.67	[NR]	T	3E-12	[1.43-1.92]	Gout	ABCG2	0.101	21983786	

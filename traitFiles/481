@@ -1,2 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs3796619	70.70	cM__decrease	T	3E-24	[57.1-84.3]_cM__decrease	Recombination_rate_(males)	RNF212,SPON2	0.33(menandwomencombined)	18239089	

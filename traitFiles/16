@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs12437854	1.80	[NR]	G	2E-9	[1.48-2.17]	Type_1_diabetes_nephropathy	RGMA,MCTP2	0.04	23028342	
-rs7583877	1.29	[NR]	C	1E-8	[1.18-1.40]	Type_1_diabetes_nephropathy	AFF3	0.29	23028342	

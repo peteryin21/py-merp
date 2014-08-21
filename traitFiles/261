@@ -1,9 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs963837	.00	mg/dl_increase	T	3E-9	[0.0025-0.0049]_mg/dl_increase	Renal_function-related_traits_(sCR)	MPPED2,DCDC5	0.64	22797727	
-rs3828890	.01	mg/dl_increase	G	3E-9	[0.0046-0.0092]_mg/dl_increase	Renal_function-related_traits_(sCR)	MHC	0.11	22797727	
-rs10277115	.01	mg/dl_increase	T	5E-11	[0.0036-0.0068]_mg/dl_increase	Renal_function-related_traits_(sCR)	UNCX	0.35	22797727	
-rs671	.00	mg/dl_increase	A	3E-10	[0.0031-0.0059]_mg/dl_increase	Renal_function-related_traits_(sCR)	ALDH2	0.27	22797727	
-rs13146355	.00	mg/dl_increase	A	9E-12	[0.0033-0.0061]_mg/dl_increase	Renal_function-related_traits_(sCR)	SHROOM3	0.21	22797727	
-rs17730436	.01	mg/dl_increase	T	1E-13	[0.0036-0.0064]_mg/dl_increase	Renal_function-related_traits_(sCR)	WDR72	0.60	22797727	
-rs11864909	.01	mg/dl_increase	C	1E-10	[0.0036-0.0068]_mg/dl_increase	Renal_function-related_traits_(sCR)	UMOD	0.81	22797727	
-rs9895661	.00	mg/dl_increase	C	7E-11	[0.0031-0.0059]_mg/dl_increase	Renal_function-related_traits_(sCR)	BCAS3	0.52	22797727	

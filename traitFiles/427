@@ -1,9 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs11697186	4.50	[NR]	T	5E-17	[3.10-6.50]	Response_to_hepatitis_C_treatment	DDRGK1	0.15	21659334	
-rs6139030	3.90	[NR]	C	1E-15	[2.80-5.50]	Response_to_hepatitis_C_treatment	ITPA	0.17	21659334	
-rs11697186	33.33	[NR]	A	9E-25	[12.50-100]	Response_to_hepatitis_C_treatment	DDRGK1	0.85	21659334	
-rs6139030	25.00	[NR]	T	2E-25	[11.11-50.0]	Response_to_hepatitis_C_treatment	ITPA	0.83	21659334	
-rs8099917	3.00	[NR]	G	1E-20	[2.4-3.8]	Response_to_hepatitis_C_treatment	IL28B	0.083	21228123	
-rs8099917	1.98	[NR]	G	9E-9	[1.57-2.52]	Response_to_hepatitis_C_treatment	IL28A,IL28B	NR	19749758	
-rs8099917	27.10	[NR]	G	3E-32	[14.6-50.3]	Response_to_hepatitis_C_treatment	IL28B	0.12	19749757	
-rs12979860	2.00	(European-Americans)	C	1E-28	[1.8-2.3]_(European-Americans)	Response_to_hepatitis_C_treatment	IL28B	0.72	19684573	

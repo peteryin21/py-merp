@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1015362,_rs4911414	1.95	[NR]	G	8E-29	[1.65-2.32]	Freckles	ASIP	0.08	18488028	
-rs1540771	1.40	[NR]	A	4E-18	[1.26-1.57]	Freckles	SEC5L1,IRF4	0.42	17952075	
-rs1042602	1.32	[NR]	C	2E-11	[1.17-1.49]	Freckles	TYR	0.67	17952075	
-rs1805007	4.37	[NR]	T	1E-96	[3.56-5.37]	Freckles	MC1R	0.05	17952075	

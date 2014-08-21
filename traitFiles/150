@@ -1,6 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs6832439	NR	[NR]	A	3E-8	[NR]	Serum_uric_acid_levels	SLC2A9	0.36	24379826	
-chr1_142697422	.48	s.d._increase	C	5E-16	[0.36-0.60]_s.d._increase	Serum_uric_acid_levels	Intergenic	0.986	21983786	
-c.1580C>G	.36	s.d._increase	G	5E-21	[0.29-0.44]_s.d._increase	Serum_uric_acid_levels	ALDH16A1	0.019	21983786	
-rs734553	.24	s.d._increase	T	1E-80	[0.22-0.27]_s.d._increase	Serum_uric_acid_levels	SLC2A9	0.79	21983786	
-rs2231142	.16	s.d._increase	T	2E-20	[0.12-0.19]_s.d._increase	Serum_uric_acid_levels	ABCG2	0.101	21983786	

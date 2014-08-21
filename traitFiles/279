@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs7294919	47.58	mm3_increase	C	7E-16	[36.04-59.12]_mm3_increase	Brain_structure	HRK,FBXW8	0.099	22504417	
-rs10784502	#######	mm3_increase	C	1E-12	[6525.78-11487.64]_mm3_increase	Brain_structure	HMGA2	0.49	22504417	

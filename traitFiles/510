@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2476601	1.71	[NR]	A	8E-10	[1.44-2.02]	Myasthenia_gravis	PTPN22	0.11	23055271	
-rs4958881	1.73	[NR]	G	3E-10	[1.46-2.06]	Myasthenia_gravis	TNIP1	0.09	23055271	
-rs3130544	5.64	[NR]	A	2E-90	[4.77-6.67]	Myasthenia_gravis	NR	0.13	23055271	

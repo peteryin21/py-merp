@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1466535	1.15	[NR]	C	5E-10	[1.10-1.21]	Abdominal_aortic_aneurysm	LRP1	0.58	22055160	
-rs7025486	1.21	[NR]	A	5E-10	[1.14-1.28]	Abdominal_aortic_aneurysm	DAB2IP	0.23	20622881	
-rs2383207	1.27	[NR]	G	2E-8	[NR]	Abdominal_aortic_aneurysm	CDKN2A,CKDN2B	0.49	20622881	

@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs15285	.27	unit_decrease	A	1E-10	[0.19-0.35]_unit_decrease	Triglycerides-Blood_Pressure_(TG-BP)	LPL	NR	21386085	
-rs780093	.18	unit_increase	A	3E-10	[0.12-0.24]_unit_increase	Triglycerides-Blood_Pressure_(TG-BP)	GCKR	NR	21386085	
-rs11823543	.35	unit_increase	A	3E-9	[0.23-0.47]_unit_increase	Triglycerides-Blood_Pressure_(TG-BP)	ZNF259	NR	21386085	
-rs11825181	.32	unit_increase	A	3E-9	[0.22-0.42]_unit_increase	Triglycerides-Blood_Pressure_(TG-BP)	BUD13	NR	21386085	
-rs2954033	.17	unit_increase	A	9E-9	[0.11-0.23]_unit_increase	Triglycerides-Blood_Pressure_(TG-BP)	TRIB1	NR	21386085	
-rs2266788	.37	unit_increase	C	4E-8	[0.23-0.51]_unit_increase	Triglycerides-Blood_Pressure_(TG-BP)	APOA5	NR	21386085	

@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs4513773	NR	[NR]	G	1E-584	[NR]	Vascular_endothelial_growth_factor_levels	MGC45491,MRPL14	0.47	21757650	
-rs6993770	NR	[NR]	T	5E-23	[NR]	Vascular_endothelial_growth_factor_levels	ZFPM2,LRP12	0.32	21757650	
-rs10738760	NR	[NR]	A	1E-39	[NR]	Vascular_endothelial_growth_factor_levels	KCNV2,VLDLR	0.49	21757650	
-rs9472155	NR	[NR]	T	2E-26	[NR]	Vascular_endothelial_growth_factor_levels	MGC45491,VEGF	0.22	21757650	

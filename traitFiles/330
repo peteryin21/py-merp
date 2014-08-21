@@ -1,4 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2282679	.38	unit_decrease	C	2E-49	[0.32-0.44]_unit_decrease	Vitamin_D_levels	GC	0.26	20418485	
-rs3829251,rs11234027	.18	unit_decrease	A	3E-9	[0.12-0.24]_unit_decrease	Vitamin_D_levels	NADSYN1,DHCR7	0.19	20418485	
-rs2060793,rs1993116	.25	unit_increase	A	3E-17	[0.15-0.35]_unit_increase	Vitamin_D_levels	CYP2R1	0.41	20418485	

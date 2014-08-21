@@ -1,7 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs2730260	1.33	[NR]	C	9E-14	[1.23-1.44]	Myopia_(pathological)	VIPR2	0.238	23406873	
-rs7839488	1.32	[NR]	A	2E-11	[1.22-1.43]	Myopia_(pathological)	SNTB1	0.765	23406873	
-rs7839488,_rs4395927,_rs4455882	1.31	[NR]	S	8E-12	[1.22-1.42]	Myopia_(pathological)	SNTB1	0.728	23406873	
-rs7839488,_rs4395927,_4455882	1.30	[NR]	S	4E-10	[1.2-1.41]	Myopia_(pathological)	SNTB1	0.235	23406873	
-rs373767	.16	mm_decrease	C	3E-10	[0.12-0.20]_mm_decrease	Myopia_(pathological)	ZC3H11B	0.30	22685421	
-rs9318086	1.32	[NR]	A	2E-16	[1.19-1.46]	Myopia_(pathological)	MIPEP,C1QTNF9B-AS1,C1QTNF9B	0.44	21640322	

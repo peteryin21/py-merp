@@ -1,6 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1805126	.66	msec_decrease	A	3E-20	[NR]_msec_decrease	Electrocardiographic_conduction_measures	SCN5A	0.655	23463857	
-rs6906287	.54	msec_increase	C	6E-16	[NR]_msec_increase	Electrocardiographic_conduction_measures	C6orf204	0.451	23463857	
-rs1321313	.81	msec_decrease	C	5E-25	[NR]_msec_decrease	Electrocardiographic_conduction_measures	CDKN1A	0.742	23463857	
-rs2207790	.60	msec_decrease	A	6E-18	[NR]_msec_decrease	Electrocardiographic_conduction_measures	NFIA	0.461	23463857	
-rs6795970	.75	msec_increase	A	5E-27	[NR]_msec_increase	Electrocardiographic_conduction_measures	SCN10A	0.396	23463857	

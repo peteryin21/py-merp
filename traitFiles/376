@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs734597	NR	[NR]	A	3E-8	[NR]	Obesity_(extreme)	TFAP2B	NR	21935397	
-rs9941349	1.48	[NR]	T	6E-12	[1.33-1.66]	Obesity_(extreme)	FTO	0.43	19553259	

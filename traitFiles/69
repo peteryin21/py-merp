@@ -1,3 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs1126809	.60	unit_increase	G	2E-8	[0.38-0.82]_unit_increase	Sunburns	TYR	NR	23548203	
-rs1805007	1.66	unit_increase	C	2E-19	[1.31-2.01]_unit_increase	Sunburns	MC1R	NR	23548203	

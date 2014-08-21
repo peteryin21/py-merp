@@ -1,5 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs10411428	NR	[NR]	T	1E-9	[NR]	Bronchodilator_response_in_asthma_(inhaled_corticosteroid_treatment_interaction)	NR	0.41	24280104	
-rs11666341	NR	[NR]	A	1E-9	[NR]	Bronchodilator_response_in_asthma_(inhaled_corticosteroid_treatment_interaction)	ZNF841	0.45	24280104	
-rs12460587,_rs3450,_rs3752120	NR	[NR]	G	2E-9	[NR]	Bronchodilator_response_in_asthma_(inhaled_corticosteroid_treatment_interaction)	ZNF841,ZNF432	0.33	24280104	
-rs2288884	NR	[NR]	T	5E-8	[NR]	Bronchodilator_response_in_asthma_(inhaled_corticosteroid_treatment_interaction)	ZNF614	0.34	24280104	

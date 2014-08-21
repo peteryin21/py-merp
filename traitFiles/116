@@ -1,8 +1,0 @@
-SNPrsID	Beta/OR	Units	Risk_Allele	p_val	95%_CI	Trait	Gene	Risk_Allele_Freq	PubMedID
-rs837763	.09	unit_increase	C	4E-13	[0.064-0.112]_unit_increase	mean_corpuscular_hemoglobin_concentration	CDT1	0.38	20139978	
-rs7775698	.09	unit_increase	T	6E-12	[0.061-0.109]_unit_increase	mean_corpuscular_hemoglobin_concentration	HBS1L,MYB	0.35	20139978	
-rs855791	.09	unit_increase	G	8E-14	[0.065-0.113]_unit_increase	mean_corpuscular_hemoglobin_concentration	TMPRSS6	0.44	20139978	
-rs671	.08	unit_decrease	A	7E-10	[0.058-0.108]_unit_decrease	mean_corpuscular_hemoglobin_concentration	ALDH2	0.26	20139978	
-rs4580814	.08	unit_decrease	T	5E-10	[0.058-0.108]_unit_decrease	mean_corpuscular_hemoglobin_concentration	SLC12A7	0.26	20139978	
-rs8176746	.08	unit_increase	T	4E-8	[0.055-0.113]_unit_increase	mean_corpuscular_hemoglobin_concentration	ABO	0.18	20139978	
-rs6684514	.09	unit_decrease	A	3E-9	[0.057-0.115]_unit_decrease	mean_corpuscular_hemoglobin_concentration	BGLAP,PAQR6,SMG5,TMEM79,C1orf85,VHLL,CCT3,C1orf182	0.21	20139978	
