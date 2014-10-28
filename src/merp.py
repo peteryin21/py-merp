@@ -1184,8 +1184,8 @@ class Merp():
 
         if not Merp.file_checker(self,trait_file):
             return
-        if not Merp.dis_file_checker(self,disease_file):
-            return
+        #if not Merp.dis_file_checker(self,disease_file):
+           # return
         print 'Calculating effect now . . .'
 
 

@@ -237,7 +237,7 @@ class Merp():
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
         else:
-            allele_lines = 'data/1000_genomes'
+            allele_lines = 'data/rs_file.txt'
         negative_list = ["decrease","lower","shorter"]
         nucleotides = ['A','T','G','C']
         # allele_handle = file(allele_file, "r")
@@ -481,7 +481,7 @@ class Merp():
         ######PVAL PORTION START########
 
         '''TODO Implement own pval file option e.g number of non traits (columns = header-#)'''
-        if lowband == False:
+        if localp == False:
             pval = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
             pval_lines = pval.iter_lines()
             header = pval_lines.next()
@@ -515,7 +515,7 @@ class Merp():
         viol_dict1 = {}
         viol_dict2 = {}
         na_counter = {} #dictionary mapping rs# to number of NAs in the corresponding row
-        if lowband == True:
+        if localp == True:
             while True:
                 line = pval.readline()
                 if line == '' or line =="'\n":
@@ -599,7 +599,7 @@ class Merp():
                                     print v
                                 log += v + '\n'
             pval.close()
-        elif lowband == False:
+        elif localp == False:
             for line in pval_lines:
                 mod_line = line.rstrip('\n').split(' ')
                 rs = mod_line[0]
@@ -1145,8 +1145,8 @@ class Merp():
             header = lines[0]
             #may change this to tabs
             header = header.split(' ')
-            if "rs" not in header[0].lower() or "allele1" not in header[1].lower() or "effallele" not in header[2].lower() or "lnor" not in header[3].lower() or "lnse" not in header[4].lower():
-                print "Header incorrectly formatted. Please make sure your disease file is formatted in the following manner:" + '\n' + "name allele1 effallele lnOR_FE lnSE_FE . . . ."
+            if "rs" not in header[0].lower() or "allele" not in header[1].lower() or "allele" not in header[2].lower() or "lnor" not in header[3].lower() or "lnse" not in header[4].lower():
+                print "Header incorrectly formatted. Please make sure your disease file is formatted in the following manner:" + '\n' + "rsID allele1 effallele lnOR_FE lnSE_FE . . . ."
                 return False
 
             print "Header of disease file is correctly formatted . . ."
@@ -1184,8 +1184,8 @@ class Merp():
 
         if not Merp.file_checker(self,trait_file):
             return
-        if not Merp.dis_file_checker(self,disease_file):
-            return
+        #if not Merp.dis_file_checker(self,disease_file):
+           # return
         print 'Calculating effect now . . .'
 
 
@@ -1303,8 +1303,10 @@ class Merp():
         path = "./analysis/"
         if not os.path.exists(path):
             os.makedirs(path)
-        newtrait_path = trait_file.lstrip('./filtered_files/')
-        handle_indiv_result = file(path+newtrait_path+ "_MR_result_indiv","w")
+        if trait_file.startswith("filtered_files/"):
+            trait_file = trait_file[15:]
+        #newtrait_path = trait_file.lstrip('/filtered_files/')
+        handle_indiv_result = file(path+trait_file+ "_MR_result_indiv","w")
         handle_indiv_result.write("SNP" + '\t' + "a_hat" + '\t' +"se_a" + '\t' + "chisq" +  '\t' + "p_value" + '\n')
         for key in dict_trait.keys():
             if not '[NR]' in dict_trait[key]:
@@ -1349,7 +1351,7 @@ class Merp():
         p_value = 1 - stats.chi2.cdf(chisq,1) #degrees of freedom always one?
         #p_value figure out how to do scipy/numpy?
 
-        handle_result = file(path+newtrait_path+  "_MR_result","w")
+        handle_result = file(path+trait_file+  "_MR_result","w")
         handle_result.write("a_hat = " + str(a_hat) + '\n' + "se(a) = " +str(sea) + '\n' + "chi_sq = " + str(chisq) + 
             '\n' + "p_value = " + str(p_value)) 
 
