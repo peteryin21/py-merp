@@ -1175,7 +1175,7 @@ class Merp():
         riskallele_index = 4
 
 
-        ####DISEASE FILE PARAMTERS#######
+        ####DISEASE FILE PARAMETERS#######
         dis_rs_index = 0
         dis_allele1_index = 1
         dis_riskallele_index = 2
@@ -1359,6 +1359,80 @@ class Merp():
         trait_handle.close()
         handle_result.close()
         print "Calculation finished! Summary and individual effect results in /analysis"
+
+    def convert_to_gtx(self,trait_file,disease_file,dis_name="ENDPOINT"):
+        t = file(trait_file,'r')
+        t_lines = t.readlines()
+        d = {}
+        trait_name = ''
+        path = './for_gtx'
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        complement = {'A':'T','T':'A','C':'G','G':'C'}
+        for line in t_lines[1:]:
+            entry = line.rstrip('\n').split('\t')
+            rs = entry[0]
+            trait = entry[7]
+            trait_name = entry[7]
+            non_risk = entry[3]
+            risk = entry[4]
+            beta_trait = entry[1]
+            new_entry = rs  +'\t' +  non_risk +'\t' +  risk + '\t' +trait +'\t' + beta_trait 
+            #pdb.set_trace()
+            d[rs] = [new_entry,non_risk,risk]
+
+        w = file('./for_gtx/' + trait_name+ '_' + dis_name+'for_gtx.txt','w')
+        header = 'RSID    NONRISK_AL    RISK_AL    TRAIT_NAME    BETA_TRAIT    ENDPOINT_NAME    BETA_ENDPOINT    SE_ENDPOINT' +'\n'
+        w.write(header)
+        with open(disease_file,'r') as dis:
+            header = dis.readline()
+            while True:
+                if line == '\n' or line == '':
+                    break
+                line = dis.readline()
+                entry = line.rstrip('\n').split(' ')
+                rs = entry[0]
+                if rs in d.keys():
+                    non_risk = entry[1]
+                    risk = entry[2]
+                    beta_dis = float(entry[3])
+                    se_dis = entry[4]
+                    if risk != d[rs][2]:
+                        if risk == d[rs][1]: # risk allele in disease file is non risk allele in trait file, flip dis_beta
+                            beta_dis = str(-beta_dis)
+                            print "New beta is " +  beta_dis
+                        elif complement[risk] == d[rs][1]:
+                            beta_dis = str(-beta_dis)
+                            print "New beta is " + beta_dis
+                        #all other cases, stay the same, e.g if complement of A ->T is risk allele of trait
+                    dis_entry = '\t' +dis_name + '\t' + str(beta_dis) + '\t' + str(se_dis) +'\n'
+                    #pdb.set_trace()
+                    d[rs].append(dis_entry)
+        
+        for key in d:
+            print d[key][0]
+
+            print d[key][3]
+
+            w.write(d[key][0]) #from trait
+            w.write(d[key][3]) #from dis
+        
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
 
     def plot(self,indiv_file,summ_file,Trait,Disease):
         indiv_handle = file(indiv_file, "r")
