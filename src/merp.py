@@ -1,16 +1,16 @@
 #!/bin/python
 
 import requests
-import pdb
+#import pdb
 import re
 import os 
 import sys
 import math
 from scipy import stats
 #For plot visualization
-import matplotlib.transforms as mtransforms
-import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1.parasite_axes import SubplotHost
+# import matplotlib.transforms as mtransforms
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.axes_grid1.parasite_axes import SubplotHost
 from pylab import *
 
 class Merp():
