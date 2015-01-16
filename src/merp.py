@@ -141,7 +141,7 @@ class Merp():
         snp_dict = {}
         negative_list = ["decrease","lower","shorter","less"]
         write_handle = file(trait+"_update", "w")
-        header = 'SNPrsID' +'\t' + 'Beta/OR' +'\t' +'Units' + '\t'+ 'Non-Risk_Allele' + '\t' 'Risk_Allele' +'\t' + 'p_val' +'\t' + '95%_CI' +'\t' + 'Trait'+ '\t' +'Gene'+'\t' +  'Risk_Allele_Freq' +'\t' +'PubMedID' +'\n'
+        header = 'SNPrsID' +'\t' + 'Beta/OR' +'\t' +'Units' + '\t'+ 'Non-Risk_Allele' + '\t' +'Risk_Allele' +'\t' + 'p_val' +'\t' + '95%_CI' +'\t' + 'Trait'+ '\t' +'Gene'+'\t' +  'Risk_Allele_Freq' +'\t' +'PubMedID' +'\n'
         write_handle.write(header)
         for line in lines[1:]:
             entry = line.rstrip('\n').split('\t')
