@@ -28,8 +28,9 @@ class Merp():
         gwaswrite_handle.write(encoded_result)
         gwaswrite_handle.close()
         gwasread_handle = file('./data/finalgwas.txt',"r")
-        resultread_handle = file("result.txt","w")
+        #resultread_handle = file("result.txt","w")
         line = gwasread_handle.readlines()
+        result_list = []
         for entry in line[1:-1]: 
             entry_split = entry.split('\t')
             p = entry_split[27]
@@ -42,20 +43,21 @@ class Merp():
                         allele = m.group()
                         if allele == "?":
                             allele = [NR]
-                        resultread_handle.write(entry_split[13]+'\t'+entry_split[7]+'\t'+entry_split[27]+'\t'+entry_split[30]+ '\t'+ entry_split[31] +'\t'+entry_split[21]+'\t'+allele+'\t'+entry_split[26]+'\t'+entry_split[1]+'\n')
+                        result_list.append([entry_split[13],entry_split[7],entry_split[27],entry_split[30], entry_split[31],entry_split[21],allele, entry_split[26],entry_split[1]])
+                        #resultread_handle.write(entry_split[13]+'\t'+entry_split[7]+'\t'+entry_split[27]+'\t'+entry_split[30]+ '\t'+ entry_split[31] +'\t'+entry_split[21]+'\t'+allele+'\t'+entry_split[26]+'\t'+entry_split[1]+'\n')
                 except:
                     pass  
 
-        resultread_handle.close()
+        #resultread_handle.close()
         gwasread_handle.close()
-        resultread_handle = file("result.txt","r")
+        #resultread_handle = file("result.txt","r")
         dict_trait = {}
-        content = resultread_handle.readlines()
+        #content = resultread_handle.readlines()
         _digits = re.compile('\d')
         _brackets = re.compile('\[.+?\]')
         var_dict = {}
-        for line in content:
-            entry = line.rstrip('\n').split('\t')
+        for entry in result_list:
+            #entry = line.rstrip('\n').split('\t')
             if not(entry[1] in dict_trait):
                 dict_trait[entry[1]] = []
             ci = entry[4]
@@ -99,7 +101,7 @@ class Merp():
             #Don't remove spaces in rs bc in filter will have to match up with nhgri otherwise key error
             dict_trait[entry[1]].append((entry[5],entry[3].replace(" ",""),unit,entry[6].replace(" ",""),entry[2].replace(" ",""),ci,entry[1],entry[0].replace(" ",""),entry[7].replace(" ",""),entry[8].replace(" ",""))) 
         handle_index = file("index","w")
-        os.remove("result.txt")
+        #os.remove("result.txt")
         counter = 0
         path ='./traitFiles/'
         if not os.path.exists(path):
@@ -141,7 +143,7 @@ class Merp():
         snp_dict = {}
         negative_list = ["decrease","lower","shorter","less"]
         write_handle = file(trait+"_update", "w")
-        header = 'SNPrsID' +'\t' + 'Beta/OR' +'\t' +'Units' + '\t'+ 'Non-Risk_Allele' + '\t' 'Risk_Allele' +'\t' + 'p_val' +'\t' + '95%_CI' +'\t' + 'Trait'+ '\t' +'Gene'+'\t' +  'Risk_Allele_Freq' +'\t' +'PubMedID' +'\n'
+        header = 'SNPrsID' +'\t' + 'Beta/OR' +'\t' +'Units' + '\t'+ 'Non-Risk_Allele' + '\t' +'Risk_Allele' +'\t' + 'p_val' +'\t' + '95%_CI' +'\t' + 'Trait'+ '\t' +'Gene'+'\t' +  'Risk_Allele_Freq' +'\t' +'PubMedID' +'\n'
         write_handle.write(header)
         for line in lines[1:]:
             entry = line.rstrip('\n').split('\t')
@@ -1382,8 +1384,8 @@ class Merp():
             #pdb.set_trace()
             d[rs] = [new_entry,non_risk,risk]
 
-        w = file('./for_gtx/' + trait_name+ '_' + dis_name+'for_gtx.txt','w')
-        header = 'RSID    NONRISK_AL    RISK_AL    TRAIT_NAME    BETA_TRAIT    ENDPOINT_NAME    BETA_ENDPOINT    SE_ENDPOINT' +'\n'
+        w = file('./for_gtx/' + trait_name+ '_' + dis_name+'_for_gtx.txt','w')
+        header = 'RSID  NONRISK_AL  RISK_AL  TRAIT_NAME  BETA_TRAIT  ENDPOINT_NAME  BETA_ENDPOINT  SE_ENDPOINT' +'\n'
         w.write(header)
         with open(disease_file,'r') as dis:
             header = dis.readline()
