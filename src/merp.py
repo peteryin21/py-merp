@@ -1084,9 +1084,8 @@ class Merp():
         if len(snps_to_write) == 0:
             updated_handle.write('\n' + 'Oh no! It seems as if all SNPs have been filtered out. Check the your pval_ignore.txt and nhgri_ignore.txt to make sure you are ignoring related traits in NHGRI catalog and metabolic pval file. See documentation at py-merp.github.io for more info.' + '\n' + 'If you believe our filtering algorithm is too selective, feel free to modify the paramters for pval threshold1, pval threshold2 and r^2 thresholds found at the top of the filter function in src/merp.py. Reinstall after editing.')
 
-
-        os.remove(trait_file+"_abr_temp")
         abr_trait_handle.close()
+        os.remove(trait_file+"_abr_temp")
 
         log_path = './logs/'
         if not os.path.exists(log_path):
