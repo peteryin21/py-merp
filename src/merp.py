@@ -239,7 +239,7 @@ class Merp():
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
         else:
-            allele_lines = 'data/rs_file.txt'
+            allele_lines = 'data/1000_genomes.txt'
         negative_list = ["decrease","lower","shorter"]
         nucleotides = ['A','T','G','C']
         # allele_handle = file(allele_file, "r")
@@ -488,7 +488,7 @@ class Merp():
             pval_lines = pval.iter_lines()
             header = pval_lines.next()
         else:
-            pval = file('bin/pval_file.txt','r')
+            pval = file('data/allmetabolic_pvals_v4.txt','r')
             header = pval.readline()
         dict_snp = {} 
         header_split = header.rstrip('\n').split(' ')

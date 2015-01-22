@@ -4,3 +4,8 @@ Right now need to move files into /filtered_files directory to analyze
 
 Right now stripping name from file 'ldl_updatefiltered_cardio' to just 'updatefiltered_cardio_MR_result'
 m.calc('filtered_files/ldl_updatefiltered_cardio','data/alz.txt')
+
+1/22/15
+-update doc with proper local usage and naming of files
+-typo in m.filter code example in usage
+-print out warning for update and pval- large bandwith stream, if problems, download files from this link and put in /data. Add local = True
