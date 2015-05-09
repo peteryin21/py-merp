@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 setup(name='py-merp',
-      version='0.0.1',
+      version='0.0.2',
       py_modules = ['merp'],
       package_dir = {'': 'src'},
       requires = ['numpy', 'scipy', 'matplotlib', 'requests'],
