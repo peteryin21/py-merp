@@ -27,7 +27,6 @@ class Merp():
         gwaswrite_handle.write(encoded_result)
         gwaswrite_handle.close()
         gwasread_handle = file('./data/finalgwas.txt',"r")
-        #resultread_handle = file("result.txt","w")
         line = gwasread_handle.readlines()
         result_list = []
         for entry in line[1:-1]: 
@@ -43,20 +42,15 @@ class Merp():
                         if allele == "?":
                             allele = [NR]
                         result_list.append([entry_split[13],entry_split[7],entry_split[27],entry_split[30], entry_split[31],entry_split[21],allele, entry_split[26],entry_split[1]])
-                        #resultread_handle.write(entry_split[13]+'\t'+entry_split[7]+'\t'+entry_split[27]+'\t'+entry_split[30]+ '\t'+ entry_split[31] +'\t'+entry_split[21]+'\t'+allele+'\t'+entry_split[26]+'\t'+entry_split[1]+'\n')
                 except:
                     pass  
 
-        #resultread_handle.close()
         gwasread_handle.close()
-        #resultread_handle = file("result.txt","r")
         dict_trait = {}
-        #content = resultread_handle.readlines()
         _digits = re.compile('\d')
         _brackets = re.compile('\[.+?\]')
         var_dict = {}
         for entry in result_list:
-            #entry = line.rstrip('\n').split('\t')
             if not(entry[1] in dict_trait):
                 dict_trait[entry[1]] = []
             ci = entry[4]
@@ -100,7 +94,6 @@ class Merp():
             #Don't remove spaces in rs bc in filter will have to match up with nhgri otherwise key error
             dict_trait[entry[1]].append((entry[5],entry[3].replace(" ",""),unit,entry[6].replace(" ",""),entry[2].replace(" ",""),ci,entry[1],entry[0].replace(" ",""),entry[7].replace(" ",""),entry[8].replace(" ",""))) 
         handle_index = file("index","w")
-        #os.remove("result.txt")
         counter = 0
         path ='./traitFiles/'
         if not os.path.exists(path):
@@ -228,12 +221,6 @@ class Merp():
 
     def update(self,trait,local=False):
         trait_list = []
-        # if len(traits) == 0:
-        #     print "Usage: python update.py [trait]"
-        #     return
-        # for trait in traits:
-        #     trait_list.append(trait)
-        # allele_file = "data/1000_genomes"
         if local == False:
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
@@ -241,14 +228,12 @@ class Merp():
             allele_lines = 'data/1000_genomes.txt'
         negative_list = ["decrease","lower","shorter"]
         nucleotides = ['A','T','G','C']
-        # allele_handle = file(allele_file, "r")
-        # allele_lines = allele_handle.readlines()
+
         allele_dict = {}
         # for trait in trait_list:
         Merp.update_help(self,trait,allele_lines,local)
         ##loop back through trait file and add beta sign changing along with rewriting all lines 
    
-
     '''Helper functions for filter'''
 
     def trait_included(self,trait,nhgri_ignore_list):
@@ -272,7 +257,6 @@ class Merp():
 
     def most_sig(self,snp_list,pval_dict):
         sig_snp = snp_list[0]
-        #change this so it also uses which_repeat? 
         for e in snp_list:
             #handle super small numbers
             if float(pval_dict[e]) == 0.0:
@@ -308,8 +292,9 @@ class Merp():
                 print key
             log += key + '\n'
 
-
         return return_sig
+
+
 
     def unit_checker(self,trait_file):
         unit_tags = ["decrease","lower","shorter","less","more","increase","higher","taller","greater"]
@@ -334,6 +319,9 @@ class Merp():
         else:
             print "File successfully filtered. Final filtered file can be found as " + trait_file 
         return 0
+
+
+
     def which_repeat(self,snp,p,pid,unit,unit_counter,pid_counter,pval_dict,repeat_to_write,line):
         if snp not in repeat_to_write.keys():
             repeat_to_write[snp] = [line,p,pid,unit]
@@ -508,7 +496,6 @@ class Merp():
                 if prim_trait.lower() == p.lower():
                     prim_included_index.append(header_split.index(p))
                     print p + " assoications from p-val file will be filtered as PRIMARY confounders"
-                    # if prim_trait not in confounder_list:
                     columns +=1
 
         print str(columns) + " confounding column headers detected in pval file"
@@ -557,13 +544,12 @@ class Merp():
                             count_p2 = count_p2 + 1
                             col = header_split[mod_line.index(e)]
                             if rs in viol_dict2.keys():
-                                #should give us column header
+                                #give us column header
                                 viol_dict2[rs].append(col)
                             else:
                                 viol_dict2[rs] = [col]
                     na_counter[rs] = na_count
-            # count_p1 = count_p1 - correction_num
-            # count_p2 = count_p2 - correction_num
+
             #only add to dict if rs in trait file
                     if rs not in dict_snp.keys(): 
                         #first compare true count to modified threshold then change count to modified count if trait_related is true
@@ -627,7 +613,6 @@ class Merp():
                                 else:
                                     prim_viol_dict[rs] = [col]
 
-                    
                         if float(e) <= pmax1:
                             count_p1 = count_p1 + 1
                             col = header_split[ind]
@@ -646,8 +631,7 @@ class Merp():
                             else:
                                 viol_dict2[rs] = [col]
                     na_counter[rs] = na_count
-                # count_p1 = count_p1 - correction_num
-                # count_p2 = count_p2 - correction_num
+
                 #only add to dict if rs in trait file
                     if rs not in dict_snp.keys(): 
                         #first compare true count to modified threshold then change count to modified count if trait_related is true
@@ -1116,8 +1100,7 @@ class Merp():
                 entry = line.split('\t')
                 if len(entry) <=1:
                     continue
-                    # print "Extra new lines detected. Please remove excess new lines."
-                    # return False
+
                 rs = entry[0]
                 beta = entry[1]
                 unit = entry[2]
@@ -1158,6 +1141,7 @@ class Merp():
 
     def calc(self,trait_file,disease_file):
 
+
         ######TRAIT FILE PARAMETERS######
         rs_index = 0
         beta_index = 1
@@ -1175,16 +1159,13 @@ class Merp():
 
         if not Merp.file_checker(self,trait_file):
             return
-        #if not Merp.dis_file_checker(self,disease_file):
-           # return
+
         print 'Calculating effect now . . .'
 
 
         trait_handle = file(trait_file,"r")
         dict_trait = {}
         trait_content = trait_handle.readlines()
-        
-        #####
 
 
         for entry in trait_content[1:]:
@@ -1199,33 +1180,25 @@ class Merp():
             rsid = entry[rs_index]
             allele1 = entry[allele1_index]
             riskallele = entry[riskallele_index]
-            #SNPrs# for now
-        #  
+
             if not(rsid in dict_trait):
                 dict_trait[rsid] = []
                 dict_trait[rsid].append(beta)
                 dict_trait[rsid].append(allele1)
                 dict_trait[rsid].append(riskallele)
             else:
-                #shouldn't happen
                 pass
-                #dict_trait[entry[0]].append( (entry[2]) )
 
          #Change to actual disease file input, 2nd input
         disease_handle = file(disease_file,"r")
         disease_content = disease_handle.readlines()
         
-
-        #more efficient way
-        #Loop through disease file and if SNP ins trait file, add info
+        #Loop through disease file and if SNP in trait file, add info
 
         for entry in disease_content[1:]:
             entry = entry.rstrip('\n').split(' ')
-         #   effallele = entry[4]
             if entry[dis_rs_index] in dict_trait.keys():
-                #print entry[0]
                 effallele = entry[dis_riskallele_index]
-
                 dict_trait[entry[dis_rs_index]].append(entry[dis_lnOR_index])
                 dict_trait[entry[dis_rs_index]].append(entry[dis_lnse_index])
                 #eventually calculate from 95ci
@@ -1270,18 +1243,7 @@ class Merp():
                             dict_trait[entry[dis_rs_index]][0]= -(float(dict_trait[entry[dis_rs_index]][0]))
                         else:
                             pass     
-                    
-                    
 
-
-
-
-
-            
-
-
-
-        
 
         #Go through dict and calculate wBs and w2s-2 for each snp, add up 
         xtot = 0
@@ -1326,10 +1288,7 @@ class Merp():
                 else:
                     print key + " is not in the disease data and is excluded from analysis"
                     
-            
-               
-        ##print "xtot is " + str(xtot)
-        ##print "ytot is " + str(ytot)
+        
 
         a_hat = float(xtot)/float(ytot)
         sea = float(math.sqrt(1/ytot))
@@ -1345,6 +1304,9 @@ class Merp():
         trait_handle.close()
         handle_result.close()
         print "Calculation finished! Summary and individual effect results in /analysis"
+
+
+
 
     def convert_to_gtx(self,trait_file,disease_file,dis_name="ENDPOINT"):
         t = file(trait_file,'r')
@@ -1404,18 +1366,6 @@ class Merp():
             w.write(d[key][0]) #from trait
             w.write(d[key][3]) #from dis
         
-
-
-
-
-
-
-
-
-
-
-
-                    
 
 
 
