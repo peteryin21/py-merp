@@ -1,7 +1,6 @@
 #!/bin/python
 
 import requests
-#import pdb
 import re
 import os 
 import sys
@@ -39,7 +38,7 @@ class Merp():
                 try:
                     p = float(p)
                     if p<=5.00E-8:
-                        m = re.search('(?<=-)\w',entry_split[20])
+                        m = re.search('(?<=-)\write',entry_split[20])
                         allele = m.group()
                         if allele == "?":
                             allele = [NR]
@@ -1158,15 +1157,6 @@ class Merp():
 
 
     def calc(self,trait_file,disease_file):
-        
-        
-
-        # try:
-        #     trait_file= sys.argv[1]
-        #     disease_file = sys.argv[2]
-        # except:
-        #     print "Usage: python v3mr_calc_fin.py [path/to/traitfile] [path/to/diseasefile]"
-        #     sys.exit()
 
         ######TRAIT FILE PARAMETERS######
         rs_index = 0
@@ -1279,7 +1269,7 @@ class Merp():
                             #print "Flip the BETA FINALLY"
                             dict_trait[entry[dis_rs_index]][0]= -(float(dict_trait[entry[dis_rs_index]][0]))
                         else:
-                            pass#print "wut" + effallele + '\t' + dict_trait[entry[0]][1] + dict_trait[entry[0]][2]       
+                            pass     
                     
                     
 
@@ -1287,11 +1277,6 @@ class Merp():
 
 
 
-                    ##print "DAFUQ " + effallele + '\t' + dict_trait[entry[0]][1] + dict_trait[entry[0]][2] 
-                    #pass
-           
-
-            #risk allele alignment check
             
 
 
@@ -1500,8 +1485,7 @@ class Merp():
             rs_list.append(snp)
             rank_list.append(count)
             count +=1
-        #if Trait == "Height":
-        #   rs_list = ['Overall']
+
 
         plt.yticks(rank_list,rs_list)
         plt.xticks([-2,-1,0,1,2],[-2,-1,0,1,2] )
@@ -1511,16 +1495,7 @@ class Merp():
 
         show()
 
-# if __name__ == '__main__':
-#     #invoke the freeze_support funtion for windows based systems
-#     try:
-#         sys.getwindowsversion()
-#         multiprocessing.freeze_support()
-#     except:
-#         pass
 
-#     x = Cluster()
-#     exit()
 
 
 
