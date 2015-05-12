@@ -1,7 +1,0 @@
-m.pull()
-
-m.update('traitFiles/462') 
-
-m.filter('traitFile 472_update’,nhgri_ignore='confounders/nhgri_ignore_ldl.txt',confounders='confounders/confounders_ldl.txt',primary_confounders='confounders/prim_confounders_chd.txt']
-
-m.calc('traitFile/472_update', 'data/demo_chd.txt')
