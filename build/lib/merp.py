@@ -7,6 +7,7 @@ import sys
 import math
 from scipy import stats
 from pylab import *
+import pdb
 
 class Merp():
     def pull(self,keyword=""):
@@ -20,6 +21,7 @@ class Merp():
             unix_result = text.replace('\r', '')
             encoded_result = unix_result.encode('utf-8')
             gwas.write(encoded_result)
+        pdb.set_trace()
         with open('./data/finalgwas.txt',"r") as f:
             line = f.readlines()
             result_list = []
@@ -1275,6 +1277,7 @@ class Merp():
             risk = entry[4]
             beta_trait = entry[1]
             new_entry = rs  +'\t' +  non_risk +'\t' +  risk + '\t' +trait +'\t' + beta_trait 
+            #pdb.set_trace()
             d[rs] = [new_entry,non_risk,risk]
 
         w = file('./for_gtx/' + trait_name+ '_' + dis_name+'_for_gtx.txt','w')
@@ -1303,6 +1306,7 @@ class Merp():
                             print "New beta is " + beta_dis
                         #all other cases, stay the same, e.g if complement of A ->T is risk allele of trait
                     dis_entry = '\t' +dis_name + '\t' + str(beta_dis) + '\t' + str(se_dis) +'\n'
+                    #pdb.set_trace()
                     d[rs].append(dis_entry)
         
         for key in d:
