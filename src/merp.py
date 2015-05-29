@@ -8,6 +8,7 @@ import math
 from scipy import stats
 from pylab import *
 
+
 class Merp():
     def pull(self,keyword=""):
         if keyword != "":
@@ -28,14 +29,16 @@ class Merp():
                 p = entry_split[27]
                 '''Key Word Check'''
                 if keyword in entry_split[7]:
-                    p = float(p)
-                    if p<=5.00E-8:
-                        m = re.search('(?<=-)\w',entry_split[20])
-                        allele = m.group()
-                        if allele == "?":
-                            allele = [NR]
-                        result_list.append([entry_split[13],entry_split[7],entry_split[27],entry_split[30], entry_split[31],entry_split[21],allele, entry_split[26],entry_split[1]])
- 
+                    try:
+                        p = float(p)
+                        if p<=5.00E-8:
+                            m = re.search('(?<=-).',entry_split[20])
+                            allele = m.group()
+                            if allele == "?":
+                                allele = '[NR]'
+                            result_list.append([entry_split[13],entry_split[7],entry_split[27],entry_split[30], entry_split[31],entry_split[21],allele, entry_split[26],entry_split[1]])
+                    except: #when SNPs p value entry is NS or not available, don't process
+                        pass
         dict_trait = {}
         _digits = re.compile('\d')
         _brackets = re.compile('\[.+?\]')
