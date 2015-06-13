@@ -1,3 +1,0 @@
-m.filter('457_update',nhgri_ignore="nhgri_ignore_457.txt",confounders='confounders.txt',primary_confounders='prim_confounders_t2d.txt')
-
-m.calc('filtered_files/457_updatefiltered_demo','bin/v2t2d')

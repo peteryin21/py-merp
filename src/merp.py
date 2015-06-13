@@ -8,40 +8,37 @@ import math
 from scipy import stats
 from pylab import *
 
+
 class Merp():
     def pull(self,keyword=""):
         if keyword != "":
             print "Generating IVFs for traits in NHGRI GWAS catalog related to " + keyword + " . . ."
         else:
             print "Generating IVFs for all traits in NHGRI GWAS catalog . . ."
-
-        gwaswrite_handle = file('./data/finalgwas.txt', 'w')
-        r = requests.get('http://www.genome.gov/admin/gwascatalog.txt')
-        text = r.text
-        unix_result = text.replace('\r', '')
-        encoded_result = unix_result.encode('utf-8')
-        gwaswrite_handle.write(encoded_result)
-        gwaswrite_handle.close()
-        gwasread_handle = file('./data/finalgwas.txt',"r")
-        line = gwasread_handle.readlines()
-        result_list = []
-        for entry in line[1:-1]: 
-            entry_split = entry.split('\t')
-            p = entry_split[27]
-            '''Key Word Check'''
-            if keyword in entry_split[7]:
-                try:
-                    p = float(p)
-                    if p<=5.00E-8:
-                        m = re.search('(?<=-)\w',entry_split[20])
-                        allele = m.group()
-                        if allele == "?":
-                            allele = [NR]
-                        result_list.append([entry_split[13],entry_split[7],entry_split[27],entry_split[30], entry_split[31],entry_split[21],allele, entry_split[26],entry_split[1]])
-                except:
-                    pass  
-
-        gwasread_handle.close()
+        with open('./data/finalgwas.txt', 'w') as gwas:
+            r = requests.get('http://www.genome.gov/admin/gwascatalog.txt')
+            text = r.text
+            unix_result = text.replace('\r', '')
+            encoded_result = unix_result.encode('utf-8')
+            gwas.write(encoded_result)
+        with open('./data/finalgwas.txt',"r") as f:
+            line = f.readlines()
+            result_list = []
+            for entry in line[1:-1]: 
+                entry_split = entry.split('\t')
+                p = entry_split[27]
+                '''Key Word Check'''
+                if keyword in entry_split[7]:
+                    try:
+                        p = float(p)
+                        if p<=5.00E-8:
+                            m = re.search('(?<=-).',entry_split[20])
+                            allele = m.group()
+                            if allele == "?":
+                                allele = '[NR]'
+                            result_list.append([entry_split[13],entry_split[7],entry_split[27],entry_split[30], entry_split[31],entry_split[21],allele, entry_split[26],entry_split[1]])
+                    except: #when SNPs p value entry is NS or not available, don't process
+                        pass
         dict_trait = {}
         _digits = re.compile('\d')
         _brackets = re.compile('\[.+?\]')
@@ -114,6 +111,7 @@ class Merp():
         handle_index.close()
         print str(len(dict_trait.keys())) + " IVFs generated in /traitFiles"
 
+
     '''Helper for update'''
     def get_complement(self,nuc):
         if nuc == "A":
@@ -124,6 +122,7 @@ class Merp():
             return "C"
         if nuc == "C":
             return "G"
+
 
     def update_help(self,trait,allele_lines,local):
         handle = file(trait,"r")
@@ -211,32 +210,38 @@ class Merp():
                 write_handle.write(entry[0] + '\t' + entry[1] + '\t' + entry[2] + '\t'+ allele_entry+ '\t' + entry[3] + '\t' + entry[4] + '\t' + entry[5] + '\t' + entry[6]+ '\t' + entry[7]+ '\t' + entry[8]+ '\t' + entry[9] + '\n' )
         if not_in_genomes != "":
 
-            print "NON-RISK ALLELE NOT FOUND IN 1000GENOMES DATA FOR FOLLOWING SNPs FOR " + trait +  '.\n' +" PLEASE MANUALLY ENTER APPROPRIATE NUCLEOTIDE IN TEXT EDITOR USING OTHER RESOURCES OR DELETE SNP LINE: " 
+            print "non-risk allele not found in 1000 genomes data for following snps of " + trait +  '.\n' +" please manually enter appropriate nucleotide in text editor dbsnp online query or delete snp line:" 
             print not_in_genomes
 
 
     def update(self,trait,local=False):
+        print "***update() currently requires high-bandwidth and may take a few minutes. If function is not completing, add: local=True as argument for instructions***"
         trait_list = []
         if local == False:
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
         else:
-            allele_lines = 'data/1000_genomes.txt'
+            if os.path.exists('data/1000_genomes'):
+                allele_lines = 'data/1000_genomes'
+            else:
+                print "1. Download local copy of 1000_genomes (541M): wget 'http://coruscant.itmat.upenn.edu/merp/1000_genomes' -P ./data/" 
+                print "2. Add local=True as argument to update e.g m.update('123',local=True)"
+                return
         negative_list = ["decrease","lower","shorter"]
         nucleotides = ['A','T','G','C']
-
         allele_dict = {}
         # for trait in trait_list:
         Merp.update_help(self,trait,allele_lines,local)
         ##loop back through trait file and add beta sign changing along with rewriting all lines 
    
-    '''Helper functions for filter'''
 
+    '''Helper functions for filter'''
     def trait_included(self,trait,nhgri_ignore_list):
         for e in nhgri_ignore_list:
             if e.lower() in trait.lower():
                 return True
         return False
+
 
     def nhgri_test(self,snp,nhgri_ignore_list,list_of_traits,remove_snps,nhgri_assoc):
         mark = True
@@ -251,6 +256,7 @@ class Merp():
                 mark = False
         return mark
 
+
     def most_sig(self,snp_list,pval_dict):
         sig_snp = snp_list[0]
         for e in snp_list:
@@ -260,6 +266,7 @@ class Merp():
             elif float(math.log(float(pval_dict[e]))) <= float(math.log(float(pval_dict[sig_snp]))):
                 sig_snp = e
         return sig_snp
+
 
     #Helper function takes dictionary and cutoff and turns all keys with num_sig greater or equal to cutoff to false. Returns number of sig assoc total remaining
     def dict_purge_count(self,d,cluster_d,cut,old_num_sig,pmax1,log,verbose):
@@ -291,7 +298,6 @@ class Merp():
         return return_sig
 
 
-
     def unit_checker(self,trait_file):
         unit_tags = ["decrease","lower","shorter","less","more","increase","higher","taller","greater"]
         unit_dict = {}
@@ -317,7 +323,6 @@ class Merp():
         return 0
 
 
-
     def which_repeat(self,snp,p,pid,unit,unit_counter,pid_counter,pval_dict,repeat_to_write,line):
         if snp not in repeat_to_write.keys():
             repeat_to_write[snp] = [line,p,pid,unit]
@@ -341,6 +346,7 @@ class Merp():
                     elif math.log(float(p)) < math.log(float(repeat_to_write[snp][1])):
                         repeat_to_write[snp] =[line,p,pid,unit]
                         #if all equal up to now/new snp has fewer freq unit/pid then use the snp existing
+
 
     def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,localp=False,verbose=True):
  
@@ -397,7 +403,6 @@ class Merp():
                         primary_confounders_list.append(entry)
         except:
             print "Warning: No valid (optional) primary confounder file specifed. Filter will treat all confounders as secondary confounders (see documentation)."
-
         #Add all diseases we want to exlcude from NHGRI filtering to nhgri_ignore_list
         disease_list_handle = file("./data/disease_list.txt","r")
         lines = disease_list_handle.readlines()
@@ -406,8 +411,8 @@ class Merp():
             disease = entry[0]
             nhgri_ignore_list.append(disease)
 
-
         '''NHGRI Catalog association Filtering'''
+
 
         trait_handle = file(trait_file,"r")
         snp_list = []
@@ -458,7 +463,9 @@ class Merp():
                     print e
                 log += e + '\n'
 
+
         '''All Metabolic P-value Association Filtering'''
+
 
         if localp == False:
             pval = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
@@ -487,7 +494,6 @@ class Merp():
                     prim_included_index.append(header_split.index(p))
                     print p + " assoications from p-val file will be filtered as PRIMARY confounders"
                     columns +=1
-
         print str(columns) + " confounding column headers detected in pval file"
         prim_viol_dict = {}   
         viol_dict1 = {}
@@ -620,7 +626,6 @@ class Merp():
                             else:
                                 viol_dict2[rs] = [col]
                     na_counter[rs] = na_count
-
                 #only add to dict if rs in trait file
                     if rs not in dict_snp.keys(): 
                         #first compare true count to modified threshold then change count to modified count if trait_related is true
@@ -662,7 +667,6 @@ class Merp():
             if not dict_snp[key][0]:
                 if key not in remove_snps.keys():
                     remove_snps[key] = []
-
         no_pval_snps = {}
         for snp in snp_list_set:
             if snp not in dict_snp_keys:
@@ -760,7 +764,6 @@ class Merp():
         #remove biolating snps from rs_list TODO        
         rs = ('\n\t').join(rs_list)
         rs =  '\n\t' +rs 
-
         data_1000 = {
             "searchPairwise": "true",
             "snpList": rs,
@@ -792,13 +795,10 @@ class Merp():
         }
         r_1000 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_1000)
         ld_result = r_1000.text.split('\n')
-
         r_hm22 = requests.post('http://www.broadinstitute.org/mpg/snap/ldsearch.php', data=data_hm22)
         ld_result_hm22= r_hm22.text.split('\n')
-
         cluster_dict = {}
         index_dict = {}
-
         cluster_index = 1
         not_in_ld = []
         ld_assoc_dict = {}
@@ -807,8 +807,6 @@ class Merp():
             line_list = line.split('\t')
             if len(line_list) != 1:
                 snp = line_list[0]
-                # if snp == "rs2366858":
-                #   
                 proxy = line_list[1]
                 if "WARNING" in proxy: #and "query" in proxy #and "not" in proxy and "in" in proxy:
                     if "Query snp not in" in line_list[2] or "No LD data" in line_list[2]: 
@@ -1068,8 +1066,10 @@ class Merp():
         #If A or B is in dict 1 but the other is not, simply add the new snp to the cluster index in dict 1 and index in dict 2
         #If neither A or B are in dict 1, create a new cluster and index in dict 1 and ref in dict 2
 
+
     def hasNumbers(self,instring):
         return any(char.isdigit() for char in instring)
+
 
     def file_checker(self,trait_file):
         nuc = ['A','T','G','C']
@@ -1084,7 +1084,6 @@ class Merp():
                 entry = line.split('\t')
                 if len(entry) <=1:
                     continue
-
                 rs = entry[0]
                 beta = entry[1]
                 unit = entry[2]
@@ -1105,6 +1104,7 @@ class Merp():
             print "Trait File correctly formatted . . ."
             return True
 
+
     def dis_file_checker(self,disease_file):
         nuc = ['A','T','G','C']
         with open(disease_file,"r") as infile:
@@ -1115,45 +1115,31 @@ class Merp():
             if "rs" not in header[0].lower() or "allele" not in header[1].lower() or "allele" not in header[2].lower() or "lnor" not in header[3].lower() or "lnse" not in header[4].lower():
                 print "Header incorrectly formatted. Please make sure your disease file is formatted in the following manner:" + '\n' + "rsID allele1 effallele lnOR_FE lnSE_FE . . . ."
                 return False
-
             print "Header of disease file is correctly formatted . . ."
             return True
 
 
-
-
-
     def calc(self,trait_file,disease_file):
-
-
-        ######TRAIT FILE PARAMETERS######
+        #TRAIT FILE PARAMETERS
         rs_index = 0
         beta_index = 1
         unit_index = 2
         allele1_index = 3
         riskallele_index = 4
-
-
-        ####DISEASE FILE PARAMETERS#######
+        #DISEASE FILE PARAMETERS
         dis_rs_index = 0
         dis_allele1_index = 1
         dis_riskallele_index = 2
         dis_lnOR_index = 3
         dis_lnse_index = 4
-
         if not Merp.file_checker(self,trait_file):
             return
-
         print 'Calculating effect now . . .'
-
-
         trait_handle = file(trait_file,"r")
         dict_trait = {}
         trait_content = trait_handle.readlines()
 
-
         for entry in trait_content[1:]:
-            
             if entry == '\n' or entry == ' ':
                 break
             entry = entry.rstrip('\n').split('\t')
@@ -1164,7 +1150,6 @@ class Merp():
             rsid = entry[rs_index]
             allele1 = entry[allele1_index]
             riskallele = entry[riskallele_index]
-
             if not(rsid in dict_trait):
                 dict_trait[rsid] = []
                 dict_trait[rsid].append(beta)
@@ -1172,11 +1157,9 @@ class Merp():
                 dict_trait[rsid].append(riskallele)
             else:
                 pass
-
          #Change to actual disease file input, 2nd input
         disease_handle = file(disease_file,"r")
         disease_content = disease_handle.readlines()
-        
         #Loop through disease file and if SNP in trait file, add info
 
         for entry in disease_content[1:]:
@@ -1187,7 +1170,6 @@ class Merp():
                 dict_trait[entry[dis_rs_index]].append(entry[dis_lnse_index])
                 #eventually calculate from 95ci
             #now dict should be SNP: [beta_trait, allele1, riskallele, beta_mi,SE]
-              
                 if effallele == dict_trait[entry[dis_rs_index]][2]:
                     pass#print "Aligned!"
                 elif effallele == dict_trait[entry[dis_rs_index]][1]:
@@ -1226,12 +1208,7 @@ class Merp():
                             #print "Flip the BETA FINALLY"
                             dict_trait[entry[dis_rs_index]][0]= -(float(dict_trait[entry[dis_rs_index]][0]))
                         else:
-                            pass#print "wut" + effallele + '\t' + dict_trait[entry[0]][1] + dict_trait[entry[0]][2]       
-                    
-
-
-        
-
+                            pass     
         #Go through dict and calculate wBs and w2s-2 for each snp, add up 
         xtot = 0
         ytot = 0
@@ -1243,6 +1220,7 @@ class Merp():
         #newtrait_path = trait_file.lstrip('/filtered_files/')
         handle_indiv_result = file(path+trait_file+ "_MR_result_indiv","w")
         handle_indiv_result.write("SNP" + '\t' + "a_hat" + '\t' +"se_a" + '\t' + "chisq" +  '\t' + "p_value" + '\n')
+
         for key in dict_trait.keys():
             if not '[NR]' in dict_trait[key]:
                 if len(dict_trait[key]) == 5:
@@ -1257,9 +1235,8 @@ class Merp():
                     # se_temp = float(math.log(float(OR_disease))) - float(math.log(float(LCI)))
                     # se = se_temp/1.96
                     x = float(beta_trait) * float(beta_disease) * math.pow(float(se),-2)
-
                     y = math.pow(float(beta_trait),2) * math.pow(float(se),-2)
-                     #INDIV PART
+                     #Individual SNP calculations
                     try:
                         a_hat = float(x)/float(y)
                         sea = float(math.sqrt(1/y))
@@ -1275,24 +1252,17 @@ class Merp():
                 else:
                     print key + " is not in the disease data and is excluded from analysis"
                     
-        
-
         a_hat = float(xtot)/float(ytot)
         sea = float(math.sqrt(1/ytot))
         chisq = float(math.pow((a_hat/sea),2))
-        p_value = 1 - stats.chi2.cdf(chisq,1) #degrees of freedom always one?
-        #p_value figure out how to do scipy/numpy?
-
+        p_value = 1 - stats.chi2.cdf(chisq,1) 
         handle_result = file(path+trait_file+  "_MR_result","w")
         handle_result.write("a_hat = " + str(a_hat) + '\n' + "se(a) = " +str(sea) + '\n' + "chi_sq = " + str(chisq) + 
             '\n' + "p_value = " + str(p_value)) 
-
         disease_handle.close()
         trait_handle.close()
         handle_result.close()
         print "Calculation finished! Summary and individual effect results in /analysis"
-
-
 
 
     def convert_to_gtx(self,trait_file,disease_file,dis_name="ENDPOINT"):
@@ -1314,12 +1284,12 @@ class Merp():
             risk = entry[4]
             beta_trait = entry[1]
             new_entry = rs  +'\t' +  non_risk +'\t' +  risk + '\t' +trait +'\t' + beta_trait 
-            #pdb.set_trace()
             d[rs] = [new_entry,non_risk,risk]
 
         w = file('./for_gtx/' + trait_name+ '_' + dis_name+'_for_gtx.txt','w')
         header = 'RSID  NONRISK_AL  RISK_AL  TRAIT_NAME  BETA_TRAIT  ENDPOINT_NAME  BETA_ENDPOINT  SE_ENDPOINT' +'\n'
         w.write(header)
+
         with open(disease_file,'r') as dis:
             header = dis.readline()
             while True:
@@ -1342,98 +1312,14 @@ class Merp():
                             print "New beta is " + beta_dis
                         #all other cases, stay the same, e.g if complement of A ->T is risk allele of trait
                     dis_entry = '\t' +dis_name + '\t' + str(beta_dis) + '\t' + str(se_dis) +'\n'
-                    #pdb.set_trace()
                     d[rs].append(dis_entry)
         
         for key in d:
             print d[key][0]
-
             print d[key][3]
-
             w.write(d[key][0]) #from trait
             w.write(d[key][3]) #from dis
         
-
-
-
-
-    def plot(self,indiv_file,summ_file,Trait,Disease):
-        indiv_handle = file(indiv_file, "r")
-        summ_handle = file(summ_file, "r")
-
-        indiv_lines = indiv_handle.readlines()
-        indiv_dict = {}
-        for line in indiv_lines[1:]:
-            entry = line.rstrip('\n').split('\t')
-            snp = entry[0]
-            a_hat = entry[1]
-            se_a = entry[2]
-            indiv_dict[snp] = [a_hat,se_a]
-
-        plot_list = []
-        y = 2
-        for key in indiv_dict:
-            
-
-            a_hat = indiv_dict[key][0]
-            se = indiv_dict[key][1]
-            l95 = float(a_hat) - 1.96*float(se)
-            new_se = float(a_hat) - l95
-
-            temp_list = [key,a_hat, y, new_se]
-            y += 1
-            plot_list.append(temp_list)
-
-        figsize = (6,6)
-        fig = figure(figsize=figsize, dpi=80)
-        ax_kms = SubplotHost(fig, 1,1,1, aspect=1.)
-
-        fig.add_subplot(ax_kms)
-
-        ## Add overall OR first 
-        summ_lines = summ_handle.readlines()
-        summ_list =[]
-        for line in summ_lines:
-            entry = line.rstrip('\n').split(' ')
-            summ_list.append(entry[2])
-        
-        ov_a_hat = summ_list[0]
-        ov_se = summ_list[1]
-        # ov_odds   = math.exp(float(ov_a_hat))
-
-        ##
-        ov_l95 = float(ov_a_hat) - 1.96*float(ov_se)
-        ov_new_se = float(ov_a_hat) - ov_l95
-
-        ax_kms.errorbar(float(ov_a_hat), 1, xerr=ov_new_se, color = "r", fmt = 'o')
-
-        ##
-        for key, a, y, new_se in plot_list:
-            ax_kms.errorbar([float(a)], y, xerr=[new_se], color="k", fmt='o')
-
-
-        ax_kms.axis["bottom"].set_label("Log of Odds Ratio")
-        ax_kms.axis["left"].set_label("SNPs")
-        title('Estimated Causal Effect of ' + Trait + ' on ' + Disease)
-        rank_list = [1]
-        rs_list = ['Overall']
-        count = 2  
-        for snp in indiv_dict.keys():
-            rs_list.append(snp)
-            rank_list.append(count)
-            count +=1
-        #if Trait == "Height":
-        #   rs_list = ['Overall']
-
-        plt.yticks(rank_list,rs_list)
-        plt.xticks([-2,-1,0,1,2],[-2,-1,0,1,2] )
-        ax_kms.set_ylim(0, len(rs_list) + 1)
-        axvline(x=0)
-
-
-        show()
-
-
 
 
 
