@@ -9,3 +9,4 @@ m.calc('filtered_files/ldl_updatefiltered_cardio','data/alz.txt')
 -update doc with proper local usage and naming of files
 -typo in m.filter code example in usage
 -print out warning for update and pval- large bandwith stream, if problems, download files from this link and put in /data. Add local = True
+
