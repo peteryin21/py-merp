@@ -221,7 +221,9 @@ class Merp():
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
         else:
-            if os.path.exists('data/1000_genomes'):
+            if os.path.exists('data/1000_genomes.txt'):
+                allele_lines = 'data/1000_genomes.txt'
+            elif os.path.exists('data/1000_genomes'):
                 allele_lines = 'data/1000_genomes'
             else:
                 print "1. Download local copy of 1000_genomes (541M): wget 'http://coruscant.itmat.upenn.edu/merp/1000_genomes' -P ./data/" 
