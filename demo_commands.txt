@@ -3,9 +3,19 @@ Demo instructions
 0. sudo python setup.py install (install package)
 1. python (enter python env)
 2. import merp
-3. m = Merp.merp() 
+3. m = merp.Merp() 
 4. m.pull()
 5. m.update('traitFiles/*LDL_file*) 
-6. m.filter('traitFile/*LDL_file*’,nhgri_ignore='confounders/nhgri_ignore_ldl.txt',confounders='confounders/confounders_ldl.txt',primary_confounders='confounders/prim_confounders_chd.txt']
+6. m.filter('traitFile/*LDL_file*’,nhgri_ignore='confounders/nhgri_ignore_ldl.txt',confounders='confounders/confounders_ldl.txt',primary_confounders='confounders/prim_confounders_chd.txt')
 7. m.calc('traitFile/*LDL_file*_update', 'data/demo_chd.txt')
 
+
+If internet slower...one time downloads for local file:
+
+-2. Download local copy of 1000_genomes to /data (541M): wget 'http://coruscant.itmat.upenn.edu/merp/1000_genomes' -P ./data/
+-1. Download local copy of allmetabolic_pval file to /data: wget 'http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt' -P ./data/
+
+then add local=True for update and localp=True for filter
+
+5. m.update('traitFiles/*LDL_file*,local=True) 
+6. m.filter('traitFile/*LDL_file*’,nhgri_ignore='confounders/nhgri_ignore_ldl.txt',confounders='confounders/confounders_ldl.txt',primary_confounders='confounders/prim_confounders_chd.txt',localp=True)
