@@ -352,7 +352,7 @@ class Merp():
 
     def filter(self,trait_file,nhgri_ignore="",confounders="",primary_confounders="",pmaxprimary=0.01,pmax1=0.05,threshold1=3,pmax2=0.001,threshold2=0,rsq_threshold=0.05,max_fraction=0.1,out=False,localp=False,verbose=True):
  
-        '''Metabolic Association Paramters
+        '''Metabolic Association Parameters
         
         pmax 1: if a SNP has more than threshold1 number of associations with p<pmax1, SNP excluded.
         threshold1 = 3 #SNPs with 4 or more pmax1 violations are taken out
@@ -412,9 +412,10 @@ class Merp():
             entry = line.rstrip('\n').split('\t')
             disease = entry[0]
             nhgri_ignore_list.append(disease)
-        ####NHGRI PORTION#######
-        #Creates dictionary nhgri_dict mapping SNP rs# to list of traits it's associated with
-        #Creates dictionary snp_nhgri_dict mapping snp to true if it passes nhgri test and false if not
+
+        '''NHGRI Catalog association Filtering'''
+
+
         trait_handle = file(trait_file,"r")
         snp_list = []
         trait_lines = trait_handle.readlines()
@@ -463,8 +464,11 @@ class Merp():
                 if verbose == True:
                     print e
                 log += e + '\n'
-        ####NHGRI PORTION END#######    
-        ######PVAL PORTION START########
+
+
+        '''All Metabolic P-value Association Filtering'''
+
+
         if localp == False:
             pval = requests.get('http://coruscant.itmat.upenn.edu/merp/allmetabolic_pvals_v4.txt',stream=True)
             pval_lines = pval.iter_lines()
@@ -484,7 +488,7 @@ class Merp():
                         pass
                     else:
                         print p + " associations from p-val file will be included in filter because found in " + confounders
-                        #will add the index of the column we want to include to a list 
+                        #adds the index of the column we want to include to a list 
                         included_index.append(header_split.index(p))
                         columns +=1
             for prim_trait in primary_confounders_list:
@@ -669,9 +673,9 @@ class Merp():
         for snp in snp_list_set:
             if snp not in dict_snp_keys:
                 no_pval_snps[snp] = []
-        ''' PVAL PORTION END '''
+        
+        '''Linkage Disequilibrium Filtering'''
 
-        '''LD PORTION BEGIN'''
         trait_handle = file(trait_file,"r")
         pval_dict = {}
         repeated_snps = []
@@ -693,12 +697,10 @@ class Merp():
                 unit_counter[unit] = 1
             else:
                 unit_counter[unit]+=1
-
             if pubmed not in pid_counter:
                 pid_counter[pubmed] = 1
             else:
                 pid_counter[pubmed]+=1
-
             if snp not in pval_dict:
                 pval_dict[snp] = p
             else:
@@ -706,16 +708,17 @@ class Merp():
                 if snp not in repeated_snps:
                     repeated_snps.append(snp)
                 p_new = p
-                #replace p only if more sig?
                 if float(p_new) == 0.0:
                     pval_dict[snp] = 0.0
                 if float(pval_dict[snp]) == 0.0:
                     pval_dict[snp] = 0.0
                 elif float(math.log(float(p_new))) < float(math.log(float(pval_dict[snp]))):
                     pval_dict[snp] = p_new
-                #else if equal or the new one has higher p, then keep as is 
+                #if equal or the new one has higher p, then keep as is 
         trait_handle.close()
+
         '''Repeating SNPs handling'''
+
         repeat_to_write = {}
         with open(trait_file,"r") as f:
             trait_lines = f.readlines()
@@ -732,7 +735,6 @@ class Merp():
                 for tag in unit_tags:
                     if tag in unit:
                         unit = unit.replace(tag,"*")
-                '''Here add something about excluding nhgri and pval bad ones''' 
                 #remove_snps contains snps that have violated NHGRI or pval test
                 remove_snps_keys = set(remove_snps.keys())
                 excluded_list = []
@@ -752,7 +754,9 @@ class Merp():
                 #line is the first entry of value list in dict
                 abridged_trait_handle.write(repeat_to_write[snp][0])
             abridged_trait_handle.close()
-        ###GETTING LD FILE FROM LD SNAP BROAD PROXY USING REQUESTS######
+
+        '''Obtain LD file from SNAP Broad Proxy through Requests '''
+
         rs_list = []
         with open(trait_file + "_abr_temp","r") as trait:
             lines = trait.readlines()
@@ -973,7 +977,9 @@ class Merp():
                     num_sig_dict["new_num_sig"] += dict_snp[snp][1]
         threshold_met = False
         cut = threshold1
-        '''Iterative p-value association cutting step'''
+
+        '''Iterative p-value association threshold cutting step'''
+
         while threshold_met == False:
             num_snps = 0
             for key in cluster_status.keys():
