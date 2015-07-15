@@ -215,11 +215,12 @@ class Merp():
 
 
     def update(self,trait,local=False):
-        print "***update() currently requires high-bandwidth and may take a few minutes. If function is not completing, add: local=True as argument for instructions***"
         trait_list = []
         if local == False:
             r = requests.get('http://coruscant.itmat.upenn.edu/merp/1000_genomes', stream=True)
             allele_lines = r.iter_lines()
+            print "*** update() currently requires high-bandwidth and may take a few minutes. If function is not completing, add: local=True as argument for instructions ***"
+
         else:
             if os.path.exists('data/1000_genomes.txt'):
                 allele_lines = 'data/1000_genomes.txt'
