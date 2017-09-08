@@ -15,12 +15,18 @@ class Merp():
             print "Generating IVFs for traits in NHGRI GWAS catalog related to " + keyword + " . . ."
         else:
             print "Generating IVFs for all traits in NHGRI GWAS catalog . . ."
-        with open('./data/finalgwas.txt', 'w') as gwas:
-            r = requests.get('http://www.genome.gov/admin/gwascatalog.txt')
-            text = r.text
-            unix_result = text.replace('\r', '')
-            encoded_result = unix_result.encode('utf-8')
-            gwas.write(encoded_result)
+
+        ## BFV 09/01/2017: added a file check for the nhgri catalog before downloading.
+        if os.path.isfile('./data/finalgwas.txt') == False:
+            with open('./data/finalgwas.txt', 'w') as gwas:
+                r = requests.get('http://www.genome.gov/admin/gwascatalog.txt')
+                text = r.text
+                unix_result = text.replace('\r', '')
+                encoded_result = unix_result.encode('utf-8')
+                gwas.write(encoded_result)
+        else:
+            print "Already have NHGRI catalog file. If you wish to re-download, please remove ./data/finalgwas.txt\n"
+
         with open('./data/finalgwas.txt',"r") as f:
             line = f.readlines()
             result_list = []
